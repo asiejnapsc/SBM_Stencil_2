@@ -79,8 +79,6 @@ blog:
         </div>
     </div>
 
-    <h4>Featured Products</h4>
-    <hr>
     {{#if products.featured}}
         {{> components/products/featured products=products.featured columns=theme_settings.homepage_featured_products_column_count}}
     {{/if}}
