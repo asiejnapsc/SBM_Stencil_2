@@ -137,9 +137,9 @@
    {{#if product.related_products}}
    <div role="tabpanel" aria-hidden="false" class="tab-content has-jsContent" id="tab-related">
        {{#if settings.data_tag_enabled}}
-           {{> components/products/carousel products=product.related_products columns=6 list="Related Products"}}
+           {{> components/products/carousel products=product.related_products columns=3 list="Related Products"}}
        {{else}}
-           {{> components/products/carousel products=product.related_products columns=6}}
+           {{> components/products/carousel products=product.related_products columns=3}}
        {{/if}}
    </div>
     {{/if}}
