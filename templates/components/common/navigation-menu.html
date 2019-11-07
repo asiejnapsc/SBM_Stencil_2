@@ -21,9 +21,7 @@
                  </li> -->
              {{/each}}
         {{/unless}}
-        <li class="navPages-item" >
-            <a class="navPages-action" style="color:yellow;" href="/cross-reference/">Cross Reference</a>
-        </li>
+
     </ul>
     <ul class="navPages-list navPages-list--user">
         {{#if currency_selector.currencies.length '>' 1}}
@@ -127,9 +125,3 @@
 
     </ul>
 </nav>
-<!-- Script to hide the cross reference dropdown -->
-<script>
-
-    document.querySelector(".navPages-container [href='https://blueskylubricants.com/cross-reference/']").style.display = 'none';
-    
-    </script>
