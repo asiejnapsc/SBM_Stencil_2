@@ -318,7 +318,7 @@
     padding: 0 1em;
     margin: 0;
     float: left;
-    width: 70%;
+    width: 450px;
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
@@ -340,7 +340,6 @@
     border: 0 !important;
     vertical-align: top;
     /* margin: 0; */
-    width: 20%;
     height: 35px;
     padding: 0;
     border-radius: 0px;
@@ -351,8 +350,9 @@
     -webkit-transition: background-color 150ms ease;
     -o-transition: background-color 150ms ease;
     transition: background-color 150ms ease;
-    background-color: #e0dbdb;
     border-radius: 0px 15px 15px 0px;
+    width: 60px !important;
+    background-color: #999999 !important;
   }
 
   #SearchForm > form{
@@ -418,3 +418,20 @@
         position: absolute !important;
     }
   }
+
+  #SearchForm {
+    width: 600px;
+}
+
+#SearchForm > form {
+    float: right;
+    width: 520px;
+}
+
+#SearchForm input.Textbox {
+    box-shadow: inset 0px 0px 5px 0px rgba(0, 0, 0, 0.51);
+}
+
+.ui-autocomplete {
+    width: 452px !important;
+}
