@@ -67,6 +67,25 @@
         }
     }
 
+    .button--black {
+        background: black;
+        border-color: black;
+        color: #fff;
+
+        &:hover {
+            background: lighten(black, 10%);
+            border-color: lighten(black, 10%);
+            color: #fff;
+        }
+
+        &:active,
+        &:focus {
+            background: darken(black, 10%);
+            border-color: darken(black, 10%);
+            color: #fff;
+        }
+    }
+
     .button--lightRed {
         background: stencilColor("color-sbm-lightRed");
         color: white;
