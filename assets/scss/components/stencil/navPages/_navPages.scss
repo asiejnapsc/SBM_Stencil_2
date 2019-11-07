@@ -203,7 +203,8 @@
 
     @include breakpoint("medium") {
         display: inline-block;
-        padding: spacing("half") (spacing("half") + spacing("quarter")) (spacing("half") + spacing("quarter"));
+        //padding: spacing("half") (spacing("half") + spacing("quarter")) (spacing("half") + spacing("quarter"));
+        padding: .75rem .80rem;
 
         &.is-open {
             background-color: stencilColor("color-sbm-lightRed");
