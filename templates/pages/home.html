@@ -25,6 +25,10 @@ limit: {{theme_settings.homepage_blog_posts_count}}
 {{> components/common/alert-info message}}
 {{/each}}
 
+{{#each banners.bottom}}
+{{{this}}}
+{{/each}}
+
 <div class="main full">
     <div class="container homepage-badges">
         <div class="row" data-equalizer data-equalizer-mq="large-up">
