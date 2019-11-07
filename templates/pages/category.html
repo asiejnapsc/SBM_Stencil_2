@@ -29,19 +29,6 @@ category:
     {{{region name="category_below_header"}}}
 {{/unless}}
 
-{{#if banners.top}}
-<div class="banners" data-banner-location="top">
-    {{#each (limit banners.top_metadata 1)}}
-    <div class="banner" data-event-type="promotion" data-entity-id="{{this.id}}" data-name="{{this.banner-name}}" data-position="{{this.location}}" data-banner-id="{{this.banner-name}}">
-        <div data-event-type="promotion-click">
-            {{{this.content}}}
-        </div>
-    </div>
-    {{/each}}
-</div>
-{{/if}}
-
-{{{category.description}}}
 <hr>
 <div class="page">
     {{#if category.faceted_search_enabled}}
@@ -60,18 +47,32 @@ category:
         {{/if}}
     {{/if}}
 
-    {{#if category.subcategories}}
-    <div class="subcategory-area">
-        <span>Refine by subcategory:</span>
-        <br>
-            {{#each category.subcategories}}
-                <a href="{{url}}" alt="{{name}}" title="{{name}}">{{name}}</a>
-            {{/each}}
-    </div>
-    <hr>
-    {{/if}}
-
     <main class="page-content" id="product-listing-container">
+        {{#if banners.top}}
+        <div class="banners" data-banner-location="top">
+            {{#each (limit banners.top_metadata 1)}}
+            <div class="banner" data-event-type="promotion" data-entity-id="{{this.id}}" data-name="{{this.banner-name}}" data-position="{{this.location}}" data-banner-id="{{this.banner-name}}">
+                <div data-event-type="promotion-click">
+                    {{{this.content}}}
+                </div>
+            </div>
+            {{/each}}
+        </div>
+        {{/if}}
+
+        {{{category.description}}}
+
+        {{#if category.subcategories}}
+        <div class="subcategory-area">
+            <span>Refine by subcategory:</span>
+            <br>
+                {{#each category.subcategories}}
+                    <a href="{{url}}" alt="{{name}}" title="{{name}}">{{name}}</a>
+                {{/each}}
+        </div>
+        <hr>
+        {{/if}}
+
         {{#if category.products}}
             {{> components/category/product-listing}}
         {{else}}
