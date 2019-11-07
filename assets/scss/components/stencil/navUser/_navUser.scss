@@ -24,7 +24,7 @@
     width: 100%; // 4
     height: 60px;
     z-index: zIndex("lowest"); // 5.
-    background-color: $sbm-dark-red;
+    background-color: black;
     @include breakpoint("medium") {
         padding: 0.5rem spacing("single");
         position: relative;

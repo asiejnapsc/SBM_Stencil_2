@@ -48,7 +48,7 @@
     z-index: zIndex("lower");
 
     @include breakpoint("medium") {
-        background: stencilColor("color-sbm-darkRed");
+        background: black;
         display: block;
         height: auto;
         padding: 0;
@@ -95,7 +95,7 @@
         padding: 1rem;
         
         @include breakpoint(0px){
-            background: #255280;
+            background: lighten(stencilColor("color-sbm-darkRed"), 5%);
         }
 
 
