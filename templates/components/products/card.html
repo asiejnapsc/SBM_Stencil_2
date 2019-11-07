@@ -63,10 +63,28 @@
             </div>
         </figcaption>
 
-        <h4 class="card-title">
-                <a href="{{url}}" {{#if settings.data_tag_enabled}} data-event-type="product-click" {{/if}}>{{name}}</a>
-        </h4>
+        <div class="card-information">
+            <h4 class="card-title">
+                    <a href="{{url}}" {{#if settings.data_tag_enabled}} data-event-type="product-click" {{/if}}>{{name}}</a>
+            </h4>
 
+            {{#if brand.name}}
+            <p class="card-text" data-test-info-type="brandName">{{brand.name}}</p>
+            {{/if}}
+
+            <div class="card-text price" data-test-info-type="price">
+                    {{#or customer (if theme_settings.restrict_to_login '!==' true)}}
+                        {{> components/products/price price=price}}
+                    {{else}}
+                        {{> components/common/login-for-pricing}}
+                    {{/or}}
+            </div>
+            {{> components/products/bulk-discount-rates}}
+
+            
+        </div>
+
+        <a href="{{url}}" class="button button--primary card-button">MORE INFO</a>
 
     </figure>
     <div class="card-body" style="text-align:center;">
@@ -77,20 +95,5 @@
                 </span>
             </p>
         {{/and}}
-        {{#if brand.name}}
-            <p class="card-text" data-test-info-type="brandName" style="display:none;">{{brand.name}}</p>
-        {{/if}}
- 
-
-        <div class="card-text" data-test-info-type="price" style="display:none;">
-            {{#or customer (if theme_settings.restrict_to_login '!==' true)}}
-                {{> components/products/price price=price}}
-            {{else}}
-                {{> components/common/login-for-pricing}}
-            {{/or}}
-        </div>
-        {{> components/products/bulk-discount-rates}}
-
-        <a href="{{url}}" class="button button--primary">MORE INFO</a>
     </div>
 </article>
