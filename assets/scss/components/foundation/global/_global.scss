@@ -87,7 +87,11 @@
         text-decoration: none;
 
         &:hover {
-            background: #04a2cc;
+            background: lighten(stencilColor('color-sbm-lightRed'), 10%);
+        }
+
+        &:active, &:focus {
+            background: darken(stencilColor('color-sbm-lightRed'), 10%);
         }
 
         @include breakpoint("medium"){
