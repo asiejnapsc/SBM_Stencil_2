@@ -16,6 +16,7 @@
 
     font-size: 0; // 1
     margin-bottom: spacing("single");
+    margin-top: spacing("single");
     text-align: center;
 
     .pagination-item { // 2
@@ -125,4 +126,12 @@
     .pagination-item--next {
         right: 0;
     }
+}
+
+.pagination-list > li{
+    font-size: 0.8rem;
+
+    @include breakpoint(415px) {
+         font-size: 1.5rem;
+ }
 }
