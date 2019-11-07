@@ -7,7 +7,8 @@
 //
 // -----------------------------------------------------------------------------
 
-@if $exportCSS--global { // 1
+@if $exportCSS--global {
+    // 1
 
     html,
     body {
@@ -16,6 +17,7 @@
 
     body {
         padding-top: $header-height; // 2
+
         @include breakpoint("medium") {
             padding-top: 0;
         }
@@ -25,7 +27,7 @@
         margin-bottom: $figure-marginBottom;
         margin-top: $figure-marginTop;
 
-        > figcaption {
+        >figcaption {
             margin-bottom: $figure-figcaption-marginBottom;
         }
     }
@@ -40,18 +42,27 @@
     // CUSTOM GLOBAL CSS PSC ADDED
     // ======================================
 
-    .required { // for required fields, icons, msgs
+    .required {
+        // for required fields, icons, msgs
         color: $color-error !important; // override other present styles
     }
 
-    .button--green { // green cta
+    .button--green {
+        // green cta
         background: #008a06;
         border-color: #008a06;
         color: #fff;
 
         &:hover {
-            background: #04a20b;
-            border-color: #04a20b;
+            background: lighten(#008a06, 10%);
+            border-color: lighten(#008a06, 10%);
+            color: #fff;
+        }
+
+        &:active,
+        &:focus {
+            background: darken(#008a06, 10%);
+            border-color: darken(#008a06, 10%);
             color: #fff;
         }
     }
@@ -69,8 +80,36 @@
         }
     }
 
+    .PromoTopBanner {
+        background: stencilColor("AOO-green");
+        width: 100%;
+        padding: .25rem;
+        color: #fff;
+        text-align: center;
 
-    /* Category Added CSS */
+        a {
+            color: white !important;
+        }
+    }
+
+    .alertBox--info {
+        background: lightgray;
+
+        .alertBox-icon {
+            color: white;
+        }
+    }
+
+    #rmjs-1 span,
+    #tab-description span {
+        // for any weird fonts in category, parent, product descs.
+        font-family: 'Karla', sans-serif !important;
+    }
+
+
+    // ===============================================================
+    // CATEGORY STYLING
+    // ===============================================================
 
     .subcategory-area {
         margin: 0 0.75rem;
@@ -90,11 +129,12 @@
             background: lighten(stencilColor('color-sbm-lightRed'), 10%);
         }
 
-        &:active, &:focus {
+        &:active,
+        &:focus {
             background: darken(stencilColor('color-sbm-lightRed'), 10%);
         }
 
-        @include breakpoint("medium"){
+        @include breakpoint("medium") {
             display: inline-block;
         }
 
@@ -117,7 +157,9 @@
     }
 
 
-    /* Account Added CSS */
+    // ======================================
+    // ACCOUNT STYLING
+    // ======================================
 
     .account .card-title {
         height: 2.5rem;
@@ -126,48 +168,71 @@
     .new-customer .panel {
         padding: 0;
     }
-    
+
     .createAccountButton {
         display: block;
         text-align: center;
     }
 
-    /* Homepage Added CSS */
+    // ======================================
+    // HOMEPAGE STYLING
+    // ======================================
     .container.homepage-badges {
         padding: 0;
     }
-    
+
     .pricing-table .bullet-item {
-        font-size:1rem;
+        font-size: 1rem;
     }
-    
+
     .pricing-table * {
         line-height: 1.5rem;
     }
-    
+
     .pricing-table {
-      display: table;
-      width: 100%;
+        display: table;
+        width: 100%;
     }
-    .pricing-table > li {
-      __display: table-cell;
+
+    .pricing-table>li {
+        __display: table-cell;
     }
+
     .cta-button {
-      display: table-row;
+        display: table-row;
     }
+
     .cta-button-td {
-      display: table-cell;
-      vertical-align: bottom;
-      padding: 1.25rem 1.25rem 0;
+        display: table-cell;
+        vertical-align: bottom;
+        padding: 1.25rem 1.25rem 0;
     }
-    
+
     .pricing-table .title {
         background-color: #124375;
         font-size: 1.2rem;
     }
 
+    #MobileHomeBanner {
+        display: block;
+        padding-bottom: 1rem;
+
+        @include breakpoint("medium") {
+            display: none;
+        }
+    }
+
+    section.heroCarousel.slick-initialized.slick-slider {
+        display: none;
+
+        @include breakpoint("medium") {
+            display: block;
+        }
+    }
+
     /* Search Added CSS */
-    input#search_queryispbxi_ispbxi_, button.search-button-mobile {
+    input#search_queryispbxi_ispbxi_,
+    button.search-button-mobile {
         background: stencilColor("color-greyLightest") !important;
 
         @include breakpoint("small") {
@@ -175,5 +240,43 @@
         }
     }
 
+    // ===============================================================
+    // LITY - YT THUMBNAIL STYLING
+    // ===============================================================
+    .yt-thumb-container {
+        width: 100%;
+        padding: 3px;
+        margin: 0 auto;
+        position: relative;
+        display: inline-block;
+
+        @include breakpoint("medium") {
+            width: 45%;
+        }
+
+        a>img {
+            border-radius: 1rem;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.54);
+        }
+
+        .yt-thumb-button {
+            display: block;
+            position: absolute;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            z-index: 1;
+            background: url(https://cdn6.bigcommerce.com/s-eqgv9kc7pj/product_images/uploaded_images/youtube-grey-play.png) no-repeat center center;
+            background-size: 20%;
+            color: transparent;
+
+            &:hover {
+                opacity: .4;
+                transition: opacity .2s ease-out;
+            }
+        }
+    }
 
 }
+
