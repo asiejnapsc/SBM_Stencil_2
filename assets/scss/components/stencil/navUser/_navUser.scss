@@ -24,7 +24,7 @@
     width: 100%; // 4
     height: 60px;
     z-index: zIndex("lowest"); // 5.
-    background-color: $bluesky-dark-blue;
+    background-color: $sbm-dark-red;
     @include breakpoint("medium") {
         padding: 0.5rem spacing("single");
         position: relative;
@@ -329,7 +329,7 @@
 
 .countPill {
     //background-color: stencilColor("navUser-indicator-backgroundColor");
-    background-color: stencilColor("color-bluesky-yellow");
+    background-color: black;
     border-radius: 50%;
     //color: color("whites", "bright");
     color: stencilColor("color-greyDarkest");

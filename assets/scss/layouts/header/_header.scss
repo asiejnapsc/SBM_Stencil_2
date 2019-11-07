@@ -185,7 +185,7 @@
 }
 @media only screen and (min-width: 801px) {
     .header-logo--center{
-        background: $bluesky-light-teal;
+        background: $sbm-light-red;
         margin-top: 0px;
         margin-bottom: 0px;
         padding-bottom: 25px;
@@ -198,7 +198,7 @@
         display: none !important;
     }
     .navUser{
-        background-color: stencilColor("color-bluesky-lightTeal");
+        background-color: stencilColor("color-sbm-lightRed");
     }
     // .header-logo-image-container{  
     //     margin-left: 35%;

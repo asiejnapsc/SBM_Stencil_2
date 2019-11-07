@@ -28,7 +28,7 @@ h6 {
 
 a {
     transition: $anchor-transition;
-    color: stencilColor("color-bluesky-darkBlue"); 
+    color: stencilColor("color-sbm-darkRed"); 
 }
 
 cite {
@@ -39,7 +39,7 @@ cite {
 .page-heading {
     margin: 0 0 spacing("double");
     text-align: center;
-    color: stencilColor("color-bluesky-darkBlue"); 
+    color: stencilColor("color-sbm-darkRed"); 
     font-weight: 600;
     line-height: $h1-font-size;
 }
@@ -62,7 +62,7 @@ h4 {
 
 h5 {
     font-size: $h5-font-size;
-    color: stencilColor("color-bluesky-lightTeal"); 
+    color: stencilColor("color-sbm-lightRed"); 
     font-weight: bold;
 }
 

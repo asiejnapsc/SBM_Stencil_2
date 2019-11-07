@@ -48,7 +48,7 @@
     z-index: zIndex("lower");
 
     @include breakpoint("medium") {
-        background: stencilColor("color-bluesky-darkBlue");
+        background: stencilColor("color-sbm-darkRed");
         display: block;
         height: auto;
         padding: 0;
@@ -67,7 +67,7 @@
 // -----------------------------------------------------------------------------
 
 .navPages {
-    background-color: stencilColor("color-bluesky-darkBlue");
+    background-color: stencilColor("color-sbm-darkRed");
     height: 100%;
     overflow-y: auto;
     padding: spacing("single");
@@ -206,7 +206,7 @@
         padding: spacing("half") (spacing("half") + spacing("quarter")) (spacing("half") + spacing("quarter"));
 
         &.is-open {
-            background-color: stencilColor("color-bluesky-lightTeal");
+            background-color: stencilColor("color-sbm-lightRed");
 
             // scss-lint:disable NestingDepth
             svg {
@@ -291,7 +291,7 @@
 
     @include breakpoint("medium") {
         // scss-lint:disable ImportantRule
-        background-color: stencilColor("color-bluesky-lightTeal");
+        background-color: stencilColor("color-sbm-lightRed");
         padding: spacing("single") spacing("single") (spacing("single") + spacing("half")) !important;
         position: absolute;
         text-align: left;

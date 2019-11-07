@@ -281,7 +281,7 @@
     .form-radio:checked + & {
         border-color: stencilColor("checkRadio-color");
         box-shadow: 0 0 0 1px stencilColor("checkRadio-color");
-        background: stencilColor("color-bluesky-lightTeal");
+        background: stencilColor("color-sbm-lightRed");
         color: #fff;
     }
 }

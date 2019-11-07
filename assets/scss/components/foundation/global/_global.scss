@@ -57,13 +57,13 @@
     }
 
     .button--lightTeal {
-        background: stencilColor("color-bluesky-lightTeal");
+        background: stencilColor("color-sbm-lightRed");
         color: white;
         border: none;
         font-weight: 400;
 
         &:hover {
-            background: lighten(stencilColor("color-bluesky-lightTeal"), 10%);
+            background: lighten(stencilColor("color-sbm-lightRed"), 10%);
             color: white;
             border: none;
         }
@@ -77,12 +77,12 @@
     }
 
     .subcategory-area a {
-        background: stencilColor('color-bluesky-lightTeal');
+        background: stencilColor('color-sbm-lightRed');
         padding: 5px;
         margin: 5px 0;
         color: white;
         border-radius: .5rem;
-        border: 2px solid stencilColor('color-bluesky-darkBlue');
+        border: 2px solid stencilColor('color-sbm-darkRed');
         display: block;
         text-decoration: none;
 
@@ -97,7 +97,7 @@
     }
 
     .subcategory-area span {
-        color: stencilColor("color-bluesky-lightTeal");
+        color: stencilColor("color-sbm-lightRed");
         font-weight: bold;
     }
 

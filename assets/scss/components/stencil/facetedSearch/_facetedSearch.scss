@@ -17,7 +17,7 @@
     display: block;
     margin-bottom: $facetedSearch-toggle-verticalSpacing;
     padding: $facetedSearch-toggle-padding;
-    background: stencilColor("color-bluesky-darkBlue"); 
+    background: stencilColor("color-sbm-darkRed"); 
 
     @include breakpoint("medium") {
         // scss-lint:disable ImportantRule
