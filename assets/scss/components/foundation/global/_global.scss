@@ -111,6 +111,16 @@
         }
     }
 
+    #sbmHeaderBar1 {
+        background: stencilColor("color-sbm-darkRed");
+        color: white;
+        padding: 1rem;
+        margin-bottom: 1rem;
+        border-top-right-radius: 1rem;
+        border-top-left-radius: 1rem;
+        font-size: 1.5rem;
+    }
+
     .alertBox--info {
         background: lightgray;
 
