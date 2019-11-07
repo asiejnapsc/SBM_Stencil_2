@@ -1,0 +1,18 @@
+<h5 class="footer-info-heading">{{lang 'newsletter.subscribe'}}</h5>
+<p>{{lang 'newsletter.subscribe_intro'}}</p>
+
+<form class="form" id="email_signup" class="klaviyo_condensed_styling klaviyo_condensed_float klaviyo_condensed_embed_Qus22c" action="//manage.kmail-lists.com/subscriptions/subscribe" data-ajax-submit="//manage.kmail-lists.com/ajax/subscriptions/subscribe" method="GET" target="_blank" novalidate="novalidate">
+    <fieldset class="form-fieldset">
+        <input type="hidden" name="g" value="Qus22c">
+        <div class="form-field">
+            <label class="form-label is-srOnly" for="k_id_email">{{lang 'common.email_address'}}</label>
+            <div class="form-prefixPostfix wrap">
+                <input class="form-input" type="email" value="" name="email" id="k_id_email" placeholder="Enter your e-mail">
+                <input class="button button--primary form-prefixPostfix-button--postfix" type="submit" value="{{lang 'newsletter.subscribe_submit'}}">
+            </div>
+            {{#if settings.show_newsletter_summary }}
+                <div class="footer-newsletter-summary">{{settings.newsletter_summary}}</div>
+            {{/if}}
+        </div>
+    </fieldset>
+</form>

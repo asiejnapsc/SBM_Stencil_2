@@ -1,0 +1,135 @@
+// =============================================================================
+// PRODUCT VIEW (CSS)
+// =============================================================================
+
+
+// Product view layout
+// -----------------------------------------------------------------------------
+
+.productView {
+    @include grid-row($behavior: "nest");
+    margin-left: -(spacing("base"));
+    margin-right: -(spacing("base"));
+
+    .modal & {
+        padding-bottom: 0;
+        padding-top: 0;
+    }
+}
+
+.productView--quickView {
+    .socialLinks-item--print {
+        display: none;
+    }
+}
+
+.productView-images {
+    @include grid-column(12);
+    padding-left: spacing("base");
+    padding-right: spacing("base");
+
+    @include breakpoint("medium") {
+        width: grid-calc(6, $total-columns);
+    }
+}
+
+.productView-details {
+    @include grid-column(12);
+    padding-left: spacing("base");
+    padding-right: spacing("base");
+
+    @include breakpoint("medium") {
+        clear: right;
+        float: right;
+        width: grid-calc(6, $total-columns);
+    }
+
+    .productView-title {
+        font-weight: 500;
+        text-transform: uppercase;
+    }
+
+    .productView-price {
+        color: $bluesky-light-teal !important;
+        font-weight: 800;
+    }
+
+
+}
+
+.productView-description {
+    @include grid-column(12);
+    padding-left: spacing("base");
+    padding-right: spacing("base");
+
+    @include breakpoint("large") {
+        // clear: right;
+        // float: right;
+        // width: grid-calc(6, $total-columns);
+        width: 100%;
+    }
+
+    .productView-title {
+        border-bottom: container("border");
+        margin-bottom: spacing("base");
+        padding-left: spacing("base");
+        padding-right: spacing("base");
+        
+    }
+
+    .productView-description {
+        @include breakpoint("medium") {
+            clear: both;
+            float: none;
+            width: 100%;
+        }
+    }
+}
+
+input[type="tel"] {
+
+    border: none;
+    background: inherit;
+    box-shadow: none;
+    color: $color-textBase;
+    display: inline;
+    font-family: inherit;
+    font-size: 1rem;
+    margin: 0;
+    padding: 0.75rem;
+    width: 40px;
+}
+
+.tab.is-active .tab-title {
+    border-top: 4px solid $bluesky-light-teal;
+}
+
+input[type="radio"] + label {
+    margin-left: 0;
+}
+
+.form-label {
+    color: $color-textBase;
+}
+
+// -----------------
+// Add to Cart Modal
+// -----------------
+
+#previewModal {
+
+    .continue-shopping {
+        background: #fff;
+    }
+
+    .productView {
+        display:none;
+
+        @include breakpoint("medium") {
+            display: flex;
+        }
+
+    }
+
+
+}

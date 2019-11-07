@@ -1,0 +1,66 @@
+---
+product:
+    videos:
+        limit: {{theme_settings.productpage_videos_count}}
+    reviews:
+        limit: {{theme_settings.productpage_reviews_count}}
+    related_products:
+        limit: {{theme_settings.productpage_related_products_count}}
+    similar_by_views:
+        limit: {{theme_settings.productpage_similar_by_views_count}}
+---
+{{#partial "page"}}
+    {{> components/common/breadcrumbs breadcrumbs=breadcrumbs}}
+
+    {{#each product.shipping_messages}}
+        {{> components/common/alert-info message}}
+    {{/each}}
+
+    <div itemscope itemtype="http://schema.org/Product">
+        {{> components/products/product-view schema=true  }}
+
+        {{{region name="product_below_content"}}}
+
+        {{#if product.videos.list.length}}
+            {{> components/products/videos product.videos}}
+        {{/if}}
+
+        {{#all settings.show_product_reviews (if theme_settings.show_product_reviews_tabs '!==' true)}}
+            {{> components/products/reviews reviews=product.reviews product=product urls=urls}}
+        {{/all}}
+
+        {{> components/products/tabs}}
+    </div>
+{{/partial}}
+{{> layout/base}}
+
+<!-- Klaviyo Viewed Product Script -->
+<script text="text/javascript">
+    var _learnq = _learnq || [];
+ 
+    var item = {
+     Name: "{{product.title}}",
+     ProductID: "{{product.id}}",
+     ImageURL: "{{getImage product.main_image 'product_size' (cdn theme_settings.default_image_product)}}",
+     URL: "{{product.url}}",
+     Brand: "{{product.brand.name}}",
+     Price: "{{product.price.without_tax.value}}",
+     CompareAtPrice:"{{product.price.rrp_without_tax.value}}"
+    };
+ 
+   _learnq.push(['track', 'Viewed Product', item]);
+ 
+   _learnq.push(['trackViewedItem', {
+    Title: item.Name,
+    ItemId: item.ProductID,
+    Categories: item.Categories,
+    ImageUrl: item.ImageURL,
+    Url: item.URL,
+ 
+    Metadata: {
+      Brand: item.Brand,
+      Price: item.Price,
+      CompareAtPrice: item.CompareAtPrice
+    }
+   }]);
+ </script>

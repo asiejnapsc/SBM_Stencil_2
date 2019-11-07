@@ -1,0 +1,15 @@
+    {{#if settings.store_logo.image}}
+        {{#if theme_settings.logo_size '===' 'original'}}
+            <a href="{{urls.home}}">
+                <img class="header-logo-image-unknown-size" src="https://cdn6.bigcommerce.com/s-duqqj4dg9u/product_images/uploaded_images/blueskylogo-.png" alt="{{settings.store_logo.title}}" title="{{settings.store_logo.title}}">
+            </a>
+            {{else}}
+            <div class="header-logo-image-container">
+                    <a href="{{urls.home}}">
+                        <img class="header-logo-image" src="https://cdn6.bigcommerce.com/s-duqqj4dg9u/product_images/uploaded_images/blueskylogo-.png" alt="{{settings.store_logo.title}}" title="{{settings.store_logo.title}}">
+                    </a>
+            </div>
+        {{/if}}
+    {{else}}
+        <span class="header-logo-text">{{settings.store_logo.title}}</span>
+    {{/if}}

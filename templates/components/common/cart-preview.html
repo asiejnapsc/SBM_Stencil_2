@@ -1,0 +1,79 @@
+<div class="previewCart">
+    {{#if cart.items.length}}
+        <ul class="previewCartList">
+            {{#each (limit cart.items 4)}}
+                <li class="previewCartItem">
+                    <div class="previewCartItem-image">
+                        {{#if type '==' 'GiftCertificate'}}
+                            <img src="{{cdn ../../theme_settings.default_image_gift_certificate}}" alt="GiftCertificate" title="GiftCertificate">
+                        {{else}}
+                            {{> components/common/responsive-img
+                                image=image
+                                fallback_size=../../theme_settings.productthumb_size
+                                lazyload=../../theme_settings.lazyload_mode
+                                default_image=../../theme_settings.default_image_product
+                            }}
+                        {{/if}}
+                    </div>
+
+                    <div class="previewCartItem-content">
+                        <!-- <span class="previewCartItem-brand">
+                            {{brand.name}}
+                        </span> -->
+
+                        <h6 class="previewCartItem-name">
+                            <a href="{{url}}" alt="{{name}}" title="{{name}}">{{name}}</a>
+                        </h6>
+
+                        <span class="previewCartItem-price">
+                            {{#if quantity '>' 1}}
+                                {{quantity}} &times;
+                            {{/if}}
+                            {{#or ../customer (if ../theme_settings.restrict_to_login '!==' true)}}
+                                <span{{#if price_discounted}} class="price--discounted"{{/if}}>{{price.formatted}}</span>
+                                {{#if price_discounted}}
+                                    {{price_discounted.formatted}}
+                                {{/if}}
+                            {{else}}
+                                {{> components/common/login-for-pricing}}
+                            {{/or}}
+                        </span>
+                    </div>
+                </li>
+            {{/each}}
+        </ul>
+        <div class="previewCartAction">
+
+            <div class="previewCartAction-viewCart{{#unless cart.show_primary_checkout_button}} previewCartAction-viewCart--sole{{/unless}}">
+                <a href="{{urls.cart}}" class="button button--small button--action" style="font-size:11px;">
+                    {{lang 'cart.preview.view_cart'}} /
+                    <br>
+                    Est. Shipping
+                </a>
+            </div>
+
+
+            {{#if cart.show_primary_checkout_button}}
+                <div class="previewCartAction-checkout">
+                    <a href="{{urls.checkout.single_address}}" class="button button--small button--green" style="font-size:11px;">
+                       Proceed to Check out
+                    </a>
+                </div>
+            {{/if}}
+
+
+
+            {{#if cart.show_multiple_address_shipping}}
+                <div class="previewCartAction-checkoutMultiple">
+                    <a href="{{urls.checkout.multiple_address}}">
+                        {{lang 'cart.preview.checkout_multiple'}}
+                    </a>
+                </div>
+            {{/if}}
+        </div>
+    {{else}}
+        <div class="previewCart-emptyBody">
+            {{lang 'cart.checkout.empty_cart'}}
+        </div>
+    {{/if}}
+</div>
