@@ -24,11 +24,6 @@ category:
         lazyload=theme_settings.lazyload_mode
     }}
 {{/if}}
-{{#unless theme_settings.hide_category_page_heading }}
-    <h1 class="page-heading">{{category.name}}</h1>
-    {{{region name="category_below_header"}}}
-{{/unless}}
-
 <hr>
 <div class="page">
     {{#if category.faceted_search_enabled}}
@@ -48,6 +43,11 @@ category:
     {{/if}}
 
     <main class="page-content" id="product-listing-container">
+        {{#unless theme_settings.hide_category_page_heading }}
+            <h1 class="page-heading">{{category.name}}</h1>
+            {{{region name="category_below_header"}}}
+        {{/unless}}
+        
         {{#if banners.top}}
         <div class="banners" data-banner-location="top">
             {{#each (limit banners.top_metadata 1)}}
