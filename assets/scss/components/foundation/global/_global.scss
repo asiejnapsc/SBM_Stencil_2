@@ -105,6 +105,17 @@
         font-weight: bold;
     }
 
+    .sidebar-badges img {
+        display: none;
+
+        @include breakpoint("medium") {
+            display: block;
+            margin-bottom: 1rem;
+            width: 192px;
+            border-radius: 1rem;
+        }
+    }
+
 
     /* Account Added CSS */
 
