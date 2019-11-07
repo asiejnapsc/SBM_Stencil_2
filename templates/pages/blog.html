@@ -3,23 +3,126 @@ blog:
     posts:
         limit: 5
         pages: 3
-        summary: 200
+        summary: 200   
 ---
 {{#partial "page"}}
-
 {{> components/common/breadcrumbs breadcrumbs=breadcrumbs}}
-
-<main class="page">
-    {{#unless theme_settings.hide_blog_page_heading }}
-        <h1 class="page-heading">{{ blog.name }}</h1>
+<a href="/blog"><div class="blogHeaderBackground" style="background-image : url('https://cdn10.bigcommerce.com/s-qm2r4/product_images/uploaded_images/cloud-flight-blog-banner.png'); background-position: center; height: 203px;">
+{{#unless theme_settings.hide_blog_page_heading }}
+<a href="/blog"><img src="https://cdn3.bigcommerce.com/s-qm2r4/product_images/uploaded_images/the-flight-blog-logo.png" alt="The Flight Blog Logo"></a>
     {{/unless}}
-
-    {{#each blog.posts}}
-        {{> components/blog/post post=this}}
-    {{/each}}
-
+</div></a>
+<div class="MobileBlogSearch">
+<script>
+    (function() {
+      var cx = '005199144948878956579:ubkl3_n8syy';
+      var gcse = document.createElement('script');
+      gcse.type = 'text/javascript';
+      gcse.async = true;
+      gcse.src = 'https://cse.google.com/cse.js?cx=' + cx;
+      var s = document.getElementsByTagName('script')[0];
+      s.parentNode.insertBefore(gcse, s);
+    })();
+  </script>
+  <gcse:search></gcse:search>
+  </div>
+<main class="page">
+    <div class = "row" style="max-width: 100.66667rem;">
+        <div class="large-9 columns">
+             {{#each blog.posts}}
+                {{> components/blog/post post=this}}
+            {{/each}}
+        </div>
+        <div class="large-3 columns blog-sidebar">
+                <script>
+                        (function() {
+                          var cx = '005199144948878956579:ubkl3_n8syy';
+                          var gcse = document.createElement('script');
+                          gcse.type = 'text/javascript';
+                          gcse.async = true;
+                          gcse.src = 'https://cse.google.com/cse.js?cx=' + cx;
+                          var s = document.getElementsByTagName('script')[0];
+                          s.parentNode.insertBefore(gcse, s);
+                        })();
+                      </script>
+                      <gcse:search></gcse:search>
+                <h4 class="recent-posts">RECENT POSTS</h4>
+                <div class="BlockContent">
+                    <ul id="Post">
+                        <a href=""></a>
+                    </ul>
+                    <ul id="Post">
+                        <a href=""></a>
+                    </ul>
+                    <ul id="Post">
+                        <a href=""></a>
+                    </ul>
+                    <ul id="Post">
+                        <a href=""></a>
+                    </ul>
+                    <ul id="Post">
+                        <a href=""></a>
+                    </ul>
+                </div>
+            <h4 class="monthly-archive"><a href="https://aviationoiloutlet.com/blog/tag/monthly+newsletter" style="cursor:pointer;">MONTHLY ARCHIVE</a></h4>
+    <div class="BlockContent" id="BlogCategories">
+        <ul>
+            <a href="https://aviationoiloutlet.com/blog/newsletter-october-2019/"><li>Newsletter | October 2019</li></a>      
+            <a href="https://aviationoiloutlet.com/blog/newsletter-september-2019/"><li>Newsletter | September 2019</li></a>      
+            <a href="https://aviationoiloutlet.com/blog/newsletter-august-2019/"><li>Newsletter | August 2019</li></a>      
+            <a href="https://aviationoiloutlet.com/blog/newsletter-july-2019/"><li>Newsletter | July 2019</li></a>      
+            <a href="https://aviationoiloutlet.com/blog/newsletter-june-2019/"><li>Newsletter | June 2019</li></a>      
+        </ul>
+    </div>
+    
+    <h4 class="categories">CATEGORIES</h4>
+    <div class="BlockContent" id="BlogCategories">
+        <ul><a href="/blog/tag/plane+of+the+week">Plane of the Week</a></ul>
+        <ul><a href="/blog/tag/aviation+history">Aviation History</a></ul>
+        <ul><a href="/blog/tag/general+aviation">General Aviation</a></ul>
+    </div>
+        </div>
+    </div>
     {{> components/common/paginator pagination.blog}}
 </main>
 
 {{/partial}}
 {{> layout/base}}
+
+<!-- script to add Blog Search text -->                                            
+<script>
+    window.onload = function(){ 
+    $('.gsc-input').each(function() {
+      $(this).attr("placeholder", "Blog Search");
+    }); 
+    };  
+    </script>
+    <!-- Script to pull the most recent blog articles -->
+    <script>
+        $("#Post a").each(function(index, element){
+        var recentPostsURL = "/blog/";
+            $.get(recentPostsURL, function(data){
+                  var children = $(data).find(".blog-title").children();
+                  var title = $(children[index]).text();
+                  var link = $(children[index]).attr("href");
+                  $(element).text(title);
+                  $(element).attr("href", link);
+                  
+            });            
+        });
+    </script>     
+
+<style>
+     .container{
+         margin-left:0%;
+         margin-right: 0%;
+         max-width: 150rem;
+         padding-left: 1.5rem;
+         padding-right: 1.5rem;
+     }
+
+     a{
+         text-decoration: none;
+     }
+
+</style>
