@@ -86,7 +86,7 @@
         }
     }
 
-    .button--lightRed {
+    .button--lightRed, #ShopNowButton {
         background: stencilColor("color-sbm-lightRed");
         color: white;
         border: none;
@@ -96,6 +96,13 @@
             background: lighten(stencilColor("color-sbm-lightRed"), 10%);
             color: white;
             border: none;
+        }
+
+        &:active,
+        &:focus {
+            background: darken(stencilColor("color-sbm-lightRed"), 10%);
+            border-color: darken(stencilColor("color-sbm-lightRed"), 10%);
+            color: #fff;
         }
     }
 
@@ -293,7 +300,7 @@
         display: inline-block;
 
         @include breakpoint("medium") {
-            width: 45%;
+            width: 45% !important;
         }
 
         a>img {
@@ -317,6 +324,23 @@
                 opacity: .4;
                 transition: opacity .2s ease-out;
             }
+        }
+    }
+
+    #product-listing-container > div.banners > div > div > center > div > a > img { // styling for youtube image, other banner image styling wont override now
+        width: 100% !important;
+    }
+
+    // ===============================================================
+    // PAGE STYLING
+    // ===============================================================
+    #resource-library {
+        a {
+            text-decoration: none;
+        }
+
+        .button {
+            width: 100%;
         }
     }
 
