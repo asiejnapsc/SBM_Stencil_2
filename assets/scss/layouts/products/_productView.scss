@@ -133,3 +133,27 @@ input[type="radio"] + label {
 
 
 }
+
+// -----------------
+// Product 360
+// -----------------
+#image360 {
+    display: none;
+}
+
+.image360Badge {
+    background: stencilColor("color-sbm-lightRed");
+}
+
+
+#Sirv,
+#image360 > a > span {
+    color: white !important;
+    text-decoration: none !important; 
+    padding: .5rem !important; 
+    display: inline-block !important;
+}
+
+div#Sirv {
+    background: white;
+}

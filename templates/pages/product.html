@@ -64,3 +64,18 @@ product:
     }
    }]);
  </script>
+
+<script src="https://scripts.sirv.com/sirv.js"></script>
+<div class="Sirv lity-hide" id="Sirv" data-src="https://mbibelan.sirv.com/products/{{#if product.custom_fields}}{{#each product.custom_fields}}{{#if name '===' '360 ID'}}{{value}}{{/if}}{{/each}}{{/if}}/{{#if product.custom_fields}}{{#each product.custom_fields}}{{#if name '===' '360 ID'}}{{value}}{{/if}}{{/each}}{{/if}}.spin"></div>
+
+
+
+
+
+{{#if product.custom_fields}}
+{{#each product.custom_fields}}
+    {{#if name '===' '360 ID'}}
+        <style>#image360{display:block!important;}</style>
+    {{/if}}
+{{/each}}
+{{/if}}
