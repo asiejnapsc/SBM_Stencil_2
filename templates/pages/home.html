@@ -1,15 +1,15 @@
 ---
 products:
-new:
-limit: {{theme_settings.homepage_new_products_count}}
-featured:
-limit: {{theme_settings.homepage_featured_products_count}}
-top_sellers:
-limit: {{theme_settings.homepage_top_products_count}}
+    new:
+        limit: {{theme_settings.homepage_new_products_count}}
+    featured:
+        limit: {{theme_settings.homepage_featured_products_count}}
+    top_sellers:
+        limit: {{theme_settings.homepage_top_products_count}}
 carousel: {{theme_settings.homepage_show_carousel}}
 blog:
-recent_posts:
-limit: {{theme_settings.homepage_blog_posts_count}}
+    recent_posts:
+        limit: {{theme_settings.homepage_blog_posts_count}}
 ---
 {{#partial "hero"}}
 {{{region name="home_below_menu"}}}
@@ -78,9 +78,8 @@ limit: {{theme_settings.homepage_blog_posts_count}}
             </div>
         </div>
     </div>
-
-    <h4>Featured Products</h4>
     <hr>
+
     {{#if products.featured}}
         {{> components/products/featured products=products.featured columns=theme_settings.homepage_featured_products_column_count}}
     {{/if}}

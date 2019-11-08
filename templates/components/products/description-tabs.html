@@ -37,6 +37,10 @@
     </li>
     {{/if}}
 
+    <li class="tab Tab360Link" style="display:none;">
+        <a class="tab-title" href="#tab-360">View Product in 360°</a>
+    </li>
+
 
 </ul>
 
@@ -143,5 +147,16 @@
        {{/if}}
    </div>
     {{/if}}
+
+    <div class="tab-content" id="tab-360">
+        {{#if product.custom_fields}}
+            {{#each product.custom_fields}}
+                {{#if name '===' '360 ID'}}
+                    <style>.Tab360Link{display:block!important;}</style>
+                    
+                {{/if}}
+            {{/each}}
+        {{/if}}
+    </div>
 
 </div>

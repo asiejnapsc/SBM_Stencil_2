@@ -122,7 +122,7 @@
     }
 
     .alertBox--info {
-        background: lightgray;
+        background: stencilColor("color-sbm-lightRed");
 
         .alertBox-icon {
             color: white;
