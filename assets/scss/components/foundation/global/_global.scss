@@ -185,6 +185,19 @@
         }
     }
 
+    #product-listing-container div.banners img {
+        width: 100%;
+        padding: 3px;
+        margin: 0 auto 1rem auto;
+        position: relative;
+        display: inline-block;
+        border-radius: 1rem;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.54);
+
+        @include breakpoint("medium") {
+            width: 70%;
+        }
+    }
 
     // ======================================
     // ACCOUNT STYLING
