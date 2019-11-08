@@ -15,7 +15,28 @@
                 <h2 class="productView-brand"{{#if schema}} itemprop="brand" itemscope itemtype="http://schema.org/Brand"{{/if}}>
                     <a href="{{product.brand.url}}"{{#if schema}} itemprop="url"{{/if}}><span{{#if schema}} itemprop="name"{{/if}}>{{product.brand.name}}</span></a>
                 </h2>
-            {{/if}}   
+            {{/if}}
+            
+            {{#if product.custom_fields}}
+
+                <div class="nka-div">
+                    {{#filter product.custom_fields 'NKA URL' property='name' }}
+                        This product is now known under a different name, please visit <a href="{{value}}">
+                    {{else}}
+                    {{/filter}}
+
+                    {{#filter product.custom_fields 'Now Known As' property='name' }}
+                        {{value}}</a> to purchase.
+
+                        <style>
+                                span.price.price--withoutTax, .productView-rating, dl.productView-info, .productView-buttons {display:none;}
+                        </style>
+                    {{else}}
+                    {{/filter}}
+                </div>
+    
+            {{/if}}
+
             {{#if product.call_for_price}}
                 <p class="productView-price">
                     <span>{{product.call_for_price}}</span>
