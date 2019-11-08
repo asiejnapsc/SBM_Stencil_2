@@ -59,9 +59,13 @@ category:
             {{/each}}
         </div>
         {{/if}}
-
-        {{{category.description}}}
-
+        <div class="CategoryDescription" style="overflow: hidden;">
+            {{{category.description}}}
+        </div> 
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Readmore.js/2.2.1/readmore.min.js"></script>
+        <script>
+            $(".CategoryDescription").readmore({speed: 75, lessLink: '<a href="#" class="morelink"> - READ LESS</a>', moreLink: '<a href="#" class="morelink"> + READ MORE</a>', heightMargin: 16, collapsedHeight: 93});
+        </script>
         {{#if category.subcategories}}
         <div class="subcategory-area">
             <span>Refine by subcategory:</span>
@@ -84,3 +88,21 @@ category:
 
 {{/partial}}
 {{> layout/base}}
+
+<style>
+    .morelink {
+    border-bottom: 1px solid #790000;
+    border-top: 1px solid #790000;
+    color: #790000;
+    display: block;
+    font-size: 19px;
+    width: 135px !important;
+    padding-left: 4px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    }
+    .morelink:hover{
+        color: #790000;
+        text-decoration: underline;
+    }
+    </style>
