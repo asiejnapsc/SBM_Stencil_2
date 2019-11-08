@@ -33,7 +33,10 @@
 
     {{#if product.related_products}}
     <li class="tab" role="presentational">
-        <a class="tab-title" href="#tab-related" role="tab" tabindex="0" aria-selected="true" controls="tab-related">{{lang 'products.related_products'}}</a>
+        <a class="tab-title" href="#tab-related" role="tab" tabindex="0" aria-selected="true" controls="tab-related">
+            <span id="replaceParts" style="display:block;">Related Parts</span>
+            <span id="partsIncluded" style="display:none;">Parts Included</span>
+        </a>
     </li>
     {{/if}}
 
