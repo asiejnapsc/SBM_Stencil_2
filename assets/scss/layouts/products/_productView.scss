@@ -145,15 +145,9 @@ input[type="radio"] + label {
     background: stencilColor("color-sbm-lightRed");
 }
 
-
-#Sirv,
-#image360 > a > span {
-    color: white !important;
-    text-decoration: none !important; 
-    padding: .5rem !important; 
-    display: inline-block !important;
-}
-
 div#Sirv {
     background: white;
+    border: 1px solid black;
+    border-radius: 25px;
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.54);
 }
