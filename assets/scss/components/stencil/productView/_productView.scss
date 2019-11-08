@@ -113,13 +113,74 @@
     }
 }
 
-
 // Details
 // -----------------------------------------------------------------------------
 
 .productView-details {
-    margin-bottom: spacing("single") + spacing("third");
+    //margin-bottom: spacing("single") + spacing("third");
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+
+    @include breakpoint("medium") {
+        background: #fdf7f7;
+        box-shadow: 0 4px 10px 0 rgba(35, 46, 105, 0.1);
+    }
 }
+
+    div.productView > section:nth-child(3){
+        border-bottom-left-radius: 1rem;
+        border-bottom-right-radius: 1rem;
+    }
+
+    span.price.price--withoutTax,
+    .productView-rating,
+    dl.productView-info,
+    .productView-buttons,
+    .nka-div
+    {
+        padding-left: .5rem;
+    }
+
+    .nka-div {
+        font-weight: bold;
+    }
+
+    dt.productView-info-name.sku-label,
+    div.form-field.form-field--increments > label {
+        color: stencilColor("AOO-blue");
+        font-weight: bold;
+        text-transform: uppercase;
+    }
+
+    .productView-options .form-field {
+        padding-top: 1rem;
+    }
+
+    .form-increment .button {
+        background: white;
+    }
+
+    input[type="tel"]:focus {
+        background: transparent;
+    }
+
+    .form-action,
+    #additional-sizes {
+        width: 100%;
+
+        @include breakpoint("large") {
+            width: 48% !important;
+        }
+        
+    }
+
+    .productView-options .form-action .button {
+        width: 100% !important;
+    }
+
+    span.price.price--withoutTax {
+        font-size: 2rem;
+    }
 
 
 // Details - Product details
@@ -144,9 +205,16 @@
 .productView-title {
     font-size: fontSize("small");
     margin: -(spacing("half")) 0 spacing("quarter");
+    line-height: 2rem;
+    background: url(https://cdn3.bigcommerce.com/s-489s1uwnq2/product_images/uploaded_images/black-metal-texture-tile.png);
+    color: white;
+    font-size: 1.5rem;
+    padding: 1rem;
+    border-top-left-radius: 1rem;
+    border-top-right-radius: 1rem;
 
     @include breakpoint("medium") {
-        margin-top: spacing("single");
+        //margin-top: spacing("single");
     }
 
     @include breakpoint("large") {
@@ -155,9 +223,10 @@
 }
 
 .productView-brand {
+    background: stencilColor("color-sbm-darkRed");
     color: $productView-brand-link-color;
-    font-size: fontSize("smaller");
     margin: 0 0 spacing("half");
+    padding: .5rem 0;
 
     @include breakpoint("large") {
         font-size: fontSize("small");
@@ -165,13 +234,22 @@
     }
 
     a {
-        color: $productView-brand-link-color;
+        color: white;
+        text-decoration: none;
+        padding-left: 1rem;
+        font-size: 1rem;
 
         // scss-lint:disable NestingDepth
         &:hover {
-            color: $productView-brand-link-color--hover;
+            color: white;
         }
     }
+}
+
+.productView-buttons {
+    color: white;
+    border-bottom-left-radius: 1rem;
+    border-bottom-right-radius: 1rem;
 }
 
 // Details - Product price
