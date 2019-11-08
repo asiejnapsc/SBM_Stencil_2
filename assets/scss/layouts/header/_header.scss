@@ -165,10 +165,12 @@
 }
 
 .header-logo-image {
+    display:none;
     @include lazy-loaded-img;
     max-height: remCalc($header-height) - $header-logo-marginVertical * 2;
 
     @include breakpoint("medium") {
+        display: inline-block;
         max-height: none;
     }
 }
@@ -443,5 +445,5 @@
 }
 
 #SearchForm-Mobile{
-    margin-top: 23px;
+    margin-top: -7px;
 }

@@ -148,6 +148,7 @@
     "color-greyLightest": "#e5e5e5",
     "color-sbm-darkRed":"#490c14",
     "color-sbm-lightRed":"#7a0001",
+    "color-sbm-green": "#0C641C",
     "button--default-color": "#666666",
     "button--default-colorHover": "#333333",
     "button--default-colorActive": "#000000",
