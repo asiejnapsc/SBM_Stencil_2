@@ -34,6 +34,16 @@
                     {{else}}
                     {{/filter}}
                 </div>
+
+                <div class="backorder-div">
+                    {{#filter product.custom_fields 'Back Order' property='name' }}
+                        This product is currently on back order call <a href="tel:18553582850">1-855-358-2850</a> to check for availability.
+                        <style>
+                            span.price.price--withoutTax, .productView-rating, dl.productView-info, .productView-buttons {display:none;}
+                        </style>
+                    {{else}}
+                    {{/filter}}
+                </div>
     
             {{/if}}
 

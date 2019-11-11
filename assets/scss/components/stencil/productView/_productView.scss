@@ -136,12 +136,14 @@
     .productView-rating,
     dl.productView-info,
     .productView-buttons,
-    .nka-div
+    .nka-div,
+    .backorder-div
     {
         padding-left: .5rem;
     }
 
-    .nka-div {
+    .nka-div,
+    .backorder-div {
         font-weight: bold;
     }
 
