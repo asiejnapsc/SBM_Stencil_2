@@ -137,13 +137,17 @@
     dl.productView-info,
     .productView-buttons,
     .nka-div,
-    .backorder-div
+    .backorder-div,
+    .relatedparts-div,
+    .quoteonly-div
     {
         padding-left: .5rem;
     }
 
     .nka-div,
-    .backorder-div {
+    .backorder-div,
+    .relatedparts-div,
+    .quoteonly-div {
         font-weight: bold;
     }
 

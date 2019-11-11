@@ -29,7 +29,7 @@
                         {{value}}</a> to purchase.
 
                         <style>
-                                span.price.price--withoutTax, .productView-rating, dl.productView-info, .productView-buttons {display:none;}
+                                span.price.price--withoutTax, .productView-rating, dl.productView-info, .productView-buttons, .productView-price {display:none;}
                         </style>
                     {{else}}
                     {{/filter}}
@@ -39,7 +39,28 @@
                     {{#filter product.custom_fields 'Back Order' property='name' }}
                         This product is currently on back order call <a href="tel:18553582850">1-855-358-2850</a> to check for availability.
                         <style>
-                            span.price.price--withoutTax, .productView-rating, dl.productView-info, .productView-buttons {display:none;}
+                            span.price.price--withoutTax, .productView-rating, dl.productView-info, .productView-buttons, .productView-price {display:none;}
+                        </style>
+                    {{else}}
+                    {{/filter}}
+                </div>
+
+                <div class="relatedparts-div">
+                    {{#filter product.custom_fields 'Related Parts' property='name' }}
+                        This product can only be purchased through its individual parts. Please see the related parts tab below for its components. 
+                        <br><br> If you have any questions, please <a href="/contact-us">contact us</a>.
+                        <style>
+                            span.price.price--withoutTax, .productView-rating, dl.productView-info, .productView-buttons, .productView-price {display:none;}
+                        </style>
+                    {{else}}
+                    {{/filter}}
+                </div>
+
+                <div class="quoteonly-div">
+                    {{#filter product.custom_fields 'Quote Only' property='name' }}
+                        This product is not avaliable for purchase directly. <a href="/quote-request">Click here to get a quote for this product.</a>
+                        <style>
+                            span.price.price--withoutTax, .productView-rating, dl.productView-info, .productView-buttons, .productView-price {display:none;}
                         </style>
                     {{else}}
                     {{/filter}}
