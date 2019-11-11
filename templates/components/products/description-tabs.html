@@ -112,6 +112,15 @@
                         </a>
                     </div>   
                 {{/if}}
+                {{#if name '===' 'Vimeo Video'}}
+                    <style>.videoTabLink{display:block!important;}</style>
+                    <div class="vimeo-container">
+                        <iframe src="{{value}}?color=ffffff"
+                             frameborder="0" allow="autoplay; fullscreen"
+                            allowfullscreen>
+                        </iframe>
+                    </div>
+                {{/if}}
             {{/each}}
         {{/if}}
    </div>
