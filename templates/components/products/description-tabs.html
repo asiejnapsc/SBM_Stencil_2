@@ -56,24 +56,16 @@
    <div class="tab-content" id="tab-datasheets">
         {{#if product.custom_fields}}
             {{#each product.custom_fields}}
-                {{#if name '===' 'Product Data Sheet'}}
+                {{#if name '===' 'PDF URL'}}
                     <style>.dataSheetLink{display:block!important;}</style>
                     <div class="datasheet_div">
                         <a class="p_datasheet" target="_blank" href="{{value}}">
                             <i class="far fa-file-pdf fa-4x"></i>
                             <div class="datasheet-text-container">
-                                <div>Product Data Sheet</div>
-                            </div>
-                        </a>
-                    </div>
+                                <div>
                 {{/if}}
-                {{#if name '===' 'Safety Data Sheet'}}
-                    <style>.dataSheetLink{display:block!important;}</style>
-                    <div class="datasheet_div">
-                        <a class="p_datasheet" target="_blank" href="{{value}}">
-                            <i class="far fa-file-pdf fa-4x"></i>
-                            <div class="datasheet-text-container">
-                                <div>Safety Data Sheet</div>
+                {{#if name '===' 'PDF Name'}}
+                                {{value}}</div>
                             </div>
                         </a>
                     </div>

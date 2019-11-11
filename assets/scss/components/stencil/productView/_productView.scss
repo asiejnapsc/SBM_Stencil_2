@@ -543,6 +543,39 @@
     }
 }
 
+// Data sheet styling for products with data sheets
+// ------------------------------------------------------------------------------
+
+#tab-datasheets {
+    .datasheet_div {
+        padding: 1rem;
+
+        .p_datasheet{
+            display: flex;
+            flex-direction: row;
+
+            i {
+                margin-right:1rem;
+            }
+
+            .datasheet-text-container {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                font-size: 1rem;
+            }
+
+            &:hover, &:focus {
+                color: lighten(stencilColor("color-sbm-darkRed"), 20%);
+            }
+        }
+
+        &:hover, &:focus {
+            background: lighten(stencilColor("color-greyLightest"), 5%);
+            border-radius: 1rem;
+        }
+    }
+}
 
 // Video styling for products with videos
 // ------------------------------------------------------------------------------
