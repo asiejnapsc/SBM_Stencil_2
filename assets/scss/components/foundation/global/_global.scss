@@ -170,6 +170,12 @@
         border: 2px solid stencilColor('color-sbm-darkRed');
         display: block;
         text-decoration: none;
+        width: 100%;
+        text-align: center;
+        
+        @include breakpoint("medium"){
+            width: 190px;
+        }
 
         &:hover {
             background: lighten(stencilColor('color-sbm-lightRed'), 10%);
