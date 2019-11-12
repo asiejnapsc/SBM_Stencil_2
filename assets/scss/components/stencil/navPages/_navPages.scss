@@ -71,6 +71,7 @@
     height: 100%;
     overflow-y: auto;
     padding: spacing("single");
+    margin-top: 2rem;
 
     @include breakpoint("medium") {
         @include grid-row(); // 1
