@@ -450,9 +450,11 @@
 // -----------------------------------------------------------------------------
 
 .productOptions-list {
-    border: $productOptions-list-border;
     list-style: none;
-    margin: 0;
+    margin: 1rem;
+    border-radius: 1rem;
+    background: white;
+    box-shadow: inset 0 0 11px 0px rgba(0, 0, 0, 0.1);
 }
 
 .productOptions-list-item {
@@ -482,7 +484,10 @@
     padding-left: $productOptions-list-item-content-paddingLeft;
 }
 
-
+.option-label {
+    font-weight: bold;
+    text-transform: uppercase;
+}
 // Share products
 // -----------------------------------------------------------------------------
 
