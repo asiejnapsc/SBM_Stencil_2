@@ -71,7 +71,15 @@
             {{#if brand.name}}
             <p class="card-text" data-test-info-type="brandName">{{brand.name}}</p>
             {{/if}}
-
+            
+                {{#and rating show_rating}}
+                    <p class="card-text" data-test-info-type="productRating">
+                        <span class="rating--small">
+                            {{> components/products/ratings rating=rating}}
+                        </span>
+                    </p>
+                {{/and}}
+            
             <div class="card-text price" data-test-info-type="price">
                     {{#or customer (if theme_settings.restrict_to_login '!==' true)}}
                         {{> components/products/price price=price}}
@@ -87,13 +95,4 @@
         <a href="{{url}}" class="button button--primary card-button">MORE INFO</a>
 
     </figure>
-    <div class="card-body" style="text-align:center;">
-        {{#and rating show_rating}}
-            <p class="card-text" data-test-info-type="productRating">
-                <span class="rating--small">
-                    {{> components/products/ratings rating=rating}}
-                </span>
-            </p>
-        {{/and}}
-    </div>
 </article>
