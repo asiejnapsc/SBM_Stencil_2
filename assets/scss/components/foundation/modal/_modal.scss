@@ -96,3 +96,18 @@
         }
     }
 }
+
+#previewModal {
+    border-radius: 1rem;
+    border: 1px solid white;
+}
+
+.modal-header {
+    background: stencilColor("color-sbm-darkRed");
+    color: white;
+}
+
+.modal-header-title,
+.modal-close span {
+    color: white;
+}

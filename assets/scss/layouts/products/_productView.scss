@@ -131,6 +131,19 @@ input[type="radio"] + label {
 
     }
 
+    .productView-brand,
+    .productView-price {
+        padding-left: 1rem;
+    }
+
+    .productView-brand {
+        color: white;
+    }
+
+    .productView-details {
+        margin: .5rem;
+        border-radius: 1rem;
+    }
 
 }
 
