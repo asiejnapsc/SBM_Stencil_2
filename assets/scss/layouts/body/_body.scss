@@ -10,11 +10,9 @@
 
 .body {
     margin-bottom: spacing("double") * 2;
-    margin-top: spacing("single") * 3; // 1
+    // margin-top: spacing("single") * 3; // 1
 
-    @include breakpoint(0px) {
-        margin-top: 5.4rem;
-    }
+    margin-top: 7.4rem;
 
     @include breakpoint("small"){
         margin-top: 4.4rem;
