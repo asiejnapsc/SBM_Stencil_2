@@ -2,11 +2,12 @@
     <li class="tab is-active">
         <a class="tab-title" href="#tab-description">{{lang 'products.description'}}</a>
     </li>
-    {{#if product.warranty}}
+
+    <!-- {{#if product.warranty}}
         <li class="tab">
             <a class="tab-title" href="#tab-warranty">Old Manuals</a>
         </li>
-    {{/if}}
+    {{/if}} -->
 
     <li class="tab dataSheetLink" style="display:none;">
             <a class="tab-title" href="#tab-datasheets">Manuals</a>
@@ -47,11 +48,12 @@
     <div class="tab-content is-active" id="tab-description">
         {{{product.description}}}
     </div>
-   {{#if product.warranty}}
+    
+   <!-- {{#if product.warranty}}
        <div class="tab-content" id="tab-warranty">
            {{{product.warranty}}}
        </div>
-   {{/if}}
+   {{/if}} -->
 
    <div class="tab-content" id="tab-datasheets">
         {{#if product.custom_fields}}
