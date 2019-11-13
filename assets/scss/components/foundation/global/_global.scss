@@ -246,6 +246,12 @@
         }
     }
 
+    // Hide the Was, Now price text, only display price
+    .card-text .price-section.price-section--withoutTax.non-sale-price--withoutTax,
+    .card-text span.price-now-label {
+        display: none;
+    }
+    
     // ======================================
     // ACCOUNT STYLING
     // ======================================
