@@ -62,10 +62,7 @@ category:
         <div class="CategoryDescription" style="overflow: hidden;">
             {{{category.description}}}
         </div> 
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/Readmore.js/2.2.1/readmore.min.js"></script>
-        <script>
-            $(".CategoryDescription").readmore({speed: 75, lessLink: '<a href="#" class="morelink"> - CLOSE</a>', moreLink: '<a href="#" class="morelink"> + READ MORE</a>', heightMargin: 16, collapsedHeight: 93});
-        </script>
+
         {{#if category.subcategories}}
         <div class="subcategory-area">
             <span>Refine by subcategory:</span>
@@ -85,6 +82,11 @@ category:
         {{{region name="category_below_content"}}}
     </main>
 </div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Readmore.js/2.2.1/readmore.min.js"></script>
+<script>
+    $(".CategoryDescription").readmore({speed: 75, lessLink: '<a href="#" class="morelink"> - CLOSE</a>', moreLink: '<a href="#" class="morelink"> + READ MORE</a>', heightMargin: 16, collapsedHeight: 93});
+</script>
 
 {{/partial}}
 {{> layout/base}}
