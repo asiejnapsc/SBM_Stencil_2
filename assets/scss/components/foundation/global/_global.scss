@@ -252,6 +252,30 @@
         display: none;
     }
     
+    .morelink {
+        border-bottom: 1px solid stencilColor("color-sbm-darkRed");
+        border-top: 1px solid stencilColor("color-sbm-darkRed");
+        color: stencilColor("color-sbm-darkRed");
+        display: block;
+        width: 135px;
+        padding-left: 4px;
+        margin-top: 20px;
+        margin-bottom: 20px;
+        text-decoration: none;
+        }
+        
+        .morelink:hover {
+            border-bottom: 2px solid stencilColor("color-sbm-darkRed");
+            border-top: 2px solid stencilColor("color-sbm-darkRed");
+            color: stencilColor("color-sbm-darkRed");
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .CategoryDescription {
+            transition: height 200ms;
+        }
+
     // ======================================
     // ACCOUNT STYLING
     // ======================================
