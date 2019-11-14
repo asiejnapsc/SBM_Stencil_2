@@ -115,7 +115,7 @@
 
 .card-title {
     font-size: 11px;
-    @include breakpoint (376px) {
+    @include breakpoint (412px) {
     font-size: $card-title-fontSize;
     }
     //margin: $card-title-margin;
@@ -213,7 +213,7 @@
 
 .card-text{
     font-size: 0.8rem;
-    @include breakpoint(376px) {
+    @include breakpoint(412px) {
         font-size: 1rem;
     }
 }
