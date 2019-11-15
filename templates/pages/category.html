@@ -26,6 +26,41 @@ category:
 {{/if}} -->
 <hr>
 <div class="page">
+
+    <div class="cat-subcat-area-mobile">
+        {{#unless theme_settings.hide_category_page_heading }}
+            <h1 class="page-heading">{{category.name}}</h1>
+            {{{region name="category_below_header"}}}
+        {{/unless}}
+
+        {{#if banners.top}}
+            <div class="banners" data-banner-location="top">
+                {{#each (limit banners.top_metadata 1)}}
+                <div class="banner" data-event-type="promotion" data-entity-id="{{this.id}}" data-name="{{this.banner-name}}" data-position="{{this.location}}" data-banner-id="{{this.banner-name}}">
+                    <div data-event-type="promotion-click">
+                        {{{this.content}}}
+                    </div>
+                </div>
+                {{/each}}
+            </div>
+        {{/if}}
+
+        <div class="CategoryDescription" style="overflow: hidden;">
+            {{{category.description}}}
+        </div> 
+
+        {{#if category.subcategories}}
+        <div class="subcategory-area">
+            <span>Refine by subcategory:</span>
+            <br>
+                {{#each category.subcategories}}
+                    <a href="{{url}}" alt="{{name}}" title="{{name}}">{{name}}</a>
+                {{/each}}
+        </div>
+        <hr>
+        {{/if}}
+    </div>
+
     {{#if category.faceted_search_enabled}}
         <aside class="page-sidebar" id="faceted-search-container">
             {{> components/category/sidebar}}
@@ -43,36 +78,40 @@ category:
     {{/if}}
 
     <main class="page-content" id="product-listing-container">
-        {{#unless theme_settings.hide_category_page_heading }}
-            <h1 class="page-heading">{{category.name}}</h1>
-            {{{region name="category_below_header"}}}
-        {{/unless}}
-        
-        {{#if banners.top}}
-        <div class="banners" data-banner-location="top">
-            {{#each (limit banners.top_metadata 1)}}
-            <div class="banner" data-event-type="promotion" data-entity-id="{{this.id}}" data-name="{{this.banner-name}}" data-position="{{this.location}}" data-banner-id="{{this.banner-name}}">
-                <div data-event-type="promotion-click">
-                    {{{this.content}}}
-                </div>
-            </div>
-            {{/each}}
-        </div>
-        {{/if}}
-        <div class="CategoryDescription" style="overflow: hidden;">
-            {{{category.description}}}
-        </div> 
 
-        {{#if category.subcategories}}
-        <div class="subcategory-area">
-            <span>Refine by subcategory:</span>
-            <br>
-                {{#each category.subcategories}}
-                    <a href="{{url}}" alt="{{name}}" title="{{name}}">{{name}}</a>
-                {{/each}}
+        <div class="cat-subcat-area">
+            {{#unless theme_settings.hide_category_page_heading }}
+                <h1 class="page-heading">{{category.name}}</h1>
+                {{{region name="category_below_header"}}}
+            {{/unless}}
+
+            {{#if banners.top}}
+                <div class="banners" data-banner-location="top">
+                    {{#each (limit banners.top_metadata 1)}}
+                    <div class="banner" data-event-type="promotion" data-entity-id="{{this.id}}" data-name="{{this.banner-name}}" data-position="{{this.location}}" data-banner-id="{{this.banner-name}}">
+                        <div data-event-type="promotion-click">
+                            {{{this.content}}}
+                        </div>
+                    </div>
+                    {{/each}}
+                </div>
+            {{/if}}
+
+            <div class="CategoryDescription" style="overflow: hidden;">
+                {{{category.description}}}
+            </div> 
+
+            {{#if category.subcategories}}
+            <div class="subcategory-area">
+                <span>Refine by subcategory:</span>
+                <br>
+                    {{#each category.subcategories}}
+                        <a href="{{url}}" alt="{{name}}" title="{{name}}">{{name}}</a>
+                    {{/each}}
+            </div>
+            <hr>
+            {{/if}}
         </div>
-        <hr>
-        {{/if}}
 
         {{#if category.products}}
             {{> components/category/product-listing}}

@@ -276,6 +276,22 @@
             transition: height 200ms;
     }
 
+    .cat-subcat-area-mobile {
+        display:block;
+
+        @include breakpoint("medium") {
+            display:none;
+        }
+    }
+
+    .cat-subcat-area {
+        display:none;
+
+        @include breakpoint("medium") {
+            display:block;
+        }
+    }
+
     // ======================================
     // ACCOUNT STYLING
     // ======================================
@@ -399,6 +415,11 @@
 
     #product-listing-container > div.banners > div > div > center > div > a > img { // styling for youtube image, other banner image styling wont override now
         width: 100% !important;
+    }
+
+    .yt-thumb-container img { // styling for youtube image, other banner image styling wont override now
+        width: 100% !important;
+        padding: 0 !important;
     }
 
     // ===============================================================
