@@ -276,7 +276,7 @@
             transition: height 200ms;
     }
 
-    .cat-subcat-area-mobile {
+    .cat-subcat-area-mobile { // swap out order for mobile
         display:block;
 
         @include breakpoint("medium") {
@@ -284,12 +284,20 @@
         }
     }
 
-    .cat-subcat-area {
+    .cat-subcat-area { // swap out order for mobile
         display:none;
 
         @include breakpoint("medium") {
             display:block;
         }
+    }
+
+    .card-badge {
+        z-index: 11;
+        position: absolute;
+        top: 0;
+        right: 0;
+        display: none;
     }
 
     // ======================================
