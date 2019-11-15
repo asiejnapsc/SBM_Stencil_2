@@ -198,7 +198,8 @@
     //font-size: fontSize("smaller");
     font-size: 15px;
     font-weight: fontWeight("bold");
-    padding: spacing("half") 0;
+    //padding: spacing("half") 0;
+    padding: .75rem 0;
     text-decoration: none;
     text-transform: uppercase;
 
@@ -474,5 +475,16 @@
     .navPages-item {
         display:inline-block;
         float: none;
+    }
+}
+
+#social-media-links-mobile {
+    border-top: 1px solid #cccccc;
+    margin-top: 0.73333rem;
+    padding-top: 1rem;
+    text-align:center;
+
+    .soc-icon {
+        text-decoration: none;
     }
 }
