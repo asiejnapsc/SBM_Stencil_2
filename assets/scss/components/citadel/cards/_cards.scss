@@ -70,8 +70,7 @@
     right: 0;
     padding: 0rem;
     border: 0;
-    //width: 100%;
-    width: 80%;
+    width: 45%;
     max-height: 50%;
     object-fit: contain;
     /* Object-fit polyfill */
@@ -80,6 +79,7 @@
     @include breakpoint ("medium") {
         padding: 2rem;
         top: -17rem;
+        width: 80%;
     }
 
 }
@@ -116,11 +116,11 @@
 .card-title {
     font-size: 11px;
     @include breakpoint (412px) {
-    font-size: $card-title-fontSize;
+        font-size: $card-title-fontSize;
+        margin-top: 1rem;
     }
     //margin: $card-title-margin;
     
-
     > a {
         color: stencilColor("AOO-blue");
         text-decoration: $card-title-textDecoration;
