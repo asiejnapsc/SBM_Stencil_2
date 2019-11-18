@@ -3,7 +3,7 @@
         <span id="replaceParts" style="display:block;">Related Parts</span>
         <span id="partsIncluded" style="display:none;">Parts Included</span>
     </h3>
-    <div>
+    <div id="related-products-area">
         {{#if settings.data_tag_enabled}}
             {{> components/products/carousel products=product.related_products columns=4 list="Related Products"}}
         {{else}}

@@ -164,3 +164,27 @@ div#Sirv {
     border-radius: 25px;
     box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.54);
 }
+
+// -----------------
+//  Related Product Cards
+// -----------------
+#related-products-area img.card-image {
+    width: 60%;
+}
+
+#related-products-area .card-img-container {
+    max-height: 160px;
+}
+
+#related-products-area .card-figure {
+    height: 430px;
+}
+
+#related-products-area .card-title {
+   font-size: 1rem;
+   line-height: 1.25rem;
+}
+
+#related-products-area [data-test-info-type="brandName"] {
+    display: none;
+}
