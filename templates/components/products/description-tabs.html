@@ -1,3 +1,18 @@
+{{#if product.related_products}}
+    <h3>
+        <span id="replaceParts" style="display:block;">Related Parts</span>
+        <span id="partsIncluded" style="display:none;">Parts Included</span>
+    </h3>
+    <div>
+        {{#if settings.data_tag_enabled}}
+            {{> components/products/carousel products=product.related_products columns=4 list="Related Products"}}
+        {{else}}
+            {{> components/products/carousel products=product.related_products columns=4}}
+        {{/if}}
+    </div>
+    <hr>
+ {{/if}}
+
 <ul class="tabs" data-tab>
     <li class="tab is-active">
         <a class="tab-title" href="#tab-description">{{lang 'products.description'}}</a>
@@ -32,14 +47,14 @@
         <a class="tab-title" href="#tab-articles">Articles</a>
     </li>
 
-    {{#if product.related_products}}
+    <!-- {{#if product.related_products}}
     <li class="tab" role="presentational">
         <a class="tab-title" href="#tab-related" role="tab" tabindex="0" aria-selected="true" controls="tab-related">
             <span id="replaceParts" style="display:block;">Related Parts</span>
             <span id="partsIncluded" style="display:none;">Parts Included</span>
         </a>
     </li>
-    {{/if}}
+    {{/if}} -->
 
 </ul>
 
@@ -75,8 +90,6 @@
             {{/each}}
         {{/if}}
     </div>
-
-
 
    {{#all product.custom_fields theme_settings.show_custom_fields_tabs}}
       <div class="tab-content" id="tab-{{dashcase (lowercase (sanitize theme_settings.pdp-custom-fields-tab-label))}}">
@@ -138,15 +151,5 @@
         {{/each}}
     {{/if}}
    </div>
-
-   {{#if product.related_products}}
-   <div role="tabpanel" aria-hidden="false" class="tab-content has-jsContent" id="tab-related">
-       {{#if settings.data_tag_enabled}}
-           {{> components/products/carousel products=product.related_products columns=4 list="Related Products"}}
-       {{else}}
-           {{> components/products/carousel products=product.related_products columns=4}}
-       {{/if}}
-   </div>
-    {{/if}}
 
 </div>
