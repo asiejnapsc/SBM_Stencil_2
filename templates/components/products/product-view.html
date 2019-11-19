@@ -125,10 +125,10 @@
                     <dt class="productView-info-name">{{lang 'products.availability'}}</dt>
                     <dd class="productView-info-value">{{product.availability}}</dd>
                 {{/if}}
-                {{#all product.weight theme_settings.show_product_weight}}
-                    <dt class="productView-info-name">{{lang 'products.weight'}}</dt>
+                {{#if product.weight}}
+                    <dt class="productView-info-name product-weight">{{lang 'products.weight'}}</dt>
                     <dd class="productView-info-value" data-product-weight>{{product.weight}}</dd>
-                {{/all}}
+                {{/if}}
                 {{#all product.width product.height product.depth theme_settings.show_product_dimensions}}
                     <dt class="productView-info-name">{{lang 'products.width'}}</dt>
                     <dd class="productView-info-value" data-product-width>

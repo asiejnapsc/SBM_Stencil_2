@@ -154,8 +154,8 @@
     }
 
     dt.productView-info-name.sku-label,
-    div.form-field.form-field--increments > label {
-        color: stencilColor("AOO-blue");
+    div.form-field.form-field--increments > label,
+    dt.productView-info-name.product-weight {
         font-weight: bold;
         text-transform: uppercase;
     }
