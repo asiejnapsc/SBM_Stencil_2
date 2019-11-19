@@ -69,5 +69,27 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lity/2.4.0/lity.css" />​
 <script src="https://cdnjs.cloudflare.com/ajax/libs/lity/2.4.0/lity.js"></script>
 
+// Promo Top Banner - script to make close / remember user closing
+<script>
+$(document).ready(function() {
+    if (!localStorage.bannerClosed) {
+        $('.PromoTopBanner').css('display', 'inherit');
+    } else {
+        $('.PromoTopBanner').css('display', 'none');
+    }
+
+    $('.promo-close').click(function() {
+        console.log('hi');
+        $('.PromoTopBanner').css('display', 'none');
+        localStorage.bannerClosed = 'true';
+    });
+
+    if (navigator.userAgent.match(/Opera|OPR\//)) {
+        $('.PromoTopBanner').css('display', 'inherit');
+    }
+
+});
+</script>
+
 
 </html>
