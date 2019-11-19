@@ -132,7 +132,8 @@ input[type="radio"] + label {
     }
 
     .productView-brand,
-    .productView-price {
+    .productView-price,
+    .productView-info {
         padding-left: 1rem;
     }
 
@@ -145,6 +146,15 @@ input[type="radio"] + label {
         border-radius: 1rem;
     }
 
+    .productView dt {
+        font-weight: bold;
+        margin-top: 0;
+    }
+
+    .productView-title {
+        font-size: 1.25rem;
+        line-height: 1.5rem;
+    }
 }
 
 // -----------------
