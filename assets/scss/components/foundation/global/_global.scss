@@ -143,7 +143,25 @@
         @include breakpoint("medium") {
             background: rgba(stencilColor("color-sbm-green"), .8);
         }
+    }
 
+    .PromoTopBannerMobile {
+        background: stencilColor("color-sbm-green");
+        width: 100%;
+        padding: .25rem;
+        color: #fff;
+        text-align: center;
+        position: fixed;
+        top: 0;
+        z-index: 1000;
+
+        a {
+            color: white !important;
+        }
+
+        @include breakpoint("medium") {
+            display:none;
+        }
 
     }
 
