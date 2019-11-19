@@ -132,17 +132,16 @@
         padding: .25rem;
         color: #fff;
         text-align: center;
-
         position: fixed;
         top: 0;
-        z-index: 10;
+        z-index: 1000;
 
         a {
             color: white !important;
         }
 
         @include breakpoint("medium") {
-            position: relative;
+            background: rgba(stencilColor("color-sbm-green"), .8);
         }
 
 
