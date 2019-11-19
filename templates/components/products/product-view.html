@@ -29,7 +29,7 @@
                         {{value}}</a> to purchase.
 
                         <style>
-                                span.price.price--withoutTax, .productView-rating, dl.productView-info, .productView-buttons, .productView-price {display:none;}
+                            span.price.price--withoutTax, .productView-rating, dl.productView-info, .productView-buttons, .productView-price {display:none;}
                         </style>
                     {{else}}
                     {{/filter}}
@@ -304,6 +304,12 @@
                                 {{> components/common/alert-error (lang 'products.sold_out')}}
                             {{/if}}
                         {{/if}}
+
+                        <a id="product-manuals-button" class="button button--darkRed" href="#lity-datasheets" data-lity="" alt="product manuals" style="display:none;">
+                            <i class="far fa-file-alt"></i> 
+                                View Product Manuals
+                        </a>
+      
                     </form>
                 </div>
             {{#if settings.show_wishlist}}

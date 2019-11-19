@@ -553,7 +553,7 @@
 // Data sheet styling for products with data sheets
 // ------------------------------------------------------------------------------
 
-#tab-datasheets {
+#tab-datasheets, #lity-datasheets {
     .datasheet_div {
         padding: 1rem;
 
@@ -582,6 +582,12 @@
             border-radius: 1rem;
         }
     }
+}
+
+// If in the lity modal
+#lity-datasheets {
+    background: white;
+    padding: 2rem;
 }
 
 // Video styling for products with videos
