@@ -172,9 +172,9 @@
         background: transparent;
     }
 
-    .form-action,
-    #additional-sizes {
-        width: 100%;
+    .productView-options .form-action,
+    #product-manuals-button {
+        width: 100% !important;
 
         @include breakpoint("large") {
             width: 48% !important;
@@ -420,7 +420,7 @@
 
         @include breakpoint("small") {
             float: left;
-            padding: 0 remCalc(10);
+            //padding: 0 remCalc(10);
             width: 50%;
         }
 
