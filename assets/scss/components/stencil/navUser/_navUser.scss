@@ -23,7 +23,7 @@
     top: 60px; // 2
     width: 100%; // 4
     height: 60px;
-    z-index: zIndex("lowest"); // 5.
+    // z-index: zIndex("lowest"); // 5.
     background-color: black;
     @include breakpoint("medium") {
         padding: 0.5rem spacing("single");
@@ -31,7 +31,7 @@
         right: auto;
         top: auto;
         transform: none;
-        z-index: zIndex("high");
+        //z-index: zIndex("high");
     }
 
     .dropdown-menu {
