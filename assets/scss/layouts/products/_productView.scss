@@ -125,7 +125,7 @@ input[type="radio"] + label {
     .productView {
         display:none;
 
-        @include breakpoint("medium") {
+        @include breakpoint(1025px) {
             display: flex;
         }
 
