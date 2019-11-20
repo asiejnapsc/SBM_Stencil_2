@@ -24,6 +24,7 @@
     z-index: zIndex("higher");
 
     @include breakpoint("medium") {
+        z-index: initial;
         border-bottom: container("border");
         overflow: visible;
         position: relative;

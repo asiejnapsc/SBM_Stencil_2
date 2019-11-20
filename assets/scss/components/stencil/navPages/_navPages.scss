@@ -48,6 +48,7 @@
     z-index: zIndex("lower");
 
     @include breakpoint("medium") {
+        z-index: initial;
         background: black;
         display: block;
         height: auto;
@@ -291,7 +292,7 @@
 .navPage-subMenu {
     display: none;
     outline: 0;
-
+    z-index: 1;
     @include breakpoint("medium") {
         // scss-lint:disable ImportantRule
         background-color: stencilColor("color-sbm-lightRed");
