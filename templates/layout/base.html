@@ -24,11 +24,7 @@
         {{ getFontsCollection }}
         {{{stylesheet '/assets/css/theme.css'}}}
 
-        {{#contains head.scripts "<script src=\"https://www.google.com/recaptcha/api.js\" async defer></script>"}}
-            {{#replace "<script src=\"https://www.google.com/recaptcha/api.js\" async defer></script>" head.scripts}}{{/replace}}
-        {{else}}
-            {{{head.scripts}}}
-        {{/contains}}
+        {{{head.scripts}}}
 
         {{~inject 'themeSettings' theme_settings}}
         {{~inject 'genericError' (lang 'common.generic_error')}}
