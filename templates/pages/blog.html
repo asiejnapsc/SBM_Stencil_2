@@ -65,13 +65,13 @@ blog:
                     </ul>
                 </div>
             <h4 class="monthly-archive"><a href="https://sandblastingmachines.com/blog/tag/monthly+newsletter" style="cursor:pointer;">MONTHLY ARCHIVE</a></h4>
-    <div class="BlockContent" id="BlogCategories">
+    <div class="BlockContent" id="MonthlyArchive">
         <ul>
-            <a href="https://sandblastingmachines.com/blog/newsletter-october-2019/"><li>Newsletter | October 2019</li></a>      
-            <a href="https://sandblastingmachines.com/blog/newsletter-september-2019/"><li>Newsletter | September 2019</li></a>      
-            <a href="https://sandblastingmachines.com/blog/newsletter-aug-2019/"><li>Newsletter | August 2019</li></a>      
-            <a href="https://sandblastingmachines.com/blog/newsletter-july-2019/"><li>Newsletter | July 2019</li></a>      
-            <a href="https://sandblastingmachines.com/blog/newsletter-june-2019/"><li>Newsletter | June 2019</li></a>    
+            <a href=""><li></li></a>      
+            <a href=""><li></li></a>      
+            <a href=""><li></li></a>      
+            <a href=""><li></li></a>      
+            <a href=""><li></li></a>    
         </ul>
     </div>
     
@@ -110,7 +110,21 @@ blog:
                   
             });            
         });
-    </script>     
+    </script>   
+    <!-- Script to pull the most reent monthly archives -->
+    <script>
+        $("#MonthlyArchive ul a").each(function(index, element){
+        var monthlyArchiveURL = "/blog/tag/monthly+newsletter";
+            $.get(monthlyArchiveURL, function(data){
+                  var children = $(data).find(".blog-title").children();
+                  var title = $(children[index]).text();
+                  var link = $(children[index]).attr("href");
+                  $(element).children('li').text(title);
+                  $(element).attr("href", link);
+                  
+            });            
+        });
+    </script> 
 
 <style>
      .container{
