@@ -265,7 +265,7 @@
 
 .form-option {
     border: 1px solid stencilColor("input-border-color");
-    color: stencilColor("form-label-font-color");
+    background: stencilColor("color-whitesBase");
     cursor: pointer;
     display: inline-block;
     font-size: 0; // 2
@@ -281,6 +281,8 @@
     .form-radio:checked + & {
         border-color: stencilColor("checkRadio-color");
         box-shadow: 0 0 0 1px stencilColor("checkRadio-color");
+        background: stencilColor("color-sbm-lightRed");
+        color: #fff;
     }
 }
 

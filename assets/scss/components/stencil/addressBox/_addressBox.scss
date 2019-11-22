@@ -47,10 +47,12 @@
 .panel--address {
     font-size: fontSize("base"); // 1
     position: relative;
+    padding: 1rem;
 
     .panel-body {
         min-height: remCalc(250px); // 2
         padding: spacing("single");
+        background: #fff;
 
         @include breakpoint("small") {
             padding: spacing("single") spacing("single") (spacing("single") + spacing("double")); // 3

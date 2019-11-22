@@ -33,7 +33,7 @@ function makeStateRequired(stateElement, context) {
 
     if ($newElement.prev().find('small').length === 0) {
         // String is injected from localizer
-        $newElement.prev().append(`<small>${context.required}</small>`);
+        $newElement.prev().append(`<small class="required">${context.required}</small>`);
     } else {
         $newElement.prev().find('small').show();
     }

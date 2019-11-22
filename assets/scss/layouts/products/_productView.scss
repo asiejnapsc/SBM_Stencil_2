@@ -35,14 +35,26 @@
 
 .productView-details {
     @include grid-column(12);
-    padding-left: spacing("base");
-    padding-right: spacing("base");
+    //padding-left: spacing("base");
+    //padding-right: spacing("base");
 
     @include breakpoint("medium") {
         clear: right;
         float: right;
         width: grid-calc(6, $total-columns);
     }
+
+    .productView-title {
+        font-weight: 500;
+        text-transform: uppercase;
+    }
+
+    .productView-price {
+        color: $sbm-light-red !important;
+        font-weight: 800;
+    }
+
+
 }
 
 .productView-description {
@@ -51,9 +63,10 @@
     padding-right: spacing("base");
 
     @include breakpoint("large") {
-        clear: right;
-        float: right;
-        width: grid-calc(6, $total-columns);
+        // clear: right;
+        // float: right;
+        // width: grid-calc(6, $total-columns);
+        width: 100%;
     }
 
     .productView-title {
@@ -61,6 +74,7 @@
         margin-bottom: spacing("base");
         padding-left: spacing("base");
         padding-right: spacing("base");
+        
     }
 
     .productView-description {
@@ -70,4 +84,117 @@
             width: 100%;
         }
     }
+}
+
+input[type="tel"] {
+
+    border: none;
+    background: inherit;
+    box-shadow: none;
+    color: $color-textBase;
+    display: inline;
+    font-family: inherit;
+    font-size: 1rem;
+    margin: 0;
+    padding: 0.75rem;
+    width: 40px;
+}
+
+.tab.is-active .tab-title {
+    border-top: 4px solid $sbm-light-red;
+}
+
+input[type="radio"] + label {
+    margin-left: 0;
+}
+
+.form-label {
+    color: $color-textBase;
+}
+
+// -----------------
+// Add to Cart Modal
+// -----------------
+
+#previewModal {
+
+    .continue-shopping {
+        background: #fff;
+    }
+
+    .productView {
+        display:none;
+
+        @include breakpoint(1025px) {
+            display: flex;
+        }
+
+    }
+
+    .productView-brand,
+    .productView-price,
+    .productView-info {
+        padding-left: 1rem;
+    }
+
+    .productView-brand {
+        color: white;
+    }
+
+    .productView-details {
+        margin: .5rem;
+        border-radius: 1rem;
+    }
+
+    .productView dt {
+        font-weight: bold;
+        margin-top: 0;
+    }
+
+    .productView-title {
+        font-size: 1.25rem;
+        line-height: 1.5rem;
+    }
+}
+
+// -----------------
+// Product 360
+// -----------------
+#image360, .image360Badge {
+    display: none;
+}
+
+.image360Badge {
+    background: stencilColor("color-sbm-lightRed");
+}
+
+div#Sirv {
+    background: white;
+    border: 1px solid black;
+    border-radius: 25px;
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.54);
+}
+
+// -----------------
+//  Related Product Cards
+// -----------------
+#related-products-area img.card-image {
+    width: 60%;
+}
+
+#related-products-area .card-img-container {
+    max-height: 160px;
+}
+
+#related-products-area .card-figure {
+    height: 430px;
+}
+
+#related-products-area .card-title {
+   font-size: 1rem;
+   line-height: 1.25rem;
+}
+
+#related-products-area [data-test-info-type="brandName"] {
+    display: none;
 }

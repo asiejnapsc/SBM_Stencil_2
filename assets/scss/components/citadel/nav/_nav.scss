@@ -64,6 +64,8 @@
     &.is-selected {
         @include checkRadioBase--checked();
     }
+
+    height:1.8rem;
 }
 
 

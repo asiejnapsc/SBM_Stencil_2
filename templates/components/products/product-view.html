@@ -16,12 +16,64 @@
                     <a href="{{product.brand.url}}"{{#if schema}} itemprop="url"{{/if}}><span{{#if schema}} itemprop="name"{{/if}}>{{product.brand.name}}</span></a>
                 </h2>
             {{/if}}
+            
+            {{#if product.custom_fields}}
+
+                <div class="nka-div">
+                    {{#filter product.custom_fields 'NKA URL' property='name' }}
+                        This product is now known under a different name, please visit <a href="{{value}}">
+                    {{else}}
+                    {{/filter}}
+
+                    {{#filter product.custom_fields 'Now Known As' property='name' }}
+                        {{value}}</a> to purchase.
+
+                        <style>
+                            span.price.price--withoutTax, .productView-rating, dl.productView-info, .productView-buttons, .productView-price {display:none;}
+                        </style>
+                    {{else}}
+                    {{/filter}}
+                </div>
+
+                <div class="backorder-div">
+                    {{#filter product.custom_fields 'Back Order' property='name' }}
+                        This product is currently on back order call <a href="tel:18553582850">1-855-358-2850</a> to check for availability.
+                        <style>
+                            span.price.price--withoutTax, .productView-rating, dl.productView-info, .productView-buttons, .productView-price {display:none;}
+                        </style>
+                    {{else}}
+                    {{/filter}}
+                </div>
+
+                <div class="relatedparts-div">
+                    {{#filter product.custom_fields 'Related Parts' property='name' }}
+                        This product can only be purchased through its individual parts. Please see the related parts tab below for its components. 
+                        <br><br> If you have any questions, please <a href="/contact-us">contact us</a>.
+                        <style>
+                            span.price.price--withoutTax, .productView-rating, dl.productView-info, .productView-buttons, .productView-price {display:none;}
+                        </style>
+                    {{else}}
+                    {{/filter}}
+                </div>
+
+                <div class="quoteonly-div">
+                    {{#filter product.custom_fields 'Quote Only' property='name' }}
+                        This product is not avaliable for purchase directly. <a href="/quote-request">Click here to get a quote for this product.</a>
+                        <style>
+                            span.price.price--withoutTax, .productView-rating, dl.productView-info, .productView-buttons, .productView-price {display:none;}
+                        </style>
+                    {{else}}
+                    {{/filter}}
+                </div>
+    
+            {{/if}}
+
             {{#if product.call_for_price}}
                 <p class="productView-price">
                     <span>{{product.call_for_price}}</span>
                 </p>
             {{/if}}
-            <div class="productView-price">
+            <div class="productView-price" id="product-page-price">
                 {{#or customer (if theme_settings.restrict_to_login '!==' true)}}
                     {{> components/products/price price=product.price schema_org=schema}}
                 {{else}}
@@ -62,13 +114,9 @@
             {{product.detail_messages}}
             <dl class="productView-info">
                 <dt class="productView-info-name sku-label"{{#unless product.sku}} style="display: none;"{{/unless}}>{{lang 'products.sku'}}</dt>
-                <dd class="productView-info-value" data-product-sku{{#if schema}} itemprop="sku"{{/if}}>{{product.sku}}</dd>
+                <dd class="productView-info-value" data-product-sku>{{product.sku}}</dd>
                 <dt class="productView-info-name upc-label"{{#unless product.upc}} style="display: none;"{{/unless}}>{{lang 'products.upc'}}</dt>
                 <dd class="productView-info-value" data-product-upc>{{product.upc}}</dd>
-                {{#if schema}}
-                    {{#if product.mpn}}<meta itemprop="mpn" content="{{product.mpn}}" />{{/if}}
-                    {{#if product.gtin}}<meta itemprop="gtin" content="{{product.gtin}}" />{{/if}}
-                {{/if}}
                 {{#if product.condition}}
                     <dt class="productView-info-name">{{lang 'products.condition'}}</dt>
                     <dd class="productView-info-value">{{product.condition}}</dd>
@@ -77,10 +125,10 @@
                     <dt class="productView-info-name">{{lang 'products.availability'}}</dt>
                     <dd class="productView-info-value">{{product.availability}}</dd>
                 {{/if}}
-                {{#all product.weight theme_settings.show_product_weight}}
-                    <dt class="productView-info-name">{{lang 'products.weight'}}</dt>
+                {{#if product.weight}}
+                    <dt class="productView-info-name product-weight">{{lang 'products.weight'}}</dt>
                     <dd class="productView-info-value" data-product-weight>{{product.weight}}</dd>
-                {{/all}}
+                {{/if}}
                 {{#all product.width product.height product.depth theme_settings.show_product_dimensions}}
                     <dt class="productView-info-name">{{lang 'products.width'}}</dt>
                     <dd class="productView-info-value" data-product-width>
@@ -143,11 +191,16 @@
                     </div>
                 {{/if}}
 
+                <!-- custom fields-->
                 {{#if theme_settings.show_custom_fields_tabs '!==' true}}
+                    <div id="ProductCustomFields" style="display:none;">
                     {{#each product.custom_fields}}
-                        <dt class="productView-info-name">{{name}}:</dt>
-                        <dd class="productView-info-value">{{{value}}}</dd>
+                        <div class="customField">
+                            <div class="label">{{name}}</div>
+                            <div class="value">{{value}}</div>
+                        </div>
                     {{/each}}
+                    </div>
                 {{/if}}
             </dl>
         </div>
@@ -168,7 +221,7 @@
                 {{!-- Remove the surrounding a-element if there is no main image. --}}
                 {{#if product.main_image}}
                     <a href="{{getImageSrcset product.main_image (cdn theme_settings.default_image_product) 1x=theme_settings.zoom_size}}"
-                        target="_blank"{{#if schema}} itemprop="image"{{/if}}>
+                        target="_blank">
                 {{/if}}
                 {{> components/common/responsive-img
                     image=product.main_image
@@ -184,12 +237,19 @@
                 {{/if}}
             </div>
         </figure>
-        <ul class="productView-thumbnails"{{#gt product.images.length 5}} data-slick='{
+        <ul class="productView-thumbnails"{{#gt product.images.length 10}} data-slick='{
                 "infinite": false,
                 "mobileFirst": true,
                 "slidesToShow": 5,
                 "slidesToScroll": 1
             }'{{/gt}}>
+
+            <li class="productView-thumbnail" id="image360">
+                <a class="productView-thumbnail-link image360Badge" href="#Sirv" data-lity="">
+                    <img src="https://cdn10.bigcommerce.com/s-489s1uwnq2/product_images/uploaded_images/360-degrees.png"></a>
+                </a>
+            </li>
+
             {{#each product.images}}
                 <li class="productView-thumbnail">
                     <a
@@ -202,13 +262,15 @@
                     >
                     {{> components/common/responsive-img
                         image=this
-                        fallback_size=../theme_settings.productview_thumb_size
+                        fallback_size=../theme_settings.productthumb_size
                         lazyload=../theme_settings.lazyload_mode
                     }}
                     </a>
                 </li>
             {{/each}}
+
         </ul>
+
     </section>
 
     <section class="productView-details">
@@ -216,37 +278,45 @@
             {{#if product.release_date }}
                 <p>{{product.release_date}}</p>
             {{/if}}
-            <form class="form" method="post" action="{{product.cart_url}}" enctype="multipart/form-data"
-                  data-cart-item-add>
-                <input type="hidden" name="action" value="add">
-                <input type="hidden" name="product_id" value="{{product.id}}"/>
-                <div data-product-option-change style="display:none;">
-                    {{#each product.options}}
-                        {{{dynamicComponent 'components/products/options'}}}
-                    {{/each}}
+            <div class="productView-buttons">
+                    <form class="form" method="post" action="{{product.cart_url}}" enctype="multipart/form-data"
+                        data-cart-item-add>
+                        <input type="hidden" name="action" value="add">
+                        <input type="hidden" name="product_id" value="{{product.id}}"/>
+                        <div data-product-option-change style="display:none;">
+                            {{#each product.options}}
+                                {{{dynamicComponent 'components/products/options'}}}
+                            {{/each}}
+                        </div>
+                        <div class="form-field form-field--stock{{#unless product.stock_level}} u-hiddenVisually{{/unless}}">
+                            <label class="form-label form-label--alternate">
+                                {{lang 'products.current_stock'}}
+                                <span data-product-stock>{{product.stock_level}}</span>
+                            </label>
+                        </div>
+                        {{#if product.can_purchase}}
+                            {{> components/products/add-to-cart}}
+                        {{/if}}
+                        {{#if product.out_of_stock}}
+                            {{#if product.out_of_stock_message}}
+                                {{> components/common/alert-error product.out_of_stock_message}}
+                            {{else}}
+                                {{> components/common/alert-error (lang 'products.sold_out')}}
+                            {{/if}}
+                        {{/if}}
+
+                        <a id="product-manuals-button" class="button button--darkRed" href="#lity-datasheets" data-lity="" alt="product manuals" style="display:none;">
+                            <i class="far fa-file-alt"></i> 
+                                View Product Manuals
+                        </a>
+      
+                    </form>
                 </div>
-                <div class="form-field form-field--stock{{#unless product.stock_level}} u-hiddenVisually{{/unless}}">
-                    <label class="form-label form-label--alternate">
-                        {{lang 'products.current_stock'}}
-                        <span data-product-stock>{{product.stock_level}}</span>
-                    </label>
-                </div>
-                {{#if product.can_purchase}}
-                    {{> components/products/add-to-cart}}
-                {{/if}}
-                {{#if product.out_of_stock}}
-                    {{#if product.out_of_stock_message}}
-                        {{> components/common/alert-error product.out_of_stock_message}}
-                    {{else}}
-                        {{> components/common/alert-error (lang 'products.sold_out')}}
-                    {{/if}}
-                {{/if}}
-            </form>
             {{#if settings.show_wishlist}}
                 {{> components/common/wishlist-dropdown}}
             {{/if}}
         </div>
-        {{> components/common/share}}
+        <!-- {{> components/common/share}} -->
     </section>
 
     <article class="productView-description"{{#if schema}} itemprop="description"{{/if}}>
@@ -259,7 +329,7 @@
 </div>
 
 <div id="previewModal" class="modal modal--large" data-reveal>
-    <a href="#" class="modal-close" aria-label="{{lang 'common.close'}}" role="button">
+    <a href="#" class="modal-close" aria-label="{{lang 'common.close'}}" role="button" style="top:1.05rem;"">
         <span aria-hidden="true">&#215;</span>
     </a>
     <div class="modal-content"></div>

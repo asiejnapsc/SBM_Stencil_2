@@ -20,12 +20,13 @@
     @include nav($style: "navBar", $wrapper: "nav");
     @include verticalPositionMiddle("absolute");
     right: 0;
-    top: 26px; // 2
+    top: 60px; // 2
     width: 100%; // 4
+    height: 60px;
     z-index: zIndex("lowest"); // 5.
-
+    background-color: black;
     @include breakpoint("medium") {
-        padding: 0 spacing("single");
+        padding: 0.5rem spacing("single");
         position: relative;
         right: auto;
         top: auto;
@@ -48,7 +49,7 @@
                     $triangle-color: stencilColor("navUser-dropdown-borderColor")
                 );
                 bottom: 100%;
-                left: spacing("half");
+                right: spacing("half");
                 position: absolute;
             }
 
@@ -59,7 +60,7 @@
                     $triangle-color: stencilColor("navUser-dropdown-backgroundColor")
                 );
                 bottom: 100%;
-                left: spacing("half") + remCalc(2px);
+                right: spacing("half") + remCalc(2px);
                 position: absolute;
             }
         }
@@ -70,6 +71,10 @@
     @include breakpoint("medium") {
         position: relative; // 7
     }
+}
+
+.navUser-action:focus{
+    color: stencilColor("navUser-color");
 }
 
 .navUser-action {
@@ -207,7 +212,7 @@
 }
 
 .navUser-item-cartLabel {
-    display: none;
+    display: block;
 
     @include breakpoint("small") {
         display: inline;
@@ -323,11 +328,13 @@
 // -----------------------------------------------------------------------------
 
 .countPill {
-    background-color: stencilColor("navUser-indicator-backgroundColor");
+    //background-color: stencilColor("navUser-indicator-backgroundColor");
+    background-color: white;
     border-radius: 50%;
-    color: color("whites", "bright");
+    //color: color("whites", "bright");
+    color: stencilColor("color-greyDarkest");
     display: none;
-    font-size: fontSize("tiny");
+    font-size: fontSize("smallest");
     font-weight: fontWeight("bold");
     height: 20px; // 1
     line-height: 20px; // 1
@@ -337,10 +344,77 @@
 }
 
 .countPill--positive {
-    display: inline-block;
+    display: inline-block !important;
 }
 
 .countPill--alt {
     background-color: color("greys", "lighter");
     color: color("greys", "darker");
+}
+
+// Social Nav
+// -----------------------------------------------------------------------------
+//
+// Added styling to the social media icons
+//
+// -----------------------------------------------------------------------------
+
+.soc-icon{
+    padding-right: 10px;
+    color: #ffffff;
+}
+.soc-icon:hover{
+    color: #ffffff;
+}
+.soc-icon:focus{
+    color: #ffffff;
+}
+
+// Top Nav
+// -----------------------------------------------------------------------------
+//
+// Styling the top bar links.
+//
+// -----------------------------------------------------------------------------
+
+.navUser-links{
+    display: flex;
+    padding-top: 2%;
+    color: #ffffff;
+}
+
+.navUser-item > a{
+    text-decoration: none;
+    color: #ffffff;
+    padding-left: 5px;
+    font-size: 15px;
+}
+
+@media only screen and (max-width: 1020px) {
+    .navUser-item {
+        display: none;
+    }
+
+    .navUser-item-cart {
+        padding-top: 15px !important;
+    }
+}
+
+.navUser-action {
+    padding-top: 0px;
+}
+
+.navUser-item-cartLabel {
+    display: initial;
+}
+
+#cart-preview-dropdown {
+    display: none;
+
+    @include breakpoint("medium") {
+        display: block;
+        right: 0;
+        width: 20rem;
+    }
+
 }

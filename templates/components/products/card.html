@@ -1,5 +1,17 @@
 <article class="card {{#if alternate}}card--alternate{{/if}}" {{#if settings.data_tag_enabled}} data-event-type="{{event}}" data-entity-id="{{id}}" data-position="{{position}}" data-name="{{name}}" data-product-category="{{#each category}}{{#if @last}}{{this}}{{else}}{{this}}, {{/if}}{{/each}}" data-product-brand="{{brand.name}}" data-product-price="{{#if price.with_tax}}{{price.with_tax.value}}{{else}}{{price.without_tax.value}}{{/if}}"  {{/if}}>
     <figure class="card-figure">
+
+        {{#if custom_fields}}
+            {{#each custom_fields}}
+                {{#if name '===' 'Most Popular'}}
+                    <img class="card-badge most-popular" src="https://cdn3.bigcommerce.com/s-489s1uwnq2/product_images/uploaded_images/most-popular-badge.png" alt="most popular" style="display:block;">
+                {{/if}}
+                {{#if name '===' 'Best Value'}}
+                    <img class="card-badge best-value" src="https://cdn3.bigcommerce.com/s-489s1uwnq2/product_images/uploaded_images/best-value-badge.png" alt="best value" style="display:block;">
+                {{/if}}
+            {{/each}}
+        {{/if}}
+
         {{#or price.non_sale_price_with_tax price.non_sale_price_without_tax}}
             {{#if theme_settings.product_sale_badges '===' 'sash'}}
                 <div class="sale-flag-sash">
@@ -28,7 +40,7 @@
             </div>
         </a>
 
-        <figcaption class="card-figcaption">
+        <figcaption class="card-figcaption" style="display:none;">
             <div class="card-figcaption-body">
                 {{#unless hide_product_quick_view}}
                     {{#if theme_settings.show_product_quick_view}}
@@ -62,29 +74,37 @@
                 {{/or}}
             </div>
         </figcaption>
-    </figure>
-    <div class="card-body">
-        {{#and rating show_rating}}
-            <p class="card-text" data-test-info-type="productRating">
-                <span class="rating--small">
-                    {{> components/products/ratings rating=rating}}
-                </span>
-            </p>
-        {{/and}}
-        {{#if brand.name}}
-            <p class="card-text" data-test-info-type="brandName">{{brand.name}}</p>
-        {{/if}}
-        <h4 class="card-title">
-            <a href="{{url}}" {{#if settings.data_tag_enabled}} data-event-type="product-click" {{/if}}>{{name}}</a>
-        </h4>
 
-        <div class="card-text" data-test-info-type="price">
-            {{#or customer (if theme_settings.restrict_to_login '!==' true)}}
-                {{> components/products/price price=price}}
-            {{else}}
-                {{> components/common/login-for-pricing}}
-            {{/or}}
+        <div class="card-information">
+            <h4 class="card-title" style="height: auto;">
+                    <a href="{{url}}" {{#if settings.data_tag_enabled}} data-event-type="product-click" {{/if}}>{{name}}</a>
+            </h4>
+
+            {{#if brand.name}}
+            <p class="card-text" data-test-info-type="brandName">{{brand.name}}</p>
+            {{/if}}
+            
+                {{#and rating show_rating}}
+                    <p class="card-text" data-test-info-type="productRating">
+                        <span class="rating--small">
+                            {{> components/products/ratings rating=rating}}
+                        </span>
+                    </p>
+                {{/and}}
+            
+            <div class="card-text price" data-test-info-type="price">
+                    {{#or customer (if theme_settings.restrict_to_login '!==' true)}}
+                        {{> components/products/price price=price}}
+                    {{else}}
+                        {{> components/common/login-for-pricing}}
+                    {{/or}}
+            </div>
+            {{> components/products/bulk-discount-rates}}
+
+            
         </div>
-        {{> components/products/bulk-discount-rates}}
-    </div>
+
+        <a href="{{url}}" class="button button--primary card-button">MORE INFO</a>
+
+    </figure>
 </article>

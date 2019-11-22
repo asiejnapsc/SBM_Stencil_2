@@ -2,10 +2,10 @@
     {{> components/common/alert-info (lang 'account.addresses.no_addresses')}}
 {{/unless}}
 
-<ul class="addressList">
+<ul class="addressList" data-equalizer>
     {{#each customer.addresses}}
         <li class="address">
-            <div class="panel panel--address">
+            <div class="panel panel--address" data-equalizer-watch>
                 <div class="panel-body">
                     <h5 class="address-title">{{first_name}} {{last_name}}</h5>
                     <ul class="address-details address-details--postal">
@@ -36,7 +36,11 @@
             <span class="panel-body">
                 <span class="address-addNew">
                     <span class="address-symbol">&plus;</span>
-                    <h5 class="address-title">{{lang 'account.addresses.new_address' }}</h5>
+                    <h5 class="address-title">
+                        <i class="fas fa-plus-circle fa-4x"></i>
+                        <br><br>
+                        {{lang 'account.addresses.new_address' }}
+                    </h5>
                 </span>
             </span>
         </a>

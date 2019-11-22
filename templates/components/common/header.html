@@ -1,31 +1,44 @@
-{{#if banners.top}}
-<div class="banners" data-banner-location="top">
-    {{#each (limit banners.top_metadata 1)}}
-    <div class="banner" data-event-type="promotion" data-entity-id="{{this.id}}" data-name="{{this.banner-name}}" data-position="{{this.location}}" data-banner-id="{{this.banner-name}}">
-        <div data-event-type="promotion-click">
-            {{{this.content}}}
-        </div>
-    </div>
-    {{/each}}
-</div>
-{{/if}}
 <header class="header" role="banner">
-    <a href="#" class="mobileMenu-toggle" data-mobile-menu-toggle="menu">
-        <span class="mobileMenu-toggleIcon">Toggle menu</span>
-    </a>
+    
     {{> components/common/navigation}}
-
-    {{#if page_type '===' 'default'}}
-        <h1 class="header-logo header-logo--{{theme_settings.logo-position}}">
-            {{> components/common/store-logo}}
-        </h1>
-    {{else}}
-        <div class="header-logo header-logo--{{theme_settings.logo-position}}">
-            {{> components/common/store-logo}}
+        <div class="header-secondary header-logo header-logo--{{theme_settings.logo-position}}">
+            
+                    
+                <div class="search_links">
+                    <a href="https://sandblastingmachines.com">HOME</a>
+                    <a href="/our-products/">OUR PRODUCTS</a>
+                    <a href="/our-mission/">OUR MISSION</a>
+                    <a href="/faq">FAQ</a>
+                    <a href="/customer-service">CUSTOMER SERVICE</a>
+                    <a href="/blog/" alt="blog">BLOG</a>
+                    <div id="SearchForm" class="cf">
+                        <form action="/search-results" method="get" onsubmit="return check_small_search_form()">
+                            <label for="search_query" style="display:none;">Search</label>
+                            <span role="status" aria-live="polite" class="isp_polite_powered_by_id ui-helper-hidden-accessible"><a href="http://www.instantsearchplus.com"></a></span><input type="text" name="q" id="search_query" class="Textbox autobox" placeholder="Search" autocomplete="OfF" autocorrect="off" autocapitalize="off" isp_ac="OfF">
+                            <input type="submit" class="Button" value="" name="Search" title="Search">
+                        </form>
+                    </div>
+                </div>
+                
+             <div class="header--image">
+                {{> components/common/store-logo}}
+             </div>   
+            
         </div>
-    {{/if}}
+    
     <div class="navPages-container" id="menu" data-menu>
         {{> components/common/navigation-menu}}
     </div>
+    <div class="Block" id="SearchForm-Mobile">
+        <div class="BlockContent">
+            <form action="/search-results" method="get" onsubmit="return check_small_search_form()">
+                <div style="display: inline-flex; width: 100%;">
+                    <span role="status" aria-live="polite" class="isp_polite_powered_by_id ui-helper-hidden-accessible"></span><input type="text" name="q" id="search_query" class="Textbox autobox ui-autocomplete-input" value="" title="Search" autocorrect="off" autocapitalize="off" placeholder="Search" autocomplete="OfF" isp_ac="OfF" style="margin-bottom: 0px; height:auto; background-color: #ffffff; padding-left: 10px; border-width: 0px;">
+                    <button type="submit" style="float: right;" class="search-button-mobile"><i class="fa fa-search"></i></button>
+                </div>
+            </form>
+        </div>
+    </div>
 </header>
 {{{region name="header_bottom"}}}
+

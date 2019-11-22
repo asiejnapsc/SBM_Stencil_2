@@ -7,8 +7,30 @@
 <div class="modal-body">
     <div class="previewCart">
         <section class="previewCartCheckout">
+
+            
+            <p data-cart-quantity="{{cart.quantity}}">
+                    {{lang 'cart.added_to_cart.your_cart_contains' num_products=cart.quantity}}
+            </p>
+
+            <div class="previewCartCheckout-subtotal">
+                    {{lang 'cart.added_to_cart.order_subtotal'}}
+    
+                    <strong class="previewCartCheckout-price">
+                        {{#or customer (if theme_settings.restrict_to_login '!==' true)}}
+                            {{cart.sub_total.formatted}}
+                        {{else}}
+                            {{> components/common/login-for-pricing}}
+                        {{/or}}
+                    </strong>
+                </div>
+
+            <a href="{{urls.cart}}" class="button button--lightRed">
+                   View Cart / Est. Shipping
+            </a>
+
             {{#if cart.show_primary_checkout_button}}
-                <a href="{{urls.checkout.single_address}}" class="button button--primary">
+                <a href="{{urls.checkout.single_address}}" class="button button--green">
                     {{lang 'cart.added_to_cart.proceed_to_checkout'}}
                 </a>
             {{/if}}
@@ -27,29 +49,10 @@
                 </div>
             {{/if}}
 
-            <div class="previewCartCheckout-subtotal">
-                {{lang 'cart.added_to_cart.order_subtotal'}}
-
-                <strong class="previewCartCheckout-price">
-                    {{#or customer (if theme_settings.restrict_to_login '!==' true)}}
-                        {{cart.sub_total.formatted}}
-                    {{else}}
-                        {{> components/common/login-for-pricing}}
-                    {{/or}}
-                </strong>
-            </div>
-
-            <p data-cart-quantity="{{cart.quantity}}">
-                {{lang 'cart.added_to_cart.your_cart_contains' num_products=cart.quantity}}
-            </p>
-
-            <a href="#" class="button button--primary" role="button" data-reveal-close>
+            <a href="#" class="button continue-shopping" role="button" data-reveal-close>
                 {{lang 'cart.added_to_cart.continue_shopping'}}
             </a>
 
-            <a href="{{urls.cart}}" class="button">
-                {{lang 'cart.added_to_cart.view_or_edit_cart'}}
-            </a>
         </section>
         <section class="productView">
             {{#with cart.added_item}}
@@ -98,7 +101,7 @@
     </div>
 
     {{#if cart.suggested_products}}
-        <section class="suggestiveCart">
+        <section class="suggestiveCart" style="display:none;">
             <h4>
                 {{lang 'cart.added_to_cart.you_might_also_like'}}&hellip;
             </h4>

@@ -6,7 +6,10 @@
     </div>
 {{else}}
     <div class="cart-total-value">
-        <button class="shipping-estimate-show">{{lang 'cart.shipping_estimator.add_info'}}</button>
+        <a name="shipping-jump"></a>
+        <button class="shipping-estimate-show">Estimate Shipping 
+                <i class="fas fa-shipping-fast fa-sm" aria-hidden="true"></i>
+        </button>
         <button class="shipping-estimate-hide" style="display: none;">Cancel</button>
     </div>
 {{/if}}
@@ -15,7 +18,10 @@
     <form class="form estimator-form" data-shipping-estimator>
         <dl>
             <dt class="estimator-form-label">
-                <label class="form-label" for="shipping-country">{{lang 'cart.shipping_estimator.select_a_country'}}</label>
+                <label class="form-label" for="shipping-country">
+                    {{lang 'cart.shipping_estimator.select_a_country'}}
+                    <span class="required">*</span>
+                </label>
             </dt>
 
             <dd class="estimator-form-input">
@@ -30,7 +36,10 @@
             </dd>
 
             <dt class="estimator-form-label">
-                <label class="form-label" for="shipping-state">{{lang 'cart.shipping_estimator.select_a_state'}}</label>
+                <label class="form-label" for="shipping-state">
+                    {{lang 'cart.shipping_estimator.select_a_state'}}
+                    <span class="required">*</span>
+                </label>
             </dt>
 
             <dd class="estimator-form-input">
@@ -49,14 +58,20 @@
             </dd>
 
             <dt class="estimator-form-label">
-                <label class="form-label" for="shipping-city">{{lang 'cart.shipping_estimator.suburb_city'}}</label>
+                <label class="form-label" for="shipping-city">
+                    {{lang 'cart.shipping_estimator.suburb_city'}}
+                    <span class="required">*</span>
+                </label>
             </dt>
             <dd class="estimator-form-input">
                 <input class="form-input" type="text" id="shipping-city" name="shipping-city" value="{{selected_city}}" placeholder="{{lang 'cart.shipping_estimator.suburb_city'}}">
             </dd>
 
             <dt class="estimator-form-label">
-                <label class="form-label" for="shipping-zip">{{lang 'cart.shipping_estimator.zip_postal_code'}}</label>
+                <label class="form-label" for="shipping-zip">
+                    {{lang 'cart.shipping_estimator.zip_postal_code'}} 
+                    <span class="required">*</span>
+                </label>
             </dt>
             <dd class="estimator-form-input">
                 <input class="form-input" type="text" id="shipping-zip" name="shipping-zip" value="{{selected_zip}}" placeholder="{{lang 'cart.shipping_estimator.zip_postal_code'}}">

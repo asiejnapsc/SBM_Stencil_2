@@ -18,6 +18,8 @@
 
     &.is-open {
         display: block;
+        top: auto !important;
+        left: auto !important;
     }
 }
 

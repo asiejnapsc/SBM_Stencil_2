@@ -9,7 +9,6 @@
 
         <link href="{{ head.favicon }}" rel="shortcut icon">
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-
         <script>
             {{!-- Change document class from no-js to js so we can detect this in css --}}
             document.documentElement.className = document.documentElement.className.replace('no-js', 'js');
@@ -34,6 +33,11 @@
         {{~inject 'secureBaseUrl' settings.secure_base_url}}
         {{~inject 'cartId' cart_id}}
         {{~inject 'template' template}}
+        <script src="https://kit.fontawesome.com/a20843a92e.js" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>    
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/foundation/5.5.3/js/foundation.min.js"></script>
+   
+
     </head>
     <body>
         <svg data-src="{{cdn 'img/icon-sprite.svg'}}" class="icons-svg-sprite"></svg>
@@ -55,4 +59,33 @@
 
         {{{footer.scripts}}}
     </body>
+
+<!-- IS+ --><script async src="https://bigcommerce.instantsearchplus.com/js/acp-magento.js?v=2&mode=bigcommerce&UUID=4d5f7e3f-0b22-4b71-b5f4-830f881a2272&store=1"></script><!-- IS+ -->
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lity/2.4.0/lity.css" />​
+<script src="https://cdnjs.cloudflare.com/ajax/libs/lity/2.4.0/lity.js"></script>
+
+// Promo Top Banner - script to make close / remember user closing
+<script>
+$(document).ready(function() {
+    if (!localStorage.bannerClosed) {
+        $('.PromoTopBanner').css('display', 'inherit');
+    } else {
+        $('.PromoTopBanner').css('display', 'none');
+    }
+
+    $('.promo-close').click(function() {
+        console.log('hi');
+        $('.PromoTopBanner').css('display', 'none');
+        localStorage.bannerClosed = 'true';
+    });
+
+    if (navigator.userAgent.match(/Opera|OPR\//)) {
+        $('.PromoTopBanner').css('display', 'inherit');
+    }
+
+});
+</script>
+
+
 </html>

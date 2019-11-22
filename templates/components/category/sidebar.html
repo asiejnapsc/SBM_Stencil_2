@@ -1,8 +1,8 @@
 <nav>
-    {{#if category.subcategories}}
+    <!-- {{#if category.subcategories}}
         <div class="sidebarBlock">
-            <h5 class="sidebarBlock-heading">{{category.name}}</h5>
-            <ul class="navList">
+            <h5 class="sidebarBlock-heading"> Subcategories</h5>
+            <ul class="navList subCategories">
                 {{#each category.subcategories}}
                 <li class="navList-item">
                     <a class="navList-action" href="{{url}}" alt="{{name}}" title="{{name}}">{{name}}</a>
@@ -10,11 +10,34 @@
                 {{/each}}
             </ul>
         </div>
-    {{/if}}
+    {{/if}} -->
 
     {{#if category.faceted_search_enabled}}
         {{> components/faceted-search/index category}}
     {{else}}
         {{> components/category/shop-by-price shop_by_price=category.shop_by_price category_url=category.url}}
     {{/if}}
+
+    <hr>
+
+    <div class="sidebar-badges">
+        <a href="https://sandblastingmachines.com/blog/understanding-sandblasting-compressor-size-requirements-/">
+            <img src="https://cdn3.bigcommerce.com/s-489s1uwnq2/product_images/uploaded_images/compresser-size-tile.jpg"
+            alt="compressor size requirements">
+        </a>
+
+        <a href="https://sandblastingmachines.com/apparel/">
+            <img src="https://cdn3.bigcommerce.com/s-489s1uwnq2/product_images/uploaded_images/apparel-banner.jpg"
+            alt="apparel">
+        </a>
+        <a href="https://sandblastingmachines.com/delivery-information/">
+            <img src="https://cdn3.bigcommerce.com/s-489s1uwnq2/product_images/uploaded_images/sb-freeshipping-300x500.png"
+            alt="free shipping on orders over $75">
+        </a>
+        <a href="https://sandblastingmachines.com/newsletter-signup/">
+            <img src="https://cdn3.bigcommerce.com/s-489s1uwnq2/product_images/uploaded_images/newsletter-sign-up.jpg"
+            alt="newsletter signup">
+        </a>
+    </div>
+
 </nav>

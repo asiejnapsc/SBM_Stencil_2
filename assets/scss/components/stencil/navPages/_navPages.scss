@@ -48,7 +48,8 @@
     z-index: zIndex("lower");
 
     @include breakpoint("medium") {
-        background: transparent;
+        z-index: initial;
+        background: black;
         display: block;
         height: auto;
         padding: 0;
@@ -58,7 +59,7 @@
     &.is-open {
         display: block;
         padding-top: $header-height;
-        z-index: 0;
+        z-index: 1;
     }
 }
 
@@ -67,10 +68,11 @@
 // -----------------------------------------------------------------------------
 
 .navPages {
-    background-color: $navPages-backgroundColor;
+    background-color: stencilColor("color-sbm-darkRed");
     height: 100%;
     overflow-y: auto;
     padding: spacing("single");
+    margin-top: 2rem;
 
     @include breakpoint("medium") {
         @include grid-row(); // 1
@@ -92,13 +94,19 @@
         border-left: 0;
         list-style: none;
         margin-left: 0;
-        padding-left: 0;
+        padding: 1rem;
+        
+        @include breakpoint(0px){
+            background: lighten(stencilColor("color-sbm-darkRed"), 5%);
+        }
+
 
         @include breakpoint("medium") {
             @include grid-row();
             border-left: 0;
             margin: auto;
             padding-left: 0;
+            background: none;
         }
     }
 }
@@ -186,42 +194,45 @@
 }
 
 .navPages-action {
-    color: stencilColor("navPages-color");
+    color: #ffffff;
     display: block;
-    font-size: fontSize("smaller");
+    //font-size: fontSize("smaller");
+    font-size: 15px;
     font-weight: fontWeight("bold");
-    padding: spacing("half") 0;
+    //padding: spacing("half") 0;
+    padding: .75rem 0;
     text-decoration: none;
     text-transform: uppercase;
 
     @include breakpoint("medium") {
         display: inline-block;
-        padding: spacing("half") (spacing("half") + spacing("quarter")) (spacing("half") + spacing("quarter"));
+        //padding: spacing("half") (spacing("half") + spacing("quarter")) (spacing("half") + spacing("quarter"));
+        padding: .75rem .80rem;
 
         &.is-open {
-            background-color: stencilColor("navPages-subMenu-backgroundColor");
+            background-color: stencilColor("color-sbm-lightRed");
 
             // scss-lint:disable NestingDepth
             svg {
-                fill: stencilColor("navPages-color-hover");
-                stroke: stencilColor("navPages-color-hover");
+                fill: #ffffff;
+                stroke: #ffffff;
             }
         }
     }
 
     &:hover, &.activePage {
-        color: stencilColor("navPages-color-hover");
+        color: #ffffff;
 
         // scss-lint:disable NestingDepth
         svg {
-            fill: stencilColor("navPages-color-hover");
-            stroke: stencilColor("navPages-color-hover");
+            fill: #ffffff;
+            stroke: #ffffff;
         }
     }
 
     svg {
-        fill: stencilColor("navPages-color");
-        stroke: stencilColor("navPages-color");
+        fill: #ffffff;
+        stroke: #ffffff;
         transition: all 0.15s ease;
     }
 }
@@ -281,13 +292,14 @@
 .navPage-subMenu {
     display: none;
     outline: 0;
-
+    z-index: 1;
     @include breakpoint("medium") {
         // scss-lint:disable ImportantRule
-        background-color: stencilColor("navPages-subMenu-backgroundColor");
+        background-color: stencilColor("color-sbm-lightRed");
         padding: spacing("single") spacing("single") (spacing("single") + spacing("half")) !important;
         position: absolute;
         text-align: left;
+        box-shadow: 0 0 13px -2px black;
 
         &.is-open {
             display: block;
@@ -452,5 +464,28 @@
         a {
             padding: spacing("half") spacing("single");
         }
+    }
+}
+
+#menu > nav > ul > li > a{
+    color: #ffffff;
+}
+
+// Center aligns navigation menu when screen size causes categories to break down a line
+@media (min-width: 551px) and (min-width: 801px) {
+    .navPages-item {
+        display:inline-block;
+        float: none;
+    }
+}
+
+#social-media-links-mobile {
+    border-top: 1px solid #cccccc;
+    margin-top: 0.73333rem;
+    padding-top: 1rem;
+    text-align:center;
+
+    .soc-icon {
+        text-decoration: none;
     }
 }

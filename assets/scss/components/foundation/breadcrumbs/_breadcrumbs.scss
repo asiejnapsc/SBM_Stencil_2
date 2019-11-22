@@ -32,10 +32,11 @@
         // scss-lint:disable NestingDepth
         > .breadcrumb-label {
             cursor: text;
+            text-decoration: none;
         }
     }
 }
 
 .breadcrumb-label {
-    text-decoration: none;
+    text-decoration: underline;
 }

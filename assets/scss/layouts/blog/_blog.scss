@@ -7,7 +7,10 @@
 // -----------------------------------------------------------------------------
 
 .blog {
-    margin-bottom: spacing("single");
+    background: lightgrey;
+    border-radius: 30px;
+    box-shadow: 10px 7px 5px #696262;
+    padding-top: spacing("double");
 
     @include breakpoint("medium") {
         margin: auto;
@@ -39,6 +42,7 @@
 .blog-title {
     font-size: fontSize("large");
     margin: 0 spacing("single") spacing("quarter");
+    padding-top: 20px;
 
     a {
         text-decoration: none;
@@ -63,7 +67,7 @@
 .blog-thumbnail {
     margin: 0 auto (spacing("base") * 2);
     position: relative;
-    max-width: get_width(stencilString('blog_size'));
+    // max-width: 700px;
 
     img {
         width: 100%;
@@ -76,7 +80,7 @@
     text-align: center;
 
     @include breakpoint("medium") {
-        width: grid-calc(8, $total-columns);
+        width: 100%;
     }
 }
 
@@ -86,15 +90,162 @@
     text-align: center;
     width: 100%;
 
-    @include breakpoint("small") {
-        width: grid-calc(10, $total-columns);
-    }
+    // @include breakpoint("small") {
+    //     width: grid-calc(10, $total-columns);
+    // }
+
+    // @include breakpoint("medium") {
+    //     width: grid-calc(8, $total-columns);
+    // }
+
+    // @include breakpoint("large") {
+    //     width: grid-calc(6, $total-columns);
+    // }
+}
+
+.blogHeaderBackground{
+    margin-bottom: 45px;
+    padding-bottom: 1px;
+    border-radius: 20px;
+    text-align: center;
+}
+.breadcrumbs{
+    margin-bottom: 0px;
+    text-align: left;
+}
+.read-more{
+    background-color: #630d0d;
+    color: #fff !important;
+    font-size: 16px;
+    text-transform: capitalize;
+    border-radius: 3px;
+    display: inline-block;
+    line-height: 38px;
+    padding: 0px 20px;
+    text-decoration: none !important;
+    border: 0;
+    margin-bottom: 10px;
+    margin-right: 20px;
+}
+.blog-read-more{
+    text-align: right;
+}
+
+.recent-posts, .monthly-archive, .categories{
+    background-color: #630d0d;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 5px;
+    border-radius: 10px;
+    margin-top: 0px;
+    color: #ffffff;
+}
+.monthly-archive > a{
+    color: #ffffff;
+}
+
+
+body > div.body > div.container > main > div.row > div.large-3.columns > div > ul{
+    font-size: large;
+}
+
+.blog-post{
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.blog-sidebar{
+    position: sticky;
+    top: 0px;
+}
+
+.BlockContent > ul{
+    border-bottom: 1px solid #d6d6d6;
+ }
+
+ .gsc-input{
+    padding-left: 0px;
+}   
+.gsc-search-box-tools .gsc-search-box .gsc-input{
+   padding-right: 0px;
+   background-color: #ffffff;
+} 
+table tbody tr td, table.General tbody tr td, table, table.General, table.CartContents{
+   margin-top: 0px;
+   margin-bottom: 0px;
+}
+.gsc-search-button-v2, .gsc-search-button-v2:hover, .gsc-search-button-v2:focus{
+   background: #630d0d !important;
+}   
+.gsib_b{
+   padding-top: 0px;
+   padding-bottom: 0px;
+}
+#___gcse_1{
+   max-width: 1200px;
+}
+.cse .gsc-control-cse, .gsc-control-cse{
+   padding-left: 0px;
+   padding-right: 0px;
+} 
+.gsc-adBlock{
+   display:none;
+}   
+.gsc-search-button-v2 svg{
+   height: 27px;
+}  
+td.gsc-search-button{
+   padding-left: 0px;
+   padding-right: 0px;
+   background-color: #ffffff;
+}    
+.gsib_b{
+   padding-right: 0px;
+}   
+.gsib_a{
+   padding-right: 0px;
+   padding-left: 5px;
+   height: 38px;
+}
+
+.gsc-control-cse{
+    padding: 0 !important;
+}
+body > div.body > div.container > main > div.row > div.large-9.columns > article > div.blog-post-figure > figure > a > img{
+    border: 1px solid #333333;
+ }
+
+.MobileBlogSearch{
+
+    display: block;
 
     @include breakpoint("medium") {
-        width: grid-calc(8, $total-columns);
+        display: none;
     }
+}
 
-    @include breakpoint("large") {
-        width: grid-calc(6, $total-columns);
+.at-share-btn-elements{
+    padding-bottom: 20px;
+}
+#BackToBlog{
+border-bottom: 1px solid #efefef;
+    display: block;
+    padding: 0;
+    background: #630d0d;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+#BackToBlog a{
+padding: 15px;
+    display: inline-block;
+    color: #fff;
+    font-weight: bold;
+    width: 100%;
+    text-decoration: none;
+}
+.blog-sidebar{
+    margin-top: 10px;
+    @include breakpoint("medium") {
+        margin-top:0px;
     }
 }

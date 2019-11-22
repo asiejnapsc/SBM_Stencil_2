@@ -53,7 +53,7 @@
 
 .footer-info-col--small {
     @include breakpoint("medium") {
-        width: width("2/12");
+        width: width("3/12");
     }
 }
 
@@ -95,12 +95,12 @@
     margin-left: 0;
 
     a {
-        color: stencilColor("color-textSecondary");
+        color: white;
         text-decoration: none;
 
         // scss-lint:disable NestingDepth
         &:hover {
-            color: stencilColor("color-textSecondary--hover");
+            text-decoration:underline;
         }
         // scss-lint:enable NestingDepth
     }
@@ -114,7 +114,7 @@
     }
 
     > .powered-by {
-        color: stencilColor("color-textSecondary");
+        color: white;
         font-size: fontSize("tiny");
         margin: 0;
     }
@@ -132,12 +132,16 @@
 }
 
 .footer-payment-icons {
-    height: remCalc(40);
+    //height: remCalc(40);
     margin-top: spacing("single");
+    text-align: center;
 
     @include breakpoint("medium") {
         margin-top: spacing("double");
+        text-align: right;
+        
     }
+    
 
     .footer-payment-icon {
         height: 100%;
@@ -147,8 +151,14 @@
     }
 
     svg {
-        fill: stencilColor("icon-color");
+        //fill: stencilColor("icon-color");
+        fill: #fff;
     }
+
+    img {
+        height: 3.5rem;
+    }
+
 }
 
 .footer-geotrust-ssl-seal {
@@ -165,4 +175,39 @@
 
 .footer-newsletter-summary {
     text-align: left;
+}
+
+#newsletter {
+    background: url(https://cdn3.bigcommerce.com/s-489s1uwnq2/product_images/uploaded_images/black-metal-texture-tile.png);
+    color: white;
+    padding: .2rem 0;
+    margin-bottom: 2rem;
+
+    .form-prefixPostfix .form-input {
+        flex: none;
+
+        @include breakpoint("small") {
+            flex: 1;
+            margin-right: .5rem;
+        }
+
+    }
+}
+
+#newsletter h5 {
+    color: white;
+    font-weight: bold;
+}
+
+h5.footer-info-heading {
+    color: white;
+    font-weight: bold;
+}
+
+.footer {
+    padding: 0 0 3rem 0;
+}
+
+address, .address, .address a {
+    color: white;
 }

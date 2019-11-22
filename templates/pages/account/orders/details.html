@@ -48,7 +48,7 @@
                     {{/if}}
                 </dl>
 
-                <button data-print-invoice="{{order.invoice_url}}" class="button">{{lang 'account.orders.details.print_invoice'}}</button>
+                <button data-print-invoice="{{order.invoice_url}}" class="button button--primary">{{lang 'account.orders.details.print_invoice'}}</button>
             </section>
 
             {{#if order.shipping_address}}
@@ -133,7 +133,7 @@
                                 <input type="hidden" name="reorderitem[{{order_product_id}}]">
                             {{/if}}
                         {{/each}}
-                        <input type="submit" class="button" value="{{lang 'account.orders.details.reorder'}}">
+                        <input type="submit" class="button button--primary" value="{{lang 'account.orders.details.reorder'}}">
                     </form>
                     {{#if settings.returns_enabled}}
                         {{#if order.is_complete}}

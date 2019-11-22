@@ -10,7 +10,13 @@
 
 .body {
     margin-bottom: spacing("double") * 2;
-    margin-top: spacing("single"); // 1
+    // margin-top: spacing("single") * 3; // 1
+
+    margin-top: 7.4rem;
+
+    @include breakpoint("small"){
+        margin-top: 4.4rem;
+    }
 
     @include breakpoint("medium") {
         margin-top: spacing("single") + spacing("base"); // 1

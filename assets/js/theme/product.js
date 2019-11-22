@@ -65,4 +65,112 @@ export default class Product extends PageManager {
             this.$bulkPricingLink.trigger('click');
         }
     }
+
+    /* eslint-disable */
+
+    /* -- PSC Custom Field Code ---
+    * 01. Grab parent element that houses all custom fields
+    * 02. If custom fields exist
+    * 03. Convert to array to parse
+    * 04. Discern between each type of custom field
+    * 05. All related functionality pertaining to adding a blog post to the product UI
+    * 06. All related functionality pertaining to adding a video post to the product UI
+    */
+    getCustomFields() {
+        const customFieldsParentElement = document.getElementById('ProductCustomFields'); // 01
+        const customFields = customFieldsParentElement.children;
+        if (customFields[0]) { // 02
+            const customFieldArray = Array.from(customFields); // 03
+
+            const blogArray = [];
+            const videoArray = [];
+            // Loop through each custom field
+            customFieldArray.forEach(function (element, index) {
+                const customFieldLabel = element.children[0].innerHTML.trim();
+                const customFieldValue = element.children[1].innerHTML.trim();
+
+                switch (customFieldLabel) { // 04
+
+                    case 'Blog': // 05
+                        console.log('This product has a Blog.');
+
+                        let currentBlogURL = customFieldValue;
+                        let currentBlogTitle = element.nextElementSibling.children[1].innerHTML.trim();
+                        
+                        // create an array to keep the blog and blog title together
+                        blogArray.push({
+                          blogTitle: currentBlogTitle,
+                          blogURL: currentBlogURL
+                        });
+
+                        let blogArea = document.querySelector('#tab-articles');
+                        let blogTabLink = document.querySelector('.blogTabLink');
+                        let blogHTML = '';
+                        
+                        // build out all the html for each blog post (icon + title/url)
+                        // iterate through each blog object and construct the html surrounding it
+                        blogArray.forEach(function (blogObject) {
+
+                            // format for insertion
+                            blogHTML += `
+                            <div class="article_div">
+                                <a class="p_article" target="_blank" href="${blogObject.blogURL}">
+            
+                                    <i class="far fa-file-alt fa-4x"></i>
+
+                                    <div class="blog-text-container">
+                                        <div>${blogObject.blogTitle}</div>
+                                    </div>
+                                </a>
+                            </div>
+                            `;
+                        });
+
+                        blogArea.innerHTML = blogHTML;
+                        blogTabLink.style.display = 'block';
+
+                        break;
+
+                    case 'Video': // 06
+                        let currentVideoURL = customFieldValue;
+                        let videoID = currentVideoURL.substring(currentVideoURL.lastIndexOf('/') + 1);
+
+                        videoArray.push({
+                            videoURL: currentVideoURL,
+                            videoID: videoID
+                        });
+
+                        let videoArea = document.querySelector('#tab-videos');
+                        let videoTabLink = document.querySelector('.videoTabLink');
+                        let videoHTML = '';
+
+                        videoArray.forEach(function (videoObject) {
+                            videoHTML += `
+                            <div class="yt-thumb-container">
+                                <a href="${videoObject.videoURL}" data-lity="">
+
+                                    <img src="https://i3.ytimg.com/vi/${videoObject.videoID}/hqdefault.jpg" alt="product video" />
+
+                                    <span class="yt-thumb-button">.</span>
+
+                                </a>
+                            </div>
+                            `;
+                        });
+
+                        videoArea.innerHTML = videoHTML;
+                        videoTabLink.style.display = 'block';
+
+                        break;
+
+                    default:
+                        break;
+                }
+
+            });
+
+        }
+
+    }
+    /* eslint-enable */
 }

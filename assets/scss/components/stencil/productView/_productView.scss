@@ -24,6 +24,8 @@
     justify-content: center;
     margin: auto;
     position: relative;
+    border: 1px solid #e5e5e5;
+    border-radius: 1rem;
 
     @include breakpoint("medium") {
         min-height: 366px;
@@ -43,15 +45,14 @@
     position: relative;
     margin: auto;
     max-width: get-width(stencilString('product_size'));
-    width: 100%;
+    //width: 100%;
+    width: 55%;
 
     img {
         @include lazy-loaded-img;
         max-height: 100%;
-        width: 100%;
-        object-fit: contain;
-        /* Object-fit polyfill */
-        font-family: 'object-fit: contain;';
+        max-width: 100%;
+        width: 80%;
     }
 
     @include lazy-loaded-padding('product_size');
@@ -79,12 +80,10 @@
 
     img {
         @include lazy-loaded-img;
-        margin: 0;
-        width: get-width(stencilString('productview_thumb_size'));
-        object-fit: contain;
-        /* Object-fit polyfill */
-        font-family: 'object-fit: contain;';
-        position: relative;
+        max-height: 50px;
+        max-width: 50px;
+        //width: 100%;
+        width: auto;
     }
 }
 
@@ -101,14 +100,14 @@
 
 .productView-thumbnail-link {
     border: container("border");
-    display: inline-flex;
+    border-radius: 1rem;
+    display: inline-block;
     height: 67px;
     max-width: 75px;
     padding: 2px;
     position: relative;
+    text-align: center;
     width: 100%;
-    box-sizing: content-box;
-    justify-content: center;
 
     &:hover,
     &.is-active {
@@ -116,13 +115,80 @@
     }
 }
 
-
 // Details
 // -----------------------------------------------------------------------------
 
 .productView-details {
-    margin-bottom: spacing("single") + spacing("third");
+    //margin-bottom: spacing("single") + spacing("third");
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+
+    @include breakpoint("medium") {
+        background: #fdf7f7;
+        box-shadow: 0 4px 10px 0 rgba(35, 46, 105, 0.1);
+    }
 }
+
+    div.productView > section:nth-child(3){
+        border-bottom-left-radius: 1rem;
+        border-bottom-right-radius: 1rem;
+    }
+
+    span.price.price--withoutTax,
+    .productView-rating,
+    dl.productView-info,
+    .productView-buttons,
+    .nka-div,
+    .backorder-div,
+    .relatedparts-div,
+    .quoteonly-div
+    {
+        padding-left: .5rem;
+    }
+
+    .nka-div,
+    .backorder-div,
+    .relatedparts-div,
+    .quoteonly-div {
+        font-weight: bold;
+    }
+
+    dt.productView-info-name.sku-label,
+    div.form-field.form-field--increments > label,
+    dt.productView-info-name.product-weight {
+        font-weight: bold;
+        text-transform: uppercase;
+    }
+
+    .productView-options .form-field {
+        padding-top: 1rem;
+    }
+
+    .form-increment .button {
+        background: white;
+    }
+
+    input[type="tel"]:focus {
+        background: transparent;
+    }
+
+    .productView-options .form-action,
+    #product-manuals-button {
+        width: 100% !important;
+
+        @include breakpoint("large") {
+            width: 48% !important;
+        }
+        
+    }
+
+    .productView-options .form-action .button {
+        width: 100% !important;
+    }
+
+    span.price.price--withoutTax {
+        font-size: 2rem;
+    }
 
 
 // Details - Product details
@@ -131,20 +197,32 @@
 .productView-product {
     @include breakpoint("medium") {
         border-bottom: container("border");
-        padding-bottom: spacing("single") + spacing("third");
+        //padding-bottom: spacing("single") + spacing("third");
+        padding-bottom: 0;
     }
 
     > :last-child {
         margin-bottom: 0;
+    }
+
+    @include breakpoint("large") {
+        padding-bottom: 0;
     }
 }
 
 .productView-title {
     font-size: fontSize("small");
     margin: -(spacing("half")) 0 spacing("quarter");
+    line-height: 2rem;
+    background: url(https://cdn3.bigcommerce.com/s-489s1uwnq2/product_images/uploaded_images/black-metal-texture-tile.png);
+    color: white;
+    font-size: 1.5rem;
+    padding: 1rem;
+    border-top-left-radius: 1rem;
+    border-top-right-radius: 1rem;
 
     @include breakpoint("medium") {
-        margin-top: spacing("single");
+        //margin-top: spacing("single");
     }
 
     @include breakpoint("large") {
@@ -153,9 +231,10 @@
 }
 
 .productView-brand {
+    background: stencilColor("color-sbm-darkRed");
     color: $productView-brand-link-color;
-    font-size: fontSize("smaller");
     margin: 0 0 spacing("half");
+    padding: .5rem 0;
 
     @include breakpoint("large") {
         font-size: fontSize("small");
@@ -163,13 +242,22 @@
     }
 
     a {
-        color: $productView-brand-link-color;
+        color: white;
+        text-decoration: none;
+        padding-left: 1rem;
+        font-size: 1rem;
 
         // scss-lint:disable NestingDepth
         &:hover {
-            color: $productView-brand-link-color--hover;
+            color: white;
         }
     }
+}
+
+.productView-buttons {
+    color: white;
+    border-bottom-left-radius: 1rem;
+    border-bottom-right-radius: 1rem;
 }
 
 // Details - Product price
@@ -332,7 +420,7 @@
 
         @include breakpoint("small") {
             float: left;
-            padding: 0 remCalc(10);
+            //padding: 0 remCalc(10);
             width: 50%;
         }
 
@@ -344,7 +432,7 @@
 
         @include breakpoint("large") {
             display: inline-block;
-            margin-top: 1rem;
+            //margin-top: 1rem;
         }
 
         // scss-lint:disable SelectorDepth, NestingDepth
@@ -359,14 +447,19 @@
     }
 }
 
+h3.related-products {
+    font-weight: bold;
+}
 
 // Product list (with images)
 // -----------------------------------------------------------------------------
 
 .productOptions-list {
-    border: $productOptions-list-border;
     list-style: none;
-    margin: 0;
+    margin: 1rem;
+    border-radius: 1rem;
+    background: white;
+    box-shadow: inset 0 0 11px 0px rgba(0, 0, 0, 0.1);
 }
 
 .productOptions-list-item {
@@ -396,7 +489,10 @@
     padding-left: $productOptions-list-item-content-paddingLeft;
 }
 
-
+.option-label {
+    font-weight: bold;
+    text-transform: uppercase;
+}
 // Share products
 // -----------------------------------------------------------------------------
 
@@ -413,9 +509,148 @@
     position: absolute;
     width: 100%;
     height: 100%;
+    border-radius: 1rem;
 
     img {
         max-width: none;
         width: auto;
+        background: white;
+    }
+}
+
+
+// Article styling for products with blog posts
+// ------------------------------------------------------------------------------
+
+#tab-articles {
+    .article_div {
+        padding: 1rem;
+
+        .p_article{
+            display: flex;
+            flex-direction: row;
+
+            i {
+                margin-right:1rem;
+            }
+
+            .blog-text-container {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                font-size: 1rem;
+            }
+
+            &:hover {
+                color: lighten(stencilColor("color-sbm-darkRed"), 20%);
+            }
+        }
+
+        &:hover {
+            background: lighten(stencilColor("color-greyLightest"), 5%);
+            border-radius: 1rem;
+        }
+    }
+}
+
+// Data sheet styling for products with data sheets
+// ------------------------------------------------------------------------------
+
+#tab-datasheets, #lity-datasheets {
+    .datasheet_div {
+        padding: 1rem;
+
+        .p_datasheet{
+            display: flex;
+            flex-direction: row;
+
+            i {
+                margin-right:1rem;
+            }
+
+            .datasheet-text-container {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                font-size: 1rem;
+            }
+
+            &:hover, &:focus {
+                color: lighten(stencilColor("color-sbm-darkRed"), 20%);
+            }
+        }
+
+        &:hover, &:focus {
+            background: lighten(stencilColor("color-greyLightest"), 5%);
+            border-radius: 1rem;
+        }
+    }
+}
+
+// If in the lity modal
+#lity-datasheets {
+    background: white;
+    padding: 2rem;
+}
+
+// Video styling for products with videos
+// ------------------------------------------------------------------------------
+#tab-videos {
+
+    .yt-thumb-container {
+        width: 49%;
+        padding: 3px;
+        position: relative;
+        display: inline-block;
+
+        @include breakpoint("large"){
+            width: 30%;
+        }
+
+        a {
+
+            img {
+                border-radius: 10px;
+                box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.54);
+            }
+
+            .yt-thumb-button {
+                color:rgba(255,255,255,0);
+                display: block;
+                position: absolute;
+                top: 0;
+                left: 0;
+                bottom: 0;
+                right: 0;
+                z-index: 1;
+                background: url('https://cdn10.bigcommerce.com/s-duqqj4dg9u/product_images/uploaded_images/youtube-grey-play.png') no-repeat center center;
+                background-size: 20%;
+
+                &:hover {
+                    opacity: .4;
+                    transition: opacity .2s ease-out;
+                }
+            }
+        }
+    }
+}
+
+.vimeo-container {
+    padding: 75% 0 0 0;
+    position: relative;
+    width: 100%;
+    display: inline-block;
+
+    @include breakpoint("medium") {
+        width: 40%;
+        padding: 30% 0 0 0;
+    }
+
+    iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
     }
 }

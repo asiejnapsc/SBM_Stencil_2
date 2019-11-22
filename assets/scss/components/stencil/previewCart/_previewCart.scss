@@ -45,7 +45,7 @@
     padding: spacing("base");
     text-align: center;
 
-    @include breakpoint("medium") {
+    @include breakpoint(1025px) {
         @include grid-column(3, $float:right);
         padding: spacing("single");
     }

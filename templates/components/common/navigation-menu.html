@@ -1,7 +1,8 @@
 <nav class="navPages">
-    <div class="navPages-quickSearch">
+    <!-- <div class="navPages-quickSearch">
         {{> components/common/quick-search}}
-    </div>
+    </div> -->
+    
     <ul class="navPages-list{{#if theme_settings.navigation_design '!==' 'simple'}} navPages-list-depth-max{{/if}}">
         {{#each categories}}
             <li class="navPages-item">
@@ -15,11 +16,12 @@
         {{/each}}
         {{#unless theme_settings.hide_content_navigation}}
             {{#each pages}}
-                 <li class="navPages-item navPages-item-page">
+                 <!-- <li class="navPages-item navPages-item-page">
                      <a class="navPages-action{{#if name '==' ../page.title}} activePage{{/if}}" href="{{url}}">{{name}}</a>
-                 </li>
+                 </li> -->
              {{/each}}
         {{/unless}}
+
     </ul>
     <ul class="navPages-list navPages-list--user">
         {{#if currency_selector.currencies.length '>' 1}}
@@ -45,17 +47,17 @@
             </li>
         {{/if}}
         {{#if settings.gift_certificates_enabled}}
-            <li class="navPages-item">
+            <li class="navPages-item" style="display:none;">
                 <a class="navPages-action" href="{{urls.gift_certificate.purchase}}">{{lang 'common.gift_cert'}}</a>
             </li>
         {{/if}}
-        {{#if customer.store_credit.value '>' 0}}
+        <!-- {{#if customer.store_credit.value '>' 0}}
             <li class="navPages-item">
                 <a class="navPages-action navPages-action--storeCredit">
                     {{lang 'common.store_credit_overview' credit=customer.store_credit.formatted}}
                 </a>
             </li>
-        {{/if}}
+        {{/if}} -->
         {{#if theme_settings.product_list_display_mode '==' 'list'}}
             <li class="navPages-item">
                 <a class="navPages-action navPages-action--compare" href="{{urls.compare}}" data-compare-nav>{{lang 'common.compare'}} <span class="countPill countPill--positive countPill--alt"></span></a>
@@ -87,9 +89,9 @@
                                 <a class="navPage-subMenu-action navPages-action" href="{{urls.account.payment_methods.all}}">{{lang 'account.nav.payment_methods'}}</a>
                             </li>
                         {{/if}}
-                        <li class="navPage-subMenu-item">
+                        <!-- <li class="navPage-subMenu-item">
                             <a class="navPage-subMenu-action navPages-action" href="{{urls.account.wishlists.all}}">{{lang 'account.mobile_nav.wishlists'}}</a>
-                        </li>
+                        </li> -->
                         <li class="navPage-subMenu-item">
                             <a class="navPage-subMenu-action navPages-action" href="{{urls.account.recent_items}}">{{lang 'account.nav.recently_viewed'}}</a>
                         </li>
@@ -106,14 +108,41 @@
             <li class="navPages-item">
                 <a class="navPages-action" href="{{urls.auth.login}}">{{lang 'common.login'}}</a>
                 {{#if settings.account_creation_enabled}}
-                    {{lang 'common.or'}} <a class="navPages-action" href="{{urls.auth.create_account}}">{{lang 'common.sign_up'}}</a>
+                     <a class="navPages-action" href="{{urls.auth.create_account}}">{{lang 'common.sign_up'}}</a>
                 {{/if}}
             </li>
         {{/if}}
-        {{#if theme_settings.social_icon_placement_top}}
+        <li class="navPages-item">
+            <a class="navPages-action" href="/blog">Blog</a>
+        </li>
+        
+        <li class="navPages-item">
+            <a class="navPages-action" href="/sitemap">More Information</a>
+        </li>
+
+        <div id="social-media-links-mobile">
+            <a href="https://www.facebook.com/sandblastingmachines/" class="soc-icon" target="_blank">
+                <i class="fab fa-facebook-square fa-2x"></i>
+            </a>
+            <a href="https://twitter.com/sbmachines" class="soc-icon" target="_blank">
+                <i class="fab fa-twitter-square fa-2x"></i>
+            </a>                
+            <a href="https://www.youtube.com/channel/UCbV_q1F9DidPpisdf7QSnWA" class="soc-icon" target="_blank">
+                <i class="fab fa-youtube fa-2x"></i>
+            </a>                
+            <a href="https://www.instagram.com/sandblastingmachines_com/" class="soc-icon" target="_blank">
+                <i class="fab fa-instagram fa-2x"></i>
+            </a>                
+            <a href="/blog" class="soc-icon" target="_blank">
+                <i class="fa fa-rss-square fa-2x"></i>
+            </a>
+        </div>
+
+        <!-- {{#if theme_settings.social_icon_placement_top}}
             <li class="navPages-item">
                 {{> components/common/social-links}}
             </li>
-        {{/if}}
+        {{/if}} -->
+
     </ul>
 </nav>

@@ -7,7 +7,8 @@
 //
 // -----------------------------------------------------------------------------
 
-@if $exportCSS--global { // 1
+@if $exportCSS--global {
+    // 1
 
     html,
     body {
@@ -25,7 +26,7 @@
         margin-bottom: $figure-marginBottom;
         margin-top: $figure-marginTop;
 
-        > figcaption {
+        >figcaption {
             margin-bottom: $figure-figcaption-marginBottom;
         }
     }
@@ -35,4 +36,428 @@
         font-size: $figcaption-fontSize;
         margin-top: $figcaption-marginTop;
     }
+
+    // ======================================
+    // CUSTOM GLOBAL CSS PSC ADDED
+    // ======================================
+
+    .required {
+        // for required fields, icons, msgs
+        color: $color-error !important; // override other present styles
+    }
+
+    .button--green {
+        // green cta
+        background: #008a06;
+        border-color: #008a06;
+        color: #fff;
+
+        &:hover {
+            background: lighten(#008a06, 10%);
+            border-color: lighten(#008a06, 10%);
+            color: #fff;
+        }
+
+        &:active,
+        &:focus {
+            background: darken(#008a06, 10%);
+            border-color: darken(#008a06, 10%);
+            color: #fff;
+        }
+    }
+
+    .button--black {
+        background: black;
+        border-color: black;
+        color: #fff;
+
+        &:hover {
+            background: lighten(black, 10%);
+            border-color: lighten(black, 10%);
+            color: #fff;
+        }
+
+        &:active,
+        &:focus {
+            background: darken(black, 10%);
+            border-color: darken(black, 10%);
+            color: #fff;
+        }
+    }
+
+    .button--lightRed, #ShopNowButton {
+        background: stencilColor("color-sbm-lightRed");
+        color: white;
+        border: none;
+        font-weight: 400;
+
+        &:hover {
+            background: lighten(stencilColor("color-sbm-lightRed"), 10%);
+            color: white;
+            border: none;
+        }
+
+        &:active,
+        &:focus {
+            background: darken(stencilColor("color-sbm-lightRed"), 10%);
+            border-color: darken(stencilColor("color-sbm-lightRed"), 10%);
+            color: #fff;
+        }
+    }
+
+    .button--darkRed {
+        background: stencilColor("color-sbm-darkRed");
+        color: white;
+        border: none;
+        font-weight: 400;
+
+        &:hover {
+            background: lighten(stencilColor("color-sbm-darkRed"), 10%);
+            color: white;
+            border: none;
+        }
+
+        &:active,
+        &:focus {
+            background: darken(stencilColor("color-sbm-darkRed"), 10%);
+            border-color: darken(stencilColor("color-sbm-darkRed"), 10%);
+            color: #fff;
+        }
+    }
+
+    .PromoTopBanner {
+        background: stencilColor("color-sbm-green");
+        width: 100%;
+        padding: .25rem;
+        color: #fff;
+        text-align: center;
+        position: fixed;
+        top: 0;
+        z-index: 1000;
+
+        a {
+            color: white !important;
+        }
+
+        @include breakpoint("medium") {
+            background: rgba(stencilColor("color-sbm-green"), .8);
+        }
+    }
+
+    .PromoTopBannerMobile {
+        background: stencilColor("color-sbm-green");
+        width: 100%;
+        padding: .25rem;
+        color: #fff;
+        text-align: center;
+        position: fixed;
+        top: 0;
+        z-index: 1000;
+
+        a {
+            color: white !important;
+        }
+
+        @include breakpoint("medium") {
+            display:none;
+        }
+
+    }
+
+    #sbmHeaderBar1,
+    #redHeaderBar {
+        background: stencilColor("color-sbm-darkRed");
+        color: white;
+        padding: 1rem;
+        margin-bottom: 1rem;
+        border-top-right-radius: 1rem;
+        border-top-left-radius: 1rem;
+        font-size: 1.5rem;
+    }
+
+    .alertBox--info {
+        background: stencilColor("color-sbm-lightRed");
+
+        .alertBox-icon {
+            color: white;
+        }
+    }
+
+    #rmjs-1 span,
+    #tab-description span {
+        // for any weird fonts in category, parent, product descs.
+        font-family: 'Karla', sans-serif !important;
+    }
+
+
+    // ===============================================================
+    // CATEGORY STYLING
+    // ===============================================================
+
+    .subcategory-area {
+        background: #e5e5e5;
+        padding: 1rem;
+        border-radius: 1rem;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    }
+
+    .subcategory-area a {
+        background: stencilColor('color-sbm-lightRed');
+        padding: 5px;
+        margin: 5px 0;
+        color: white;
+        border-radius: .5rem;
+        border: 2px solid stencilColor('color-sbm-darkRed');
+        display: block;
+        text-decoration: none;
+        width: 100%;
+        text-align: center;
+        
+        @include breakpoint("medium"){
+            width: 205px;
+        }
+
+        &:hover {
+            background: lighten(stencilColor('color-sbm-lightRed'), 10%);
+        }
+
+        &:active,
+        &:focus {
+            background: darken(stencilColor('color-sbm-lightRed'), 10%);
+        }
+
+        @include breakpoint("medium") {
+            display: inline-block;
+        }
+
+    }
+
+    .subcategory-area span {
+        color: stencilColor("color-sbm-lightRed");
+        font-weight: bold;
+    }
+
+    .sidebar-badges img {
+        display: none;
+
+        @include breakpoint("medium") {
+            display: block;
+            margin-bottom: 1rem;
+            width: 192px;
+            border-radius: 1rem;
+        }
+    }
+
+    #product-listing-container div.banners img {
+        width: 100%;
+        padding: 3px;
+        margin: 0 auto 1rem auto;
+        position: relative;
+        display: inline-block;
+        border-radius: 1rem;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.54);
+
+        @include breakpoint("medium") {
+            width: 70%;
+        }
+    }
+
+    // Hide the Was, Now price text, only display price
+    .card-text .price-section.price-section--withoutTax.non-sale-price--withoutTax,
+    .card-text span.price-now-label {
+        display: none;
+    }
+    
+    .morelink {
+        border-bottom: 1px solid stencilColor("color-sbm-darkRed");
+        border-top: 1px solid stencilColor("color-sbm-darkRed");
+        color: stencilColor("color-sbm-darkRed");
+        display: block;
+        width: 105px;
+        padding-left: 4px;
+        margin-top: 20px;
+        margin-bottom: 20px;
+        text-decoration: none;
+    }
+
+    .morelink:hover {
+            border-bottom: 2px solid stencilColor("color-sbm-darkRed");
+            border-top: 2px solid stencilColor("color-sbm-darkRed");
+            color: stencilColor("color-sbm-darkRed");
+            text-decoration: none;
+            font-weight: bold;
+    }
+
+    .CategoryDescription {
+            transition: height 200ms;
+    }
+
+    .cat-subcat-area-mobile { // swap out order for mobile
+        display:block;
+
+        @include breakpoint("medium") {
+            display:none;
+        }
+    }
+
+    .cat-subcat-area { // swap out order for mobile
+        display:none;
+
+        @include breakpoint("medium") {
+            display:block;
+        }
+    }
+
+    .card-badge {
+        z-index: 11;
+        position: absolute;
+        top: 1rem;
+        right: 1rem;
+        display: none;
+    }
+
+    // ======================================
+    // ACCOUNT STYLING
+    // ======================================
+
+    .account .card-title {
+        height: 2.5rem;
+    }
+
+    .new-customer .panel {
+        padding: 0;
+    }
+
+    .createAccountButton {
+        display: block;
+        text-align: center;
+    }
+
+    // ======================================
+    // HOMEPAGE STYLING
+    // ======================================
+    .container.homepage-badges {
+        padding: 0;
+    }
+
+    .pricing-table .bullet-item {
+        font-size: 1rem;
+    }
+
+    .pricing-table * {
+        line-height: 1.5rem;
+    }
+
+    .pricing-table {
+        display: table;
+        width: 100%;
+    }
+
+    .pricing-table>li {
+        __display: table-cell;
+    }
+
+    .cta-button {
+        display: table-row;
+    }
+
+    .cta-button-td {
+        display: table-cell;
+        vertical-align: bottom;
+        padding: 1.25rem 1.25rem 0;
+    }
+
+    .pricing-table .title {
+        background-color: #124375;
+        font-size: 1.2rem;
+    }
+
+    #MobileHomeBanner {
+        display: block !important;
+        padding-bottom: 1rem;
+
+        @include breakpoint("medium") {
+            display: none !important;
+        }
+    }
+
+    section.heroCarousel.slick-initialized.slick-slider {
+        display: none;
+
+        @include breakpoint("medium") {
+            display: block;
+        }
+    }
+
+    /* Search Added CSS */
+    input#search_queryispbxi_ispbxi_,
+    button.search-button-mobile {
+        background: stencilColor("color-greyLightest") !important;
+
+        @include breakpoint("small") {
+            background: white;
+        }
+    }
+
+    // ===============================================================
+    // LITY - YT THUMBNAIL STYLING
+    // ===============================================================
+    .yt-thumb-container {
+        width: 100%;
+        padding: 3px;
+        margin: 0 auto;
+        position: relative;
+        display: inline-block;
+
+        @include breakpoint("medium") {
+            width: 45% !important;
+        }
+
+        a>img {
+            border-radius: 1rem;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.54);
+        }
+
+        .yt-thumb-button {
+            display: block;
+            position: absolute;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            z-index: 1;
+            background: url(https://cdn6.bigcommerce.com/s-eqgv9kc7pj/product_images/uploaded_images/youtube-grey-play.png) no-repeat center center;
+            background-size: 20%;
+            color: transparent;
+
+            &:hover {
+                opacity: .4;
+                transition: opacity .2s ease-out;
+            }
+        }
+    }
+
+    #product-listing-container > div.banners > div > div > center > div > a > img { // styling for youtube image, other banner image styling wont override now
+        width: 100% !important;
+    }
+
+    .yt-thumb-container img { // styling for youtube image, other banner image styling wont override now
+        width: 100% !important;
+        padding: 0 !important;
+    }
+
+    // ===============================================================
+    // PAGE STYLING
+    // ===============================================================
+    #resource-library {
+        a {
+            text-decoration: none;
+        }
+
+        .button {
+            width: 100%;
+        }
+    }
+
 }
+

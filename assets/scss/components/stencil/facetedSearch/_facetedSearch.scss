@@ -17,6 +17,7 @@
     display: block;
     margin-bottom: $facetedSearch-toggle-verticalSpacing;
     padding: $facetedSearch-toggle-padding;
+    background: stencilColor("color-sbm-darkRed"); 
 
     @include breakpoint("medium") {
         // scss-lint:disable ImportantRule
@@ -34,6 +35,7 @@
 .facetedSearch-toggle-indicator {
     display: block;
     font-weight: normal;
+    color: white;
 }
 
 .facetedSearch-toggle-text {
@@ -49,6 +51,10 @@
     text-align: right;
 }
 
+span.toggleLink-text.toggleLink-text--on > i > svg,
+span.toggleLink-text.toggleLink-text--off > i > svg {
+    fill: white;
+}
 
 // Faceted search nav list
 // -----------------------------------------------------------------------------

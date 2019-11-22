@@ -2,7 +2,19 @@
 
 {{> components/common/breadcrumbs breadcrumbs=breadcrumbs}}
 
+<div id="BackToBlog">
+        <a href="https://sandblastingmachines.com/blog/"><i class="fa fa-chevron-left" aria-hidden="true"></i>
+            Back to Blog</a>
+        <div class="clear"></div>
+</div>
+
 {{> components/blog/post post=blog.post show_tags=true}}
 
 {{/partial}}
 {{> layout/base}}
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5db1e69b364d18d4"></script>
+<style>
+    .blog-post-figure{
+        display: none;
+    }
+</style>

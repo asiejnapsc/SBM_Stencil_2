@@ -16,6 +16,18 @@ cart: true
         {{#if cart.items.length}}
             <div class="loadingOverlay"></div>
 
+            <div class="above-cart-content"> 
+                <a class="button button--lightRed" 
+                id="EstimateShippingTop"
+                href="#shipping-jump" title="estimate shipping">Esimate Shipping 
+                        <i class="fas fa-shipping-fast fa-sm" aria-hidden="true"></i>
+                </a>
+
+                <a class="button button--green" href="{{urls.checkout.single_address}}" title="{{lang 'cart.checkout.title'}}">{{lang 'cart.checkout.button'}}
+                        <i class="fas fa-shopping-cart fa-sm" aria-hidden="true"></i>
+                </a>
+            </div>
+
             <div data-cart-content>
                 {{> components/cart/content}}
             </div>
@@ -26,7 +38,7 @@ cart: true
 
             {{#if cart.show_primary_checkout_button}}
                 <div class="cart-actions">
-                    <a class="button button--primary" href="{{urls.checkout.single_address}}" title="{{lang 'cart.checkout.title'}}">{{lang 'cart.checkout.button'}}</a>
+                    <a class="button button--green" href="{{urls.checkout.single_address}}" title="{{lang 'cart.checkout.title'}}">{{lang 'cart.checkout.button'}}</a>
                     {{#if cart.show_multiple_address_shipping}}
                         <a class="checkoutMultiple" href="{{urls.checkout.multiple_address}}">
                             {{lang 'cart.preview.checkout_multiple'}}
@@ -35,7 +47,7 @@ cart: true
                 </div>
             {{else}}
                 <div class="cart-actions">
-                    <a class="button" href="{{urls.home}}" title="{{lang 'cart.continue_shopping'}}">{{lang 'cart.continue_shopping'}}</a>
+                    <a class="button button--primary" href="{{urls.home}}" title="{{lang 'cart.continue_shopping'}}">{{lang 'cart.continue_shopping'}}</a>
                 </div>
             {{/if}}
 
@@ -48,6 +60,8 @@ cart: true
             {{/if}}
         {{else}}
             <h3>{{lang 'cart.checkout.empty_cart'}}</h3>
+            <br>
+            <a class="button button--primary" href="{{urls.home}}" title="{{lang 'cart.continue_shopping'}}">{{lang 'cart.continue_shopping'}}</a>
         {{/if}}
 
     </main>

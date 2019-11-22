@@ -1,7 +1,17 @@
 {{#with theme_settings}}
     {{#or show_accept_amex show_accept_discover show_accept_mastercard show_accept_paypal show_accept_visa show_accept_amazonpay show_accept_googlepay}}
+
     <div class="footer-payment-icons">
-        {{#if show_accept_amex}}
+
+        <img src="https://www.merchantequip.com/image/?logos=v|m|a|d|p|apl&height=64"
+             alt="payment method icons" />
+
+        <!-- GeoTrust Badge-->
+        <a href="https://sealsplash.geotrust.com/splash?&amp;dn=sandblastingmachines.com" target="_blank">
+            <img src="https://seal.geotrust.com/getgeotrustsslseal?at=0&amp;sealid=0&amp;dn=sandblastingmachines.com&amp;lang=en&amp;gmtoff=0">
+        </a>
+
+        <!-- {{#if show_accept_amex}}
         <svg class="footer-payment-icon"><use xlink:href="#icon-logo-american-express"></use></svg>
         {{/if}}
         {{#if show_accept_discover}}
@@ -21,7 +31,8 @@
         {{/if}}
         {{#if show_accept_googlepay}}
         <svg class="footer-payment-icon"><use xlink:href="#icon-logo-googlepay"></use></svg>
-        {{/if}}
+        {{/if}} -->
+        
     </div>
     {{/or}}
 {{/with}}

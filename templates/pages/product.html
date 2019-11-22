@@ -5,7 +5,7 @@ product:
     reviews:
         limit: {{theme_settings.productpage_reviews_count}}
     related_products:
-        limit: {{theme_settings.productpage_related_products_count}}
+        limit: 50
     similar_by_views:
         limit: {{theme_settings.productpage_similar_by_views_count}}
 ---
@@ -33,3 +33,91 @@ product:
     </div>
 {{/partial}}
 {{> layout/base}}
+
+<!-- Klaviyo Viewed Product Script -->
+<script text="text/javascript">
+    var _learnq = _learnq || [];
+ 
+    var item = {
+     Name: "{{product.title}}",
+     ProductID: "{{product.id}}",
+     ImageURL: "{{getImage product.main_image 'product_size' (cdn theme_settings.default_image_product)}}",
+     URL: "{{product.url}}",
+     Brand: "{{product.brand.name}}",
+     Price: "{{product.price.without_tax.value}}",
+     CompareAtPrice:"{{product.price.rrp_without_tax.value}}"
+    };
+ 
+   _learnq.push(['track', 'Viewed Product', item]);
+ 
+   _learnq.push(['trackViewedItem', {
+    Title: item.Name,
+    ItemId: item.ProductID,
+    Categories: item.Categories,
+    ImageUrl: item.ImageURL,
+    Url: item.URL,
+ 
+    Metadata: {
+      Brand: item.Brand,
+      Price: item.Price,
+      CompareAtPrice: item.CompareAtPrice
+    }
+   }]);
+ </script>
+
+<script src="https://scripts.sirv.com/sirv.js"></script>
+<div class="Sirv lity-hide" id="Sirv" data-src="https://mbibelan.sirv.com/products/{{#if product.custom_fields}}{{#each product.custom_fields}}{{#if name '===' '360 ID'}}{{value}}{{/if}}{{/each}}{{/if}}/{{#if product.custom_fields}}{{#each product.custom_fields}}{{#if name '===' '360 ID'}}{{value}}{{/if}}{{/each}}{{/if}}.spin"></div>
+
+<div id="lity-datasheets" class="lity-hide">
+    <div class="modal-header">
+        <h2 class="modal-header-title">
+            Product Manuals
+        </h2>
+    </div>
+    <br>
+    {{#if product.custom_fields}}
+        {{#each product.custom_fields}}
+            {{#if name '===' 'PDF URL'}}
+                <style>
+                    #product-manuals-button {display: inline-block !important;}
+                </style>
+                <div class="datasheet_div">
+                    <a class="p_datasheet" target="_blank" href="{{value}}">
+                        <i class="far fa-file-pdf fa-4x"></i>
+                        <div class="datasheet-text-container">
+                            <div>
+            {{/if}}
+            {{#if name '===' 'PDF Name'}}
+                            {{value}}</div>
+                        </div>
+                    </a>
+                </div>
+            {{/if}}
+        {{/each}}
+    {{/if}}
+</div>
+
+{{#if product.custom_fields}}
+    {{#each product.custom_fields}}
+        {{#if name '===' '360 ID'}}
+            <style>#image360, .image360Badge{display:block!important;}</style>
+        {{/if}}
+    {{/each}}
+{{/if}}
+
+<script type="text/javascript">
+     $(document).ready(function() {  
+        $("h1[itemprop='name']").each(function(){
+            if($(this).text().indexOf("Package") !== -1) { 
+                //console.log($(this));
+                $("#partsIncluded").css('display','block');
+                $("#replaceParts").css('display','none');
+            } else {
+                $("#partsIncluded").css('display','none');
+                $("#replaceParts").css('display','block');              
+            }
+        });            
+     });
+</script>
+
+<script src="https://player.vimeo.com/api/player.js"></script>

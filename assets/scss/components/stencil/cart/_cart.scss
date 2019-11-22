@@ -68,6 +68,7 @@ $cart-item-label-offset:                $cart-thumbnail-maxWidth + $cart-item-sp
     clear: both;
     display: block; // 1
     padding: $cart-item-spacing 0;
+    background: #fff !important; // important bc table styling overriding
 
     @include breakpoint("small") {
         @include clearfix;
@@ -84,6 +85,9 @@ $cart-item-label-offset:                $cart-thumbnail-maxWidth + $cart-item-sp
         }
     }
 }
+
+
+
 
 .cart-item-block {
     display: block; // 1
@@ -124,8 +128,6 @@ $cart-item-label-offset:                $cart-thumbnail-maxWidth + $cart-item-sp
 }
 
 .cart-item-image {
-    max-width: get-width(stencilString('productthumb_size'));
-
     @include lazy-loaded-img;
 
     @include breakpoint("medium") {
@@ -154,12 +156,13 @@ $cart-item-label-offset:                $cart-thumbnail-maxWidth + $cart-item-sp
 .cart-item-info {
     clear: both;
     width: 100%;
+    font-size: 18px;
 
     @include breakpoint("small") {
         clear: none;
         float: left;
         overflow: hidden;
-        width: grid-calc(4, $total-columns);
+        //width: grid-calc(4, $total-columns);
 
         + .cart-item-info {
             margin-top: 0;
@@ -175,9 +178,6 @@ $cart-item-label-offset:                $cart-thumbnail-maxWidth + $cart-item-sp
         }
     }
 
-    + .cart-item-info {
-        margin-top: spacing("half");
-    }
 }
 
 
@@ -200,18 +200,26 @@ $cart-item-label-offset:                $cart-thumbnail-maxWidth + $cart-item-sp
         vertical-align: middle;
 
         @include breakpoint("medium") {
-            margin-left: 0;
+            margin: 0px 0px 0px -2rem;
         }
+
+        
+    }
+
+    label {
+        font-size: 18px;
     }
 
 }
 
+
+
 .cart-item-label {
-    color: stencilColor("color-textBase");
+    color: color("greys", "light") !important;
     float: left;
     margin-bottom: spacing("quarter");
     text-align: right;
-    width: grid-calc(4, $total-columns);
+    //width: grid-calc(4, $total-columns);
 
     @include breakpoint("small") {
         display: block;
@@ -336,7 +344,7 @@ $cart-item-label-offset:                $cart-thumbnail-maxWidth + $cart-item-sp
 }
 
 .cart-total-label {
-    color: stencilColor("color-textSecondary");
+    color: stencilColor("color-textBase");
     width: grid-calc(4, $total-columns);
 
     @include breakpoint("small") {
@@ -378,6 +386,7 @@ $cart-item-label-offset:                $cart-thumbnail-maxWidth + $cart-item-sp
     padding-bottom: spacing("eighth");
     padding-top: spacing("eighth");
     position: relative;
+    font-weight: bold;
 
     @include breakpoint("medium") {
         padding: spacing("base") 0;
@@ -402,7 +411,12 @@ $cart-item-label-offset:                $cart-thumbnail-maxWidth + $cart-item-sp
 
     &:hover {
         color: stencilColor("color-textSecondary--hover");
+        background: #fff;
     }
+}
+
+.shipping-estimate-show {
+    color: stencilColor("color-sbm-lightRed");
 }
 
 .coupon-code-cancel,
@@ -652,4 +666,22 @@ $cart-item-label-offset:                $cart-thumbnail-maxWidth + $cart-item-sp
 .previewCart-emptyBody {
     padding: spacing("double");
     text-align: center;
+    color: black;
+}
+
+
+// Above Cart Content
+// -----------------------------------------------------------------------------
+
+.above-cart-content {
+    display: none;
+
+    @include breakpoint("small") {
+        display: block;
+        text-align: center;
+    }
+
+    @include breakpoint("large") {
+        text-align: right;
+    }
 }

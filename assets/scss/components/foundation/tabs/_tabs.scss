@@ -9,7 +9,7 @@
 // -----------------------------------------------------------------------------
 
 .tab {
-    border-top: $tab-active-border;
+    border-top: #fff;
     float: none;
 
     @include breakpoint("medium") {
@@ -37,8 +37,13 @@
     text-align: center;
     text-decoration: $tab-title-text-decoration;
 
+    @include breakpoint(0px) {
+        width:100%;
+    }
+
     @include breakpoint("small") {
-        text-align: left;
+        
+        width: 100%;
     }
 
     @include breakpoint("medium") {
