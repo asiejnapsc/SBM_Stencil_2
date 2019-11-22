@@ -1,7 +1,7 @@
 {{#if product.related_products}}
     <h3 class="related-products">
-        <span id="replaceParts" style="display:block;">Related Parts</span>
-        <span id="partsIncluded" style="display:none;">Parts Included</span>
+        <span id="replaceParts" style="display:block;">Related Parts ({{product.related_products.length}})</span>
+        <span id="partsIncluded" style="display:none;">Parts Included ({{product.related_products.length}})</span>
     </h3>
     <div id="related-products-area">
         {{#if settings.data_tag_enabled}}
