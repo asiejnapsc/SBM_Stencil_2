@@ -121,3 +121,18 @@ product:
 </script>
 
 <script src="https://player.vimeo.com/api/player.js"></script>
+
+<script>
+    var count = 0;
+        $( ".productCarousel-slide" ).each(function() {
+           var price = $( this ).find( ".price--withoutTax" ).text();
+            if(price == "$0.00"){
+                $(this).hide();
+                count++;
+            }
+        });
+        if(count > 0){
+            var total = {{product.related_products.length}} - count;
+            $( "#replaceParts" ).text("Related Parts " + "(" + total + ")");
+        }
+</script> 
