@@ -86,5 +86,41 @@ $(document).ready(function() {
 });
 </script>
 
+<!-- Script to minimize breadcrumb on smaller screens -->
+<script>
+$(document).ready(function() {
+
+    // if mobile screen width
+    if (screen.width <= 414) {
+
+        // grab the ul containing the breadcrumbs
+        var breadcrumbList = document.querySelector(".breadcrumbs");
+
+        // if breadcrumbs are present on page
+        if (breadcrumbList) {
+            // only affect pages that have more than one breadcrumb 
+            if (breadcrumbList.children.length >= 2) {
+
+                //console.log(breadcrumbList);
+
+                var secondToLastBreadcrumb = breadcrumbList.lastChild.previousElementSibling.previousElementSibling;
+                var secondToLastBreadcrumbAnchor = breadcrumbList.lastChild.previousElementSibling.previousElementSibling.children[0];
+
+                // display second to last breadcrumb
+                $(secondToLastBreadcrumb).css('display', 'inline-block');
+
+                // change the arrow direction
+                $(secondToLastBreadcrumb).addClass('backwards-arrow');
+
+                // style
+                $(secondToLastBreadcrumbAnchor).css('text-decoration', 'underline');
+
+            }
+        }
+    }
+});
+</script>
+
+
 
 </html>

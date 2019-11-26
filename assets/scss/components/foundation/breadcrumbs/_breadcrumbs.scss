@@ -54,3 +54,7 @@
     }
 
 }
+
+.breadcrumb:first-child:before {
+    content: "<"
+}
