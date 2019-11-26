@@ -23,6 +23,16 @@
 //     }
 // }
 
+.breadcrumbs {
+    padding: .25rem;
+    margin: -1rem;
+
+    @include breakpoint ("medium") {
+        padding: 0.73rem 0;
+        margin: 0;
+    }
+}
+
 .breadcrumb {
     display: none;
     float: none;
