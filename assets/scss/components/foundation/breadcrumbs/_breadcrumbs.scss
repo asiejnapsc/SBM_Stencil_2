@@ -13,18 +13,18 @@
 // -----------------------------------------------------------------------------
 
 
-.breadcrumbs {
-    display: none; // 1
-    font-size: 0; // 2
-    text-align: center;
+// .breadcrumbs {
+//     display: none; // 1
+//     font-size: 0; // 2
+//     text-align: center;
 
-    @include breakpoint("small") {
-        display: block; // 1
-    }
-}
+//     @include breakpoint("small") {
+//         display: block; // 1
+//     }
+// }
 
 .breadcrumb {
-    display: inline-block;
+    display: none;
     float: none;
 
     &.is-active {
@@ -35,8 +35,22 @@
             text-decoration: none;
         }
     }
+
+    @include breakpoint("medium") {
+        display: inline-block;
+    }
 }
 
 .breadcrumb-label {
     text-decoration: underline;
+}
+
+/* For mobile breadcrumbs */
+.backwards-arrow {
+    display: inline-block !important;
+    
+    &:before {
+        content: "<";
+    }
+
 }
