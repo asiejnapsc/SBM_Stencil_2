@@ -309,7 +309,7 @@
     }
 
     .card-badge {
-        // z-index: 11;
+        z-index: 10;
         position: absolute;
         top: 1rem;
         right: 1rem;
@@ -425,7 +425,7 @@
             left: 0;
             bottom: 0;
             right: 0;
-            // z-index: 1;
+            z-index: 1;
             background: url(https://cdn6.bigcommerce.com/s-eqgv9kc7pj/product_images/uploaded_images/youtube-grey-play.png) no-repeat center center;
             background-size: 20%;
             color: transparent;

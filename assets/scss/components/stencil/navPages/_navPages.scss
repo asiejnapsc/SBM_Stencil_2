@@ -292,7 +292,7 @@
 .navPage-subMenu {
     display: none;
     outline: 0;
-    z-index: 1;
+    z-index: 11;
     @include breakpoint("medium") {
         // scss-lint:disable ImportantRule
         background-color: stencilColor("color-sbm-lightRed");
