@@ -436,7 +436,10 @@
 }
 
 .ui-autocomplete {
-    width: 452px !important;
+    width: 100% !important;
+    @include breakpoint("medium") {
+        width: 452px !important;
+    }
 }
 .search_links{
     display: none;
