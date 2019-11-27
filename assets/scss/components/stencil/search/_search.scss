@@ -93,3 +93,9 @@
     margin: spacing("single") 0 0;
     text-align: center;
 }
+
+@media (max-width: 559px){
+    div.isp_center_container ul#isp_search_results_container li.isp_grid_product, ul#isp_quick_view_content_lookalike li.isp_grid_product {
+        height: 400px !important;
+    }
+}
