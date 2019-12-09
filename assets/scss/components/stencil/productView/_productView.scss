@@ -36,9 +36,9 @@
         margin-top: spacing("half");
     }
 
-    @media (min-width: $screen-xxsmall) and (max-width: $screen-medium) {
-        pointer-events: none;
-    }
+    // @media (min-width: $screen-xxsmall) and (max-width: $screen-medium) {
+    //     pointer-events: none;
+    // }
 }
 
 .productView-img-container {
@@ -507,8 +507,8 @@ h3.related-products {
 .productView-image .easyzoom-flyout {
     overflow: hidden;
     position: absolute;
-    width: 100%;
-    height: 100%;
+    width: 80%;
+    height: 80%;
     border-radius: 1rem;
 
     img {
