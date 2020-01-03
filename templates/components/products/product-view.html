@@ -332,14 +332,17 @@
         <!-- {{> components/common/share}} -->
     </section>
 
-    <article class="productView-description"{{#if schema}} itemprop="description"{{/if}}>
-        {{#if theme_settings.show_product_details_tabs}}
-            {{> components/products/description-tabs}}
-        {{else}}
-            {{> components/products/description}}
-        {{/if}}
-    </article>
 </div>
+
+{{> components/products/tabs}}
+
+<article class="productView-description"{{#if schema}} itemprop="description"{{/if}}>
+    {{#if theme_settings.show_product_details_tabs}}
+        {{> components/products/description-tabs}}
+    {{else}}
+        {{> components/products/description}}
+    {{/if}}
+</article>
 
 <div id="previewModal" class="modal modal--large" data-reveal>
     <a href="#" class="modal-close" aria-label="{{lang 'common.close'}}" role="button" style="top:1.05rem;"">

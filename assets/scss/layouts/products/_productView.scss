@@ -61,6 +61,7 @@
     @include grid-column(12);
     padding-left: spacing("base");
     padding-right: spacing("base");
+    float: none;
 
     @include breakpoint("large") {
         // clear: right;

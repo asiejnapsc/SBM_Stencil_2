@@ -29,7 +29,7 @@ product:
             {{> components/products/reviews reviews=product.reviews product=product urls=urls}}
         {{/all}}
 
-        {{> components/products/tabs}}
+        
     </div>
 {{/partial}}
 {{> layout/base}}
@@ -65,7 +65,14 @@ product:
    }]);
  </script>
 
-<script src="https://scripts.sirv.com/sirv.js"></script>
+{{#if product.custom_fields}}
+    {{#each product.custom_fields}}
+        {{#if name '===' '360 ID'}}
+        <script src="https://scripts.sirv.com/sirv.js"></script>
+        {{/if}}
+    {{/each}}
+{{/if}}
+
 <div class="Sirv lity-hide" id="Sirv" data-src="https://mbibelan.sirv.com/products/{{#if product.custom_fields}}{{#each product.custom_fields}}{{#if name '===' '360 ID'}}{{value}}{{/if}}{{/each}}{{/if}}/{{#if product.custom_fields}}{{#each product.custom_fields}}{{#if name '===' '360 ID'}}{{value}}{{/if}}{{/each}}{{/if}}.spin"></div>
 
 <div id="lity-datasheets" class="lity-hide">

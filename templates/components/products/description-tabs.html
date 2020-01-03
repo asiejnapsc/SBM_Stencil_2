@@ -1,17 +1,20 @@
-{{#if product.related_products}}
+<!-- MOVED TO TABS.HTML
+    {{#if product.related_products}}
     <h3 class="related-products">
         <span id="replaceParts" style="display:block;">Related Parts ({{product.related_products.length}})</span>
         <span id="partsIncluded" style="display:none;">Parts Included ({{product.related_products.length}})</span>
     </h3>
     <div id="related-products-area">
-        {{#if settings.data_tag_enabled}}
-            {{> components/products/carousel products=product.related_products columns=6 list="Related Products"}}
-        {{else}}
-            {{> components/products/carousel products=product.related_products columns=6}}
-        {{/if}}
+        <div role="tabpanel" aria-hidden="false" class="tab-content has-jsContent is-active" id="tab-related">
+            {{#if settings.data_tag_enabled}}
+                {{> components/products/carousel products=product.related_products columns=6 list="Related Products"}}
+            {{else}}
+                {{> components/products/carousel products=product.related_products columns=6}}
+            {{/if}}
+        </div>
     </div>
     <hr>
- {{/if}}
+ {{/if}} -->
 
 <ul class="tabs" data-tab>
     <li class="tab is-active">
