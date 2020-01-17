@@ -215,12 +215,12 @@ body > div.body > div.container > main > div.row > div.large-9.columns > article
     border: 1px solid #333333;
  }
 
-.MobileBlogSearch{
+#BlogSearchContainerMobile{
 
     display: block;
 
     @include breakpoint("medium") {
-        display: none;
+        display: none !important;
     }
 }
 
@@ -248,4 +248,35 @@ padding: 15px;
     @include breakpoint("medium") {
         margin-top:0px;
     }
+}
+
+#BlogSearchContainer, #BlogSearchContainerMobile{
+    display: flex;
+    box-sizing: border-box;
+}
+#BlogSearchContainerMobile{
+    margin-top: 10px;
+}
+
+#BlogSearchBox, #BlogSearchBoxMobile{
+    box-sizing: border-box;
+}
+
+#BlogSearchButton, #BlogSearchButtonMobile{
+    padding-top: 0px;
+    padding-bottom: 0px;
+    margin-bottom: 22px;
+    padding-left: 17px;
+    padding-right: 17px;
+    background: #630d0d;
+    margin-left: 10px;
+
+}
+
+#BlogSearchButton > svg, #BlogSearchButtonMobile > svg{
+    fill: #ffffff
+}
+
+#BlogSearchContainerMobile{
+    margin-top: 25px;
 }
