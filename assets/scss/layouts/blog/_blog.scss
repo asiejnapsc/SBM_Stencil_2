@@ -131,7 +131,7 @@
     text-align: right;
 }
 
-.recent-posts, .monthly-archive, .categories{
+.recent-posts, .monthly-archive, .categories, .search{
     background-color: #630d0d;
     padding-top: 10px;
     padding-bottom: 10px;
@@ -144,10 +144,6 @@
     color: #ffffff;
 }
 
-
-body > div.body > div.container > main > div.row > div.large-3.columns > div > ul{
-    font-size: large;
-}
 
 .blog-post{
     padding-left: 20px;

@@ -7,64 +7,83 @@ blog:
 ---
 {{#partial "page"}}
 {{> components/common/breadcrumbs breadcrumbs=breadcrumbs}}
-<!-- <a href="/blog"><div class="blogHeaderBackground" style="background-image : url('https://cdn10.bigcommerce.com/s-qm2r4/product_images/uploaded_images/cloud-flight-blog-banner.png'); background-position: center; height: 203px;">
-{{#unless theme_settings.hide_blog_page_heading }}
-<a href="/blog"><img src="https://cdn3.bigcommerce.com/s-qm2r4/product_images/uploaded_images/the-flight-blog-logo.png" alt="The Flight Blog Logo"></a>
-    {{/unless}}
-</div></a> -->
+
 <div id="BlogSearchContainerMobile">
     <input id="BlogSearchBoxMobile" name="blog-search" placeholder="Blog Search"
-aria-label="Search through blog content">
-    <button id="BlogSearchButtonMobile" onclick="searchBlogMobile()"><svg width="13" height="13" viewBox="0 0 13 13"><title>search</title><path d="m4.8495 7.8226c0.82666 0 1.5262-0.29146 2.0985-0.87438 0.57232-0.58292 0.86378-1.2877 0.87438-2.1144 0.010599-0.82666-0.28086-1.5262-0.87438-2.0985-0.59352-0.57232-1.293-0.86378-2.0985-0.87438-0.8055-0.010599-1.5103 0.28086-2.1144 0.87438-0.60414 0.59352-0.8956 1.293-0.87438 2.0985 0.021197 0.8055 0.31266 1.5103 0.87438 2.1144 0.56172 0.60414 1.2665 0.8956 2.1144 0.87438zm4.4695 0.2115 3.681 3.6819-1.259 1.284-3.6817-3.7 0.0019784-0.69479-0.090043-0.098846c-0.87973 0.76087-1.92 1.1413-3.1207 1.1413-1.3553 0-2.5025-0.46363-3.4417-1.3909s-1.4088-2.0686-1.4088-3.4239c0-1.3553 0.4696-2.4966 1.4088-3.4239 0.9392-0.92727 2.0864-1.3969 3.4417-1.4088 1.3553-0.011889 2.4906 0.45771 3.406 1.4088 0.9154 0.95107 1.379 2.0924 1.3909 3.4239 0 1.2126-0.38043 2.2588-1.1413 3.1385l0.098834 0.090049z"></path></svg></button>
-    </div>
+        aria-label="Search through blog content">
+    <button id="BlogSearchButtonMobile" onclick="searchBlogMobile()"><svg width="13" height="13" viewBox="0 0 13 13">
+            <title>search</title>
+            <path
+                d="m4.8495 7.8226c0.82666 0 1.5262-0.29146 2.0985-0.87438 0.57232-0.58292 0.86378-1.2877 0.87438-2.1144 0.010599-0.82666-0.28086-1.5262-0.87438-2.0985-0.59352-0.57232-1.293-0.86378-2.0985-0.87438-0.8055-0.010599-1.5103 0.28086-2.1144 0.87438-0.60414 0.59352-0.8956 1.293-0.87438 2.0985 0.021197 0.8055 0.31266 1.5103 0.87438 2.1144 0.56172 0.60414 1.2665 0.8956 2.1144 0.87438zm4.4695 0.2115 3.681 3.6819-1.259 1.284-3.6817-3.7 0.0019784-0.69479-0.090043-0.098846c-0.87973 0.76087-1.92 1.1413-3.1207 1.1413-1.3553 0-2.5025-0.46363-3.4417-1.3909s-1.4088-2.0686-1.4088-3.4239c0-1.3553 0.4696-2.4966 1.4088-3.4239 0.9392-0.92727 2.0864-1.3969 3.4417-1.4088 1.3553-0.011889 2.4906 0.45771 3.406 1.4088 0.9154 0.95107 1.379 2.0924 1.3909 3.4239 0 1.2126-0.38043 2.2588-1.1413 3.1385l0.098834 0.090049z">
+            </path>
+        </svg></button>
+</div>
+
 <main class="page">
-    <div class = "row" style="max-width: 100.66667rem;">
+    <div class="row" style="max-width: 100.66667rem;">
         <div class="large-9 columns">
-             {{#each blog.posts}}
-                {{> components/blog/post post=this}}
+            {{#each blog.posts}}
+            {{> components/blog/post post=this}}
             {{/each}}
         </div>
         <div class="large-3 columns blog-sidebar">
+            <h4 class="search">SEARCH</h4>
             <div id="BlogSearchContainer">
                 <input id="BlogSearchBox" name="blog-search" placeholder="Blog Search"
-           aria-label="Search through blog content">
-                <button id="BlogSearchButton" onclick="searchBlog()"><svg width="13" height="13" viewBox="0 0 13 13"><title>search</title><path d="m4.8495 7.8226c0.82666 0 1.5262-0.29146 2.0985-0.87438 0.57232-0.58292 0.86378-1.2877 0.87438-2.1144 0.010599-0.82666-0.28086-1.5262-0.87438-2.0985-0.59352-0.57232-1.293-0.86378-2.0985-0.87438-0.8055-0.010599-1.5103 0.28086-2.1144 0.87438-0.60414 0.59352-0.8956 1.293-0.87438 2.0985 0.021197 0.8055 0.31266 1.5103 0.87438 2.1144 0.56172 0.60414 1.2665 0.8956 2.1144 0.87438zm4.4695 0.2115 3.681 3.6819-1.259 1.284-3.6817-3.7 0.0019784-0.69479-0.090043-0.098846c-0.87973 0.76087-1.92 1.1413-3.1207 1.1413-1.3553 0-2.5025-0.46363-3.4417-1.3909s-1.4088-2.0686-1.4088-3.4239c0-1.3553 0.4696-2.4966 1.4088-3.4239 0.9392-0.92727 2.0864-1.3969 3.4417-1.4088 1.3553-0.011889 2.4906 0.45771 3.406 1.4088 0.9154 0.95107 1.379 2.0924 1.3909 3.4239 0 1.2126-0.38043 2.2588-1.1413 3.1385l0.098834 0.090049z"></path></svg></button>
-                </div>
-                <h4 class="recent-posts">RECENT POSTS</h4>
-                <div class="BlockContent">
-                    <ul id="Post">
-                        <a href=""></a>
-                    </ul>
-                    <ul id="Post">
-                        <a href=""></a>
-                    </ul>
-                    <ul id="Post">
-                        <a href=""></a>
-                    </ul>
-                    <ul id="Post">
-                        <a href=""></a>
-                    </ul>
-                    <ul id="Post">
-                        <a href=""></a>
-                    </ul>
-                </div>
-            <h4 class="monthly-archive"><a href="https://sandblastingmachines.com/blog/tag/monthly+newsletter" style="cursor:pointer;">MONTHLY ARCHIVE</a></h4>
-    <div class="BlockContent" id="MonthlyArchive">
-        <ul>
-            <a href=""><li></li></a>      
-            <a href=""><li></li></a>      
-            <a href=""><li></li></a>      
-            <a href=""><li></li></a>      
-            <a href=""><li></li></a>    
-        </ul>
-    </div>
-    
-    <h4 class="categories">CATEGORIES</h4>
-    <div class="BlockContent" id="BlogCategories">
-        <ul><a href="/blog/tag/sandblasting+news">SANDBLASTING NEWS</a></ul>
-        <ul><a href="/blog/tag/information+and+guides">INFORMATIONAL & GUIDES</a></ul>
-        <ul><a href="/blog/tag/product+information">PRODUCT INFORMATION</a></ul>
-    </div>
+                    aria-label="Search through blog content">
+                <button id="BlogSearchButton" onclick="searchBlog()"><svg width="13" height="13" viewBox="0 0 13 13">
+                        <title>search</title>
+                        <path
+                            d="m4.8495 7.8226c0.82666 0 1.5262-0.29146 2.0985-0.87438 0.57232-0.58292 0.86378-1.2877 0.87438-2.1144 0.010599-0.82666-0.28086-1.5262-0.87438-2.0985-0.59352-0.57232-1.293-0.86378-2.0985-0.87438-0.8055-0.010599-1.5103 0.28086-2.1144 0.87438-0.60414 0.59352-0.8956 1.293-0.87438 2.0985 0.021197 0.8055 0.31266 1.5103 0.87438 2.1144 0.56172 0.60414 1.2665 0.8956 2.1144 0.87438zm4.4695 0.2115 3.681 3.6819-1.259 1.284-3.6817-3.7 0.0019784-0.69479-0.090043-0.098846c-0.87973 0.76087-1.92 1.1413-3.1207 1.1413-1.3553 0-2.5025-0.46363-3.4417-1.3909s-1.4088-2.0686-1.4088-3.4239c0-1.3553 0.4696-2.4966 1.4088-3.4239 0.9392-0.92727 2.0864-1.3969 3.4417-1.4088 1.3553-0.011889 2.4906 0.45771 3.406 1.4088 0.9154 0.95107 1.379 2.0924 1.3909 3.4239 0 1.2126-0.38043 2.2588-1.1413 3.1385l0.098834 0.090049z">
+                        </path>
+                    </svg></button>
+            </div>
+            <h4 class="recent-posts">RECENT POSTS</h4>
+            <div class="BlockContent">
+                <ul id="Post">
+                    <a href=""></a>
+                </ul>
+                <ul id="Post">
+                    <a href=""></a>
+                </ul>
+                <ul id="Post">
+                    <a href=""></a>
+                </ul>
+                <ul id="Post">
+                    <a href=""></a>
+                </ul>
+                <ul id="Post">
+                    <a href=""></a>
+                </ul>
+            </div>
+            <h4 class="monthly-archive"><a href="https://sandblastingmachines.com/blog/tag/monthly+newsletter"
+                    style="cursor:pointer;">MONTHLY ARCHIVE</a></h4>
+            <div class="BlockContent" id="MonthlyArchive">
+                <ul>
+                    <a href="">
+                        <li></li>
+                    </a>
+                    <a href="">
+                        <li></li>
+                    </a>
+                    <a href="">
+                        <li></li>
+                    </a>
+                    <a href="">
+                        <li></li>
+                    </a>
+                    <a href="">
+                        <li></li>
+                    </a>
+                </ul>
+            </div>
+
+            <h4 class="categories">CATEGORIES</h4>
+            <div class="BlockContent" id="BlogCategories">
+                <ul><a href="/blog/tag/sandblasting+news">Sandblasting News</a></ul>
+                <ul><a href="/blog/tag/information+and+guides">Informational & Guides</a></ul>
+                <ul><a href="/blog/tag/product+information">Product Information</a></ul>
+            </div>
         </div>
     </div>
     {{> components/common/paginator pagination.blog}}
@@ -73,68 +92,84 @@ aria-label="Search through blog content">
 {{/partial}}
 {{> layout/base}}
 
-<!-- script to add Blog Search text -->                                            
+<!-- script to add Blog Search text -->
 <script>
-    window.onload = function(){ 
-    $('.gsc-input').each(function() {
-      $(this).attr("placeholder", "Blog Search");
-    }); 
-    };  
-    </script>
-    <!-- Script to pull the most recent blog articles -->
-    <script>
-        $("#Post a").each(function(index, element){
+    window.onload = function () {
+        $('.gsc-input').each(function () {
+            $(this).attr("placeholder", "Blog Search");
+        });
+    };
+</script>
+<!-- Script to pull the most recent blog articles -->
+<script>
+    $("#Post a").each(function (index, element) {
         var recentPostsURL = "/blog/";
-            $.get(recentPostsURL, function(data){
-                  var children = $(data).find(".blog-title").children();
-                  var title = $(children[index]).text();
-                  var link = $(children[index]).attr("href");
-                  $(element).text(title);
-                  $(element).attr("href", link);
-                  
-            });            
-        });
-    </script>   
-    <!-- Script to pull the most reent monthly archives -->
-    <script>
-        $("#MonthlyArchive ul a").each(function(index, element){
-        var monthlyArchiveURL = "/blog/tag/monthly+newsletter";
-            $.get(monthlyArchiveURL, function(data){
-                  var children = $(data).find(".blog-title").children();
-                  var title = $(children[index]).text();
-                  var link = $(children[index]).attr("href");
-                  $(element).children('li').text(title);
-                  $(element).attr("href", link);
-                  
-            });            
-        });
-    </script> 
+        $.get(recentPostsURL, function (data) {
+            var children = $(data).find(".blog-title").children();
+            var title = $(children[index]).text();
+            var link = $(children[index]).attr("href");
+            $(element).text(title);
+            $(element).attr("href", link);
 
-    <!-- Script that allows the articles search results to pull from the blog search -->
-    <script>
-        function searchBlog(){
-            let keyword = document.getElementById("BlogSearchBox").value;
-            let url = "/search-results-page?q=" + keyword + "&tab=pages";
-            window.open(url, "_top");
-        }
-        function searchBlogMobile(){
-            let keyword = document.getElementById("BlogSearchBoxMobile").value;
-            let url = "/search-results-page?q=" + keyword + "&tab=pages";
-            window.open(url, "_top");
-        }
-    </script>
+        });
+    });
+</script>
+<!-- Script to pull the most reent monthly archives -->
+<script>
+    $("#MonthlyArchive ul a").each(function (index, element) {
+        var monthlyArchiveURL = "/blog/tag/monthly+newsletter";
+        $.get(monthlyArchiveURL, function (data) {
+            var children = $(data).find(".blog-title").children();
+            var title = $(children[index]).text();
+            var link = $(children[index]).attr("href");
+            $(element).children('li').text(title);
+            $(element).attr("href", link);
+
+        });
+    });
+</script>
+
+<!-- Script that allows the articles search results to pull from the blog search -->
+<script>
+    function searchBlog() {
+        let keyword = document.getElementById("BlogSearchBox").value;
+        let url = "/search-results-page?q=" + keyword + "&tab=pages";
+        window.open(url, "_top");
+    }
+
+    function searchBlogMobile() {
+        let keyword = document.getElementById("BlogSearchBoxMobile").value;
+        let url = "/search-results-page?q=" + keyword + "&tab=pages";
+        window.open(url, "_top");
+    }
+</script>
 
 <style>
-     .container{
-         margin-left:0%;
-         margin-right: 0%;
-         max-width: 150rem;
-         padding-left: 1.5rem;
-         padding-right: 1.5rem;
-     }
+    .container {
+        margin-left: auto;
+        margin-right: auto;
+        max-width: 95rem;
+        /* padding-left: 1.5rem;
+        padding-right: 1.5rem; */
+    }
 
-     a{
-         text-decoration: none;
-     }
+    a {
+        text-decoration: none;
+    }
 
+    .blog-sidebar ul {
+        margin-bottom: 0.5rem;
+        list-style: none;
+        border-bottom: none;
+    }
+
+    .blog-sidebar h4 {
+        letter-spacing: 1px;
+        font-size: 1.05rem;
+    }
+
+    .blog-sidebar ul li {
+        font-size: 1rem;
+    }
 </style>
+
