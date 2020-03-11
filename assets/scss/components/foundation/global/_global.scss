@@ -389,16 +389,6 @@
         }
     }
 
-    /* Search Added CSS */
-    input#search_queryispbxi_ispbxi_,
-    button.search-button-mobile {
-        background: stencilColor("color-greyLightest") !important;
-
-        @include breakpoint("small") {
-            background: white;
-        }
-    }
-
     // ===============================================================
     // LITY - YT THUMBNAIL STYLING
     // ===============================================================

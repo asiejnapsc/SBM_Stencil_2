@@ -17,7 +17,7 @@
 
 .header {
     background-color: $header-bg;
-    border-bottom: container("border");
+    //border-bottom: container("border");
     position: fixed;
     top: 0;
     width: 100%;
@@ -450,4 +450,28 @@
 
 #SearchForm-Mobile{
     margin-top: 57px;
+}
+
+#search_query {font-family: 'Karla', sans-serif;background-color:  #eee;}
+
+.search-button-mobile {
+    background: #0c641c;
+    color: white;
+}
+
+#SearchForm-Mobile form div {
+    background: #e5e5e5;
+    box-shadow: 0 -4px 8px 5px rgba(0,0,0,.4);
+    display: inline-flex;
+    width: 100%;
+}
+
+
+.snize-ac-results{
+    width:100% !important;
+
+    @include breakpoint($screen-medium) {
+        width: 380px !important;
+        
+    }
 }
