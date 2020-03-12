@@ -1,6 +1,6 @@
 {
   "name": "Cornerstone",
-  "version": "4.3.0",
+  "version": "4.4.2",
   "meta": {
     "price": 0,
     "documentation_url": "https://support.bigcommerce.com/articles/Public/Cornerstone-Theme-Manual",
@@ -31,9 +31,9 @@
       "product_videos",
       "google_amp",
       "customized_checkout",
-      "account_payment_methods",
       "enhanced_ecommerce",
-      "csrf_protection"
+      "csrf_protection",
+      "account_payment_methods_v2"
     ]
   },
   "css_compiler": "scss",
@@ -325,6 +325,10 @@
       "mastercard",
       "visa"
     ],
+    "supported_payment_methods": [
+      "card",
+      "paypal"
+    ],
     "lazyload_mode": "lazyload+lqip"
   },
   "read_only_files": [
@@ -480,7 +484,7 @@
         "checkRadio-backgroundColor": "#444444",
         "checkRadio-borderColor": "#999999",
         "alert-backgroundColor": "#444444",
-        "alert-color": "#ffffff",
+        "alert-color": "#333333",
         "alert-color-alt": "#444444",
         "storeName-color": "#ffffff",
         "body-bg": "#444444",
