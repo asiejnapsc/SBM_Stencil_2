@@ -20,6 +20,9 @@ blog:
 </div>
 
 <main class="page">
+
+    <h1 class="blog-title-header">{{head.title}}</h1>
+
     <div class="row" style="max-width: 100.66667rem;">
         <div class="large-9 columns">
             {{#each blog.posts}}
@@ -170,6 +173,10 @@ blog:
 
     .blog-sidebar ul li {
         font-size: 1rem;
+    }
+
+    .blog-title-header {
+        display:none;
     }
 </style>
 
