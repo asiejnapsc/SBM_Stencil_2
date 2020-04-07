@@ -63,17 +63,21 @@
 $(document).ready(function() {
     if (!localStorage.bannerClosed) {
         $('.PromoTopBanner').css('display', 'inherit');
+        $('.NoticeBanner').css('padding-top', '4rem');
     } else {
         $('.PromoTopBanner').css('display', 'none');
+        $('.NoticeBanner').css('padding-top', '1rem');
     }
 
     $('.promo-close').click(function() {
         $('.PromoTopBanner').css('display', 'none');
+        $('.NoticeBanner').css('padding-top', '1rem');
         localStorage.bannerClosed = 'true';
     });
 
     if (navigator.userAgent.match(/Opera|OPR\//)) {
         $('.PromoTopBanner').css('display', 'inherit');
+        $('.NoticeBanner').css('padding-top', '4rem');
     }
 
 });

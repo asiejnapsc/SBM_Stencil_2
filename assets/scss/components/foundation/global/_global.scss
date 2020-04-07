@@ -164,6 +164,23 @@
 
     }
 
+    /* Info Top Banner */
+
+    .NoticeBanner {
+        display: none;
+
+        @include breakpoint("medium") {
+            background: lighten(stencilColor("color-warning"), 25%);
+            display:block;
+            font-weight: bold;
+            padding: 1rem;
+            text-align: center;
+        }
+    }
+
+
+
+
     #sbmHeaderBar1,
     #redHeaderBar {
         background: stencilColor("color-sbm-darkRed");
