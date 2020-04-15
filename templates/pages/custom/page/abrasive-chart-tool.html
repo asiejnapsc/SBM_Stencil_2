@@ -45,6 +45,16 @@
                         <option value="140">140</option>
                     </select>
 
+                    <br>
+
+                    <h5 class="line bg"><span>OR</span></h5>
+
+                    <label for="cfm">What is your cfm?</label>
+                    <select id="cfm" name="cfm">
+                        <option value="-">-</option>
+
+                    </select>
+
                     <br><br>
 
                     <a class="chart-submit button button--primary" style="text-decoration:underline;">Submit</a>
@@ -55,7 +65,7 @@
 
                 <hr>
 
-                <span class="extra-info">*Consumption rates are based on abrasives that weigh 100 pounds per cubic foot.</span>
+                <span class="extra-info">* Consumption rates are based on abrasives that weigh 100 pounds per cubic foot.</span>
             </div>
 
             <div class="large-6 medium-6 small-12 columns">
@@ -494,11 +504,40 @@
     }
 
     .info-area {
-        background: #e5e5e5a6;
+        background: #e5e5e5;
         border-radius: 0.5rem;
         box-shadow: 0 0px 8px -3px rgba(0, 0, 0, 0.5);
         padding: 1.5rem;
     }
+
+    .line {
+        margin-top: 30px;
+        text-align: center;
+        text-transform: uppercase;
+        
+    }
+    .line.bg {
+        position: relative;
+        z-index: 1;
+    }
+    .line.bg:before {
+        border-top: 2px solid black;
+        content: "";
+        margin: 0 auto;
+        position: absolute;
+        top: 50%;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        width: 95%;
+        z-index: -1;
+    }
+    .line.bg span {
+        background: #e5e5e5;
+        padding: 0 15px;
+    }
+
+
 
     @media only screen and (max-width: 760px), (min-device-width: 768px) and (max-device-width: 1024px)  {
         table tbody tr td, table tr td {
