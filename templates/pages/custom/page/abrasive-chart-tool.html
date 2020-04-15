@@ -1,0 +1,623 @@
+{{#partial "page"}}
+
+{{> components/common/breadcrumbs breadcrumbs=breadcrumbs}}
+
+<main class="page">
+    {{#unless theme_settings.hide_page_heading }}
+    <h1 class="page-heading">{{ page.title }}</h1>
+    {{/unless}}
+
+    <br>
+
+    <div class="container">
+
+        <div class="row">
+
+            <div class="large-6 medium-6 small-12 columns info-area">
+                <h4>How to Use:</h4>
+                <p>Please select your known nozzle orifice size and your pressure from the drop down menus below to find out your compressed air requirements and abrasive consumption. If you only know one of the below options, select it below and leave the other option empty. To the right, the table will highlight with your requirements and consumption.</p>
+
+                <form id="chart-form">
+                    <label for="orifice">What is your Nozzle Orifice Size?</label>
+                    <select id="orifice" name="orifice">
+                        <option value="-">-</option>
+                        <option value="no2">No. 2 (1/8")</option>
+                        <option value="no3">No. 3 (3/16")</option>
+                        <option value="no4">No. 4 (1/4")</option>
+                        <option value="no5">No. 5 (5/16")</option>
+                        <option value="no6">No. 6 (3/8")</option>
+                        <option value="no7">No. 7 (7/16")</option>
+                        <option value="no8">No. 8 (1/2")</option>
+                    </select>
+
+                    <br><br>
+
+                    <label for="pressure">What is your Pressure?</label>
+                    <select id="pressure" name="pressure">
+                        <option value="-">-</option>
+                        <option value="50">50</option>
+                        <option value="60">60</option>
+                        <option value="70">70</option>
+                        <option value="80">80</option>
+                        <option value="90">90</option>
+                        <option value="100">100</option>
+                        <option value="125">125</option>
+                        <option value="140">140</option>
+                    </select>
+
+                    <br><br>
+
+                    <a class="chart-submit button button--primary" style="text-decoration:underline;">Submit</a>
+                </form>
+
+                <br>
+                <div class="msg-block"></div>
+
+                <hr>
+
+                <span class="extra-info">*Consumption rates are based on abrasives that weigh 100 pounds per cubic foot.</span>
+            </div>
+
+            <div class="large-6 medium-6 small-12 columns">
+                <table id="chart">
+                    <tbody>
+                        <tr>
+                            <td rowspan="2" class="darkRed">Nozzle Orifice</td>
+                            <td colspan="8" class="darkestRed">Pressure at the Nozzle (psi)</td>
+                            <td rowspan="2" class="darkRed">Air (in cfm) <br> Abrasive <br> HP Requirements</td>
+                        </tr>
+                        <tr>
+                            <td>50</td>
+                            <td>60</td>
+                            <td>70</td>
+                            <td>80</td>
+                            <td>90</td>
+                            <td>100</td>
+                            <td>125</td>
+                            <td>140</td>
+                        </tr>
+                        <tr style="border-top: 2px solid black;" class="airRow no2">
+                            <td rowspan="4" class="darkRed">No. 2 (1/8")</td>
+                            <td class="p50">11</td>
+                            <td class="p60">13</td>
+                            <td class="p70">15</td>
+                            <td class="p80">17</td>
+                            <td class="p90">18.5</td>
+                            <td class="p100">20</td>
+                            <td class="p125">25</td>
+                            <td class="p140">28</td>
+                            <td>Air (cfm)</td>
+                        </tr>
+                        <tr class="abrasiveRow no2">
+                            <td class="p50">.67</td>
+                            <td class="p60">.77</td>
+                            <td class="p70">.88</td>
+                            <td class="p80">1.01</td>
+                            <td class="p90">1.12</td>
+                            <td class="p100">1.23</td>
+                            <td class="p125">1.52</td>
+                            <td class="p140">1.70</td>
+                            <td>Abrasive (cu.ft/hr)</td>
+                        </tr>
+                        <tr class="lbshrRow no2">
+                            <td class="p50">67</td>
+                            <td class="p60">77</td>
+                            <td class="p70">88</td>
+                            <td class="p80">101</td>
+                            <td class="p90">112</td>
+                            <td class="p100">123</td>
+                            <td class="p125">152</td>
+                            <td class="p140">170</td>
+                            <td>lbs/hr</td>
+                        </tr>
+                        <tr class="compressorHPRow no2">
+                            <td class="p50">2.5</td>
+                            <td class="p60">3</td>
+                            <td class="p70">3.5</td>
+                            <td class="p80">4</td>
+                            <td class="p90">4.5</td>
+                            <td class="p100">5</td>
+                            <td class="p125">5.5</td>
+                            <td class="p140">6.2</td>
+                            <td>Compressor HP</td>
+                        </tr>
+                        <tr style="border-top: 2px solid black;" class="airRow no3">
+                            <td rowspan="4" class="darkRed">No. 3 (3/16")</td>
+                            <td class="p50">26</td>
+                            <td class="p60">30</td>
+                            <td class="p70">33</td>
+                            <td class="p80">38</td>
+                            <td class="p90">41</td>
+                            <td class="p100">45</td>
+                            <td class="p125">55</td>
+                            <td class="p140">62</td>
+                            <td>Air (cfm)</td>
+                        </tr>
+                        <tr class="abrasiveRow no3">
+                            <td class="p50">1.5</td>
+                            <td class="p60">1.71</td>
+                            <td class="p70">1.96</td>
+                            <td class="p80">2.16</td>
+                            <td class="p90">2.38</td>
+                            <td class="p100">2.64</td>
+                            <td class="p125">3.19</td>
+                            <td class="p140">3.57</td>
+                            <td>Abrasive (cu.ft/hr)</td>
+                        </tr>
+                        <tr class="lbshrRow no3">
+                            <td class="p50">150</td>
+                            <td class="p60">171</td>
+                            <td class="p70">196</td>
+                            <td class="p80">216</td>
+                            <td class="p90">238</td>
+                            <td class="p100">264</td>
+                            <td class="p125">319</td>
+                            <td class="p140">357</td>
+                            <td>lbs/hr</td>
+                        </tr>
+                        <tr class="compressorHPRow no3">
+                            <td class="p50">6</td>
+                            <td class="p60">7</td>
+                            <td class="p70">8</td>
+                            <td class="p80">9</td>
+                            <td class="p90">10</td>
+                            <td class="p100">10</td>
+                            <td class="p125">12</td>
+                            <td class="p140">13</td>
+                            <td>Compressor HP</td>
+                        </tr>
+                        <tr style="border-top: 2px solid black;" class="airRow no4">
+                            <td rowspan="4" class="darkRed">No. 4 (1/4")</td>
+                            <td class="p50">47</td>
+                            <td class="p60">54</td>
+                            <td class="p70">61</td>
+                            <td class="p80">68</td>
+                            <td class="p90">74</td>
+                            <td class="p100">81</td>
+                            <td class="p125">98</td>
+                            <td class="p140">110</td>
+                            <td>Air (cfm)</td>
+                        </tr>
+                        <tr class="abrasiveRow no4">
+                            <td class="p50">2.68</td>
+                            <td class="p60">3.12</td>
+                            <td class="p70">3.54</td>
+                            <td class="p80">4.08</td>
+                            <td class="p90">4.48</td>
+                            <td class="p100">4.94</td>
+                            <td class="p125">6.08</td>
+                            <td class="p140">6.81</td>
+                            <td>Abrasive (cu.ft/hr)</td>
+                        </tr>
+                        <tr class="lbshrRow no4">
+                            <td class="p50">268</td>
+                            <td class="p60">312</td>
+                            <td class="p70">354</td>
+                            <td class="p80">408</td>
+                            <td class="p90">448</td>
+                            <td class="p100">494</td>
+                            <td class="p125">608</td>
+                            <td class="p140">681</td>
+                            <td>lbs/hr</td>
+                        </tr>
+                        <tr class="compressorHPRow no4">
+                            <td class="p50">11</td>
+                            <td class="p60">12</td>
+                            <td class="p70">14</td>
+                            <td class="p80">16</td>
+                            <td class="p90">17</td>
+                            <td class="p100">18</td>
+                            <td class="p125">22</td>
+                            <td class="p140">25</td>
+                            <td>Compressor HP</td>
+                        </tr>
+                        <tr style="border-top: 2px solid black;" class="airRow no5">
+                            <td rowspan="4" class="darkRed">No. 5 (5/16)</td>
+                            <td class="p50">77</td>
+                            <td class="p60">89</td>
+                            <td class="p70">101</td>
+                            <td class="p80">113</td>
+                            <td class="p90">126</td>
+                            <td class="p100">137</td>
+                            <td class="p125">168</td>
+                            <td class="p140">188</td>
+                            <td>Air (cfm)</td>
+                        </tr>
+                        <tr class="abrasiveRow no5">
+                            <td class="p50">4.68</td>
+                            <td class="p60">5.34</td>
+                            <td class="p70">6.04</td>
+                            <td class="p80">6.72</td>
+                            <td class="p90">7.40</td>
+                            <td class="p100">8.12</td>
+                            <td class="p125">6.08</td>
+                            <td class="p140">6.81</td>
+                            <td>Abrasive (cu.ft/hr)</td>
+                        </tr>
+                        <tr class="lbshrRow no5">
+                            <td class="p50">468</td>
+                            <td class="p60">534</td>
+                            <td class="p70">604</td>
+                            <td class="p80">672</td>
+                            <td class="p90">740</td>
+                            <td class="p100">812</td>
+                            <td class="p125">608</td>
+                            <td class="p140">681</td>
+                            <td>lbs/hr</td>
+                        </tr>
+                        <tr class="compressorHPRow no5">
+                            <td class="p50">18</td>
+                            <td class="p60">20</td>
+                            <td class="p70">23</td>
+                            <td class="p80">26</td>
+                            <td class="p90">28</td>
+                            <td class="p100">31</td>
+                            <td class="p125">22</td>
+                            <td class="p140">25</td>
+                            <td>Compressor HP</td>
+                        </tr>
+                        <tr style="border-top: 2px solid black;" class="airRow no6">
+                            <td rowspan="4" class="darkRed">No. 6 (3/8")</td>
+                            <td class="p50">108</td>
+                            <td class="p60">126</td>
+                            <td class="p70">143</td>
+                            <td class="p80">161</td>
+                            <td class="p90">173</td>
+                            <td class="p100">196</td>
+                            <td class="p125">237</td>
+                            <td class="p140">265</td>
+                            <td>Air (cfm)</td>
+                        </tr>
+                        <tr class="abrasiveRow no6">
+                            <td class="p50">6.68</td>
+                            <td class="p60">7.64</td>
+                            <td class="p70">8.64</td>
+                            <td class="p80">9.60</td>
+                            <td class="p90">10.52</td>
+                            <td class="p100">11.52</td>
+                            <td class="p125">13.93</td>
+                            <td class="p140">15.6</td>
+                            <td>Abrasive (cu.ft/hr)</td>
+                        </tr>
+                        <tr class="lbshrRow no6">
+                            <td class="p50">668</td>
+                            <td class="p60">764</td>
+                            <td class="p70">864</td>
+                            <td class="p80">960</td>
+                            <td class="p90">1052</td>
+                            <td class="p100">1152</td>
+                            <td class="p125">1393</td>
+                            <td class="p140">1560</td>
+                            <td>lbs/hr</td>
+                        </tr>
+                        <tr class="compressorHPRow no6">
+                            <td class="p50">24</td>
+                            <td class="p60">28</td>
+                            <td class="p70">32</td>
+                            <td class="p80">36</td>
+                            <td class="p90">39</td>
+                            <td class="p100">44</td>
+                            <td class="p125">52</td>
+                            <td class="p140">58</td>
+                            <td>Compressor HP</td>
+                        </tr>
+                        <tr style="border-top: 2px solid black;" class="airRow no7">
+                            <td rowspan="4" class="darkRed">No. 7 (7/16")</td>
+                            <td class="p50">147</td>
+                            <td class="p60">170</td>
+                            <td class="p70">194</td>
+                            <td class="p80">217</td>
+                            <td class="p90">240</td>
+                            <td class="p100">254</td>
+                            <td class="p125">314</td>
+                            <td class="p140">352</td>
+                            <td>Air (cfm)</td>
+                        </tr>
+                        <tr class="abrasiveRow no7">
+                            <td class="p50">8.96</td>
+                            <td class="p60">10.32</td>
+                            <td class="p70">11.76</td>
+                            <td class="p80">13.12</td>
+                            <td class="p90">14.48</td>
+                            <td class="p100">15.84</td>
+                            <td class="p125">19.31</td>
+                            <td class="p140">21.63</td>
+                            <td>Abrasive (cu.ft/hr)</td>
+                        </tr>
+                        <tr class="lbshrRow no7">
+                            <td class="p50">896</td>
+                            <td class="p60">1032</td>
+                            <td class="p70">1176</td>
+                            <td class="p80">1312</td>
+                            <td class="p90">1448</td>
+                            <td class="p100">1584</td>
+                            <td class="p125">1931</td>
+                            <td class="p140">2163</td>
+                            <td>lbs/hr</td>
+                        </tr>
+                        <tr class="compressorHPRow no7">
+                            <td class="p50">33</td>
+                            <td class="p60">38</td>
+                            <td class="p70">44</td>
+                            <td class="p80">49</td>
+                            <td class="p90">54</td>
+                            <td class="p100">57</td>
+                            <td class="p125">69</td>
+                            <td class="p140">77</td>
+                            <td>Compressor HP</td>
+                        </tr>
+                        <tr style="border-top: 2px solid black;" class="airRow no8">
+                            <td rowspan="4" class="darkRed">No. 8 (1/2")</td>
+                            <td class="p50">195</td>
+                            <td class="p60">224</td>
+                            <td class="p70">252</td>
+                            <td class="p80">280</td>
+                            <td class="p90">309</td>
+                            <td class="p100">338</td>
+                            <td class="p125">409</td>
+                            <td class="p140">458</td>
+                            <td>Air (cfm)</td>
+                        </tr>
+                        <tr class="abrasiveRow no8">
+                            <td class="p50">11.60</td>
+                            <td class="p60">13.36</td>
+                            <td class="p70">15.12</td>
+                            <td class="p80">16.80</td>
+                            <td class="p90">18.56</td>
+                            <td class="p100">20.24</td>
+                            <td class="p125">24.59</td>
+                            <td class="p140">27.54</td>
+                            <td>Abrasive (cu.ft/hr)</td>
+                        </tr>
+                        <tr class="lbshrRow no8">
+                            <td class="p50">1160</td>
+                            <td class="p60">1336</td>
+                            <td class="p70">1512</td>
+                            <td class="p80">1680</td>
+                            <td class="p90">1856</td>
+                            <td class="p100">2024</td>
+                            <td class="p125">2459</td>
+                            <td class="p140">2754</td>
+                            <td>lbs/hr</td>
+                        </tr>
+                        <tr class="compressorHPRow no8">
+                            <td class="p50">44</td>
+                            <td class="p60">50</td>
+                            <td class="p70">56</td>
+                            <td class="p80">63</td>
+                            <td class="p90">69</td>
+                            <td class="p100">75</td>
+                            <td class="p125">90</td>
+                            <td class="p140">101</td>
+                            <td>Compressor HP</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+            </div>
+
+        </div>
+    </div>
+
+</main>
+
+{{/partial}}
+
+{{> layout/base}}
+
+<style>
+
+    h4 {
+        color: #333333;
+        cursor: pointer;
+        display: block;
+        font-size: 1rem;
+        font-weight: bold;
+        line-height: 1.5;
+        margin-bottom: 1rem;
+        font-family: 'Karla', sans-serif;
+    }
+
+    table, td, th {
+        border-collapse: collapse;
+        width: 100%;
+        text-align: center !important;
+    }
+
+    table tr th, table tr td {
+        padding: .25rem !important;
+    }
+
+    td, th {
+        padding: 1px;
+        width: 30px;
+        height: 25px;
+        border: 1px solid #595959;
+    }
+
+    th {
+        background: #f0e6cc;
+    }
+
+    .even {
+        background: #fbf8f0;
+    }
+    .odd {
+        background: #fefcf9;
+    }
+
+    .darkRed {
+        background: #620C0F;
+        color: white;
+        font-weight: bold;
+        text-align: center;
+    }
+
+    .darkestRed {
+        background: #3E1010;
+        color: white;
+        font-weight: bold;
+        text-align: center;
+    }
+
+    .airRow  {
+    background: #D5B7B9;
+    text-align: center;
+    }
+
+    .abrasiveRow {
+    background: #C8CAC9;
+    text-align: center;
+    }
+
+    .lbshrRow {
+    background: #C3B7B7;
+    text-align: center;
+    }
+
+    .compressorHPRow {
+    background: #E5E4E2;
+    text-align: center;
+    }
+
+    .highlight {
+        background: goldenrod !important;
+        font-weight: bold;
+    }
+
+    label {
+        font-weight: bold;
+    }
+
+    .chart-submit {
+        text-decoration: none !important;
+    }
+
+    .info-area {
+        background: #e5e5e5a6;
+        border-radius: 0.5rem;
+        box-shadow: 0 0px 8px -3px rgba(0, 0, 0, 0.5);
+        padding: 1.5rem;
+    }
+
+    @media only screen and (max-width: 760px), (min-device-width: 768px) and (max-device-width: 1024px)  {
+        table tbody tr td, table tr td {
+            padding: 0 !important;
+            font-size: .5rem;   
+            font-weight: bold;
+        }
+
+        #chart {
+            margin-top: 1.5rem;
+        }
+    }
+
+    .extra-info {
+        font-family: 'Karla', sans-serif;
+        color: #620C0F;
+        font-weight: bold;
+        text-transform: uppercase;
+    }
+
+</style>
+
+<script>
+    $(document).ready(function() {
+        $(".chart-submit").click(function() {
+            $("tr").removeClass("highlight");
+            $("td").removeClass("highlight");
+            let orifice = $('#orifice').val();
+            let pressure = $('#pressure').val();
+            let orificeSelected = false;
+            let pressureSelected = false;
+
+            //console.log(orifice + " " + pressure);
+
+            if (orifice !== "-") {
+                orificeSelected = true;
+            }
+
+            if (pressure !== "-") {
+                pressureSelected = true;
+            }
+
+            if (orificeSelected == true && pressureSelected == false) {
+                clearMsg();
+                highlightOrifice(orifice);
+            } else if (orificeSelected == false && pressureSelected == true) {
+                clearMsg();
+                highlightPressure(pressure);
+            } else if (orificeSelected == true && pressureSelected == true) {
+                clearMsg();
+                highlightOrificeAndPressure(orifice, pressure);
+            } else if (orificeSelected == false && pressureSelected == false) {
+                clearMsg();
+                errorMsg();
+            } else {
+                //console.log("not sure how we ended up here");
+            }
+
+        });
+    });
+
+    function highlightOrifice(orifice) {
+        //console.log("highlightOrifice");
+        $("td").removeClass("highlight");
+        $(`.${orifice}`).addClass("highlight");
+    } 
+
+    function highlightPressure(pressure) {
+        //console.log("highlightPressure");
+        $("td").removeClass("highlight");
+        $(`.p${pressure}`).addClass("highlight");
+    }
+
+    function highlightOrificeAndPressure(orifice, pressure) {
+        //console.log("highlightOrificeAndPressure");
+        let detailsArray = [];
+
+        $("td").removeClass("highlight");
+
+        $(`.${orifice}`).each(function() {
+            let row = $(this).find().prevObject[0].cells;
+            $(row).each(function() {
+                if ($(this)[0].className == (`p${pressure}`)) {
+                    detailsArray.push($(this)[0].innerHTML);
+                    $(this)[0].classList.add('highlight');
+                }
+
+                // if ($(this)[0].hasClass(`p${pressure}`)) {
+                //     $(this).addClass("highlight");
+                // }
+            });
+        });
+
+        detailsMsg(detailsArray);
+    }
+
+    function errorMsg() {
+        document.querySelector(".msg-block").innerHTML = 'Please enter either your nozzle orifice size, pressure or both.';
+        document.querySelector(".msg-block").classList.add("alertBox");
+        document.querySelector(".msg-block").classList.add("alertBox--error");
+    }
+
+    function detailsMsg(detailsArray){
+        document.querySelector(".msg-block").innerHTML = `
+            <strong>Air (cfm) requirements:</strong> ${detailsArray[0]} <br>
+            <strong>Abrasive (cu.ft/hr) requirements:</strong> ${detailsArray[1]} <br>
+            <strong>LBs/HR:</strong> ${detailsArray[2]} <br>
+            <strong>Compressor HP:</strong> ${detailsArray[3]} <br>
+        `;
+        document.querySelector(".msg-block").classList.add("alertBox");
+        document.querySelector(".msg-block").classList.add("alertBox--success");
+    }
+
+    function clearMsg() {
+        $(".msg-block").removeClass("alertBox");
+        $(".msg-block").removeClass("alertBox--error");
+        $(".msg-block").removeClass("alertBox--success");
+        document.querySelector(".msg-block").innerHTML = '';
+    }
+
+</script>
+
