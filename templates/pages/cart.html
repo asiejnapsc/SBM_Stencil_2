@@ -19,7 +19,7 @@ cart: true
             <div class="above-cart-content"> 
                 <a class="button button--lightRed" 
                 id="EstimateShippingTop"
-                href="#shipping-jump" title="estimate shipping">Estimate Shipping 
+                href="#shipping-jump" title="estimate shipping" onclick="document.querySelector('.shipping-estimate-show').click()">Estimate Shipping 
                         <i class="fas fa-shipping-fast fa-sm" aria-hidden="true"></i>
                 </a>
 
@@ -38,7 +38,7 @@ cart: true
 
             {{#if cart.show_primary_checkout_button}}
                 <div class="cart-actions">
-                    <a class="button button--green" href="{{urls.checkout.single_address}}" title="{{lang 'cart.checkout.title'}}">{{lang 'cart.checkout.button'}}</a>
+                    <a class="button button--green" href="{{urls.checkout.single_address}}" title="{{lang 'cart.checkout.title'}}">{{lang 'cart.checkout.button'}} <i class="fas fa-shopping-cart fa-sm" aria-hidden="true"></i></a>
                     {{#if cart.show_multiple_address_shipping}}
                         <a class="checkoutMultiple" href="{{urls.checkout.multiple_address}}">
                             {{lang 'cart.preview.checkout_multiple'}}
