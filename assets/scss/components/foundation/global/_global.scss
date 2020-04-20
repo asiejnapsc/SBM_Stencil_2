@@ -254,9 +254,10 @@
         font-weight: bold;
     }
 
-    .sidebar-badges img {
+    .sidebar-badges img, 
+    .sidebar-badges .sanitizer-badge {
         display: none;
-
+        
         @include breakpoint("medium") {
             display: block;
             margin-bottom: 1rem;
@@ -264,6 +265,34 @@
             border-radius: 1rem;
         }
     }
+
+    .sanitizer-badge {
+        text-align: center;
+        border: 2px solid stencilColor(color-sbm-darkRed);
+        border-radius: .5rem;
+        img {
+            margin-bottom: 0;
+        }
+
+        div {
+            background: rgb(70,0,2);
+            background: linear-gradient(0deg, rgba(70,0,2,1) 0%, rgba(135,12,37,1) 100%);
+            font-weight: bold;
+            text-transform: uppercase;
+            font-size: 1.15rem;
+            font-family: 'Montserrat', sans-serif;
+            color: white;
+            padding-top: .15rem;
+            border-bottom-left-radius: .5rem;
+            border-bottom-right-radius: .5rem;
+            
+        }
+
+        a {
+            text-decoration: none;
+        }
+    }
+
 
     #product-listing-container div.banners img {
         width: 100%;
