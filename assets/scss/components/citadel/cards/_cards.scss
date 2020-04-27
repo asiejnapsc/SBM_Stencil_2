@@ -147,6 +147,11 @@
     .price {
         font-weight: bold;
     }
+
+}
+
+p.card-text.rating {
+    display: none !important;
 }
 
 .card-figcaption-button {
