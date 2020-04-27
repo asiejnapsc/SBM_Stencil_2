@@ -77,11 +77,15 @@
 
         <div class="card-information">
             <h4 class="card-title" style="height: auto;">
-                    <a href="{{url}}" {{#if settings.data_tag_enabled}} data-event-type="product-click" {{/if}}>{{name}}</a>
+                    <a href="{{url}}" {{#if settings.data_tag_enabled}} data-event-type="product-click" {{/if}}>{{{ ellipsis name 50 }}}</a>
             </h4>
 
             {{#if brand.name}}
-            <p class="card-text" data-test-info-type="brandName">{{brand.name}}</p>
+            <p class="card-text" data-test-info-type="brandName" style="display:none;">{{brand.name}}</p>
+            {{/if}}
+
+            {{#if sku}}
+            <p class="card-text sku" data-test-info-type="sku">#{{sku}}</p>
             {{/if}}
             
                 {{#and rating show_rating}}
