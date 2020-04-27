@@ -559,6 +559,12 @@ h3.related-products {
 #tab-datasheets, #lity-datasheets {
     .datasheet_div {
         padding: 1rem;
+        width: 100%;
+
+        @include breakpoint("medium") {
+            width: 33%;
+            display: inline-block;
+        }
 
         .p_datasheet{
             display: flex;
@@ -653,4 +659,70 @@ h3.related-products {
         width: 100%;
         height: 100%;
     }
+}
+
+li.tab {
+    @include breakpoint("medium") {
+        background: #ededed;
+        margin-right: .25rem;
+        margin-left: .25rem;
+        border-top-left-radius: .75rem;
+        border-top-right-radius: .75rem;
+        border: 1px solid #cecece;
+        border-bottom: none !important;
+        padding: .25rem;
+    }
+
+    &:hover {
+        @include breakpoint("medium") {
+            background: #d3d3d3;
+        }
+    }
+
+}
+
+li.tab.is-active {
+    @include breakpoint("medium") {
+        margin: 0;
+        background: stencilColor("color-sbm-darkRed");
+    }
+}
+
+a.tab-title {
+    border: 1px solid #cccccc;
+    background: #ededed;
+    padding: .65rem;
+    margin: .25rem 0;
+    border-radius: .5rem;
+    font-weight: bold;
+
+
+    @include breakpoint("medium") {
+        padding: .25rem;
+        color: stencilColor("color-sbm-darkRed");
+
+        border: none;
+        background: transparent;
+        padding: .15rem;
+        border-radius: 0;
+        
+    }
+
+    &:hover {
+        @include breakpoint("medium") {
+            color: stencilColor("color-sbm-darkRed");
+        }
+    }
+}
+
+li.tab.is-active a.tab-title {
+    @include breakpoint("medium") {
+        color: white;
+        border: none;
+    }
+}
+
+#replaceParts, #partsIncluded {
+    color: stencilColor("color-sbm-darkRed");
+    font-size: 1.15rem;
 }
