@@ -1,6 +1,9 @@
 <ul class="tabs" data-tab>
     <li class="tab is-active">
-        <a class="tab-title" href="#tab-description">{{lang 'products.description'}}</a>
+        <a class="tab-title" href="#tab-description">
+            <i class="fas fa-align-justify fa-sm"></i>
+            {{lang 'products.description'}}
+        </a>
     </li>
 
     <!-- {{#if product.warranty}}
@@ -10,7 +13,10 @@
     {{/if}} -->
 
     <li class="tab dataSheetLink" style="display:none;">
-        <a class="tab-title" href="#tab-datasheets">Manuals</a>
+        <a class="tab-title" href="#tab-datasheets">
+            <i class="fa fa-file-pdf-o fa-sm"></i>
+            Manuals
+        </a>
     </li>
 
     {{#all product.custom_fields theme_settings.show_custom_fields_tabs}}
@@ -25,11 +31,17 @@
     {{/all}}
 
     <li class="tab videoTabLink" style="display:none;">
-        <a class="tab-title" href="#tab-videos">Videos</a>
+        <a class="tab-title" href="#tab-videos">
+            <i class="far fa-play-circle fa-sm"></i>
+            Videos
+        </a>
     </li>
 
     <li class="tab blogTabLink" style="display:none;">
-        <a class="tab-title" href="#tab-articles">Articles</a>
+        <a class="tab-title" href="#tab-articles">
+            <i class="far fa-file-alt fa-sm"></i>
+            Articles
+        </a>
     </li>
 
     <!-- {{#if product.related_products}}
