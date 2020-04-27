@@ -15,7 +15,7 @@
 
             <div class="large-6 medium-6 small-12 columns info-area">
                 <h4>How to Use:</h4>
-                <p>Please select your known nozzle orifice size and your pressure from the drop down menus below to find out your compressed air requirements and abrasive consumption. If you only know one of the below options, select it below and leave the other option empty. To the right, the table will highlight with your requirements and consumption.</p>
+                <p style="text-align: justify;">Please select your known nozzle orifice size and your pressure from the drop down menus below to find out your compressed air requirements and abrasive consumption. You may also enter your cfm if you know that. <br><br> If you only know one of the below options, select it below and leave the other option empty. To the right, the table will highlight with your requirements and consumption.</p>
 
                 <form id="chart-form">
                     <label for="orifice">What is your Nozzle Orifice Size?</label>
@@ -28,6 +28,8 @@
                         <option value="no6">No. 6 (3/8")</option>
                         <option value="no7">No. 7 (7/16")</option>
                         <option value="no8">No. 8 (1/2")</option>
+                        <option value="no10">No. 10 (5/8")</option>
+                        <option value="no12">No. 12 (3/4")</option>
                     </select>
 
                     <br><br>
@@ -107,8 +109,23 @@
                         <option value="338">338</option>
                         <option value="352">352</option>
                         <option value="409">409</option>
-                        <option value="458">458</option>                       
-
+                        <option value="458">458</option>    
+                        <option value="308">308</option>
+                        <option value="356">356</option>
+                        <option value="404">404</option>
+                        <option value="432">432</option>
+                        <option value="504">504</option>
+                        <option value="548">548</option>
+                        <option value="598">598</option>
+                        <option value="646">646</option>
+                        <option value="432">432</option>
+                        <option value="504">504</option>
+                        <option value="572">572</option>
+                        <option value="644">644</option>
+                        <option value="692">692</option>
+                        <option value="784">784</option>
+                        <option value="844">844</option>
+                        <option value="914">914</option>
                     </select>
 
                     <br><br>
@@ -457,6 +474,99 @@
                             <td class="p140">101</td>
                             <td class="compressor-text">Compressor HP</td>
                         </tr>
+
+                        <tr style="border-top: 2px solid black;" class="airRow no10">
+                            <td rowspan="4" class="darkRed">No. 10 (5/8")</td>
+                            <td class="p50 cfm308">308</td>
+                            <td class="p60 cfm356">356</td>
+                            <td class="p70 cfm404">404</td>
+                            <td class="p80 cfm452">452</td>
+                            <td class="p90 cfm504">504</td>
+                            <td class="p100 cfm548">548</td>
+                            <td class="p125 cfm598">598</td>
+                            <td class="p140 cfm646">646</td>
+                            <td class="air-text">Air (cfm)</td>
+                        </tr>
+                        <tr class="abrasiveRow no10">
+                            <td class="p50">18.75</td>
+                            <td class="p60">21.4</td>
+                            <td class="p70">24.22</td>
+                            <td class="p80">26.9</td>
+                            <td class="p90">29.73</td>
+                            <td class="p100">32.5</td>
+                            <td class="p125">35.22</td>
+                            <td class="p140">37.98</td>
+                            <td class="abrasive-text">Abrasive (cu.ft/hr)</td>
+                        </tr>
+                        <tr class="lbshrRow no10">
+                            <td class="p50">1875</td>
+                            <td class="p60">2140</td>
+                            <td class="p70">2422</td>
+                            <td class="p80">2690</td>
+                            <td class="p90">2973</td>
+                            <td class="p100">3250</td>
+                            <td class="p125">3522</td>
+                            <td class="p140">3798</td>
+                            <td class="lbs-text">lbs/hr</td>
+                        </tr>
+                        <tr class="compressorHPRow no10">
+                            <td class="p50">68.5</td>
+                            <td class="p60">79.5</td>
+                            <td class="p70">90</td>
+                            <td class="p80">100.5</td>
+                            <td class="p90">112</td>
+                            <td class="p100">122</td>
+                            <td class="p125">133</td>
+                            <td class="p140">143.7</td>
+                            <td class="compressor-text">Compressor HP</td>
+                        </tr>
+
+
+                        <tr style="border-top: 2px solid black;" class="airRow no12">
+                            <td rowspan="4" class="darkRed">No. 12 (3/4")</td>
+                            <td class="p50 cfm432">432</td>
+                            <td class="p60 cfm504">504</td>
+                            <td class="p70 cfm572">572</td>
+                            <td class="p80 cfm644">644</td>
+                            <td class="p90 cfm692">692</td>
+                            <td class="p100 cfm784">784</td>
+                            <td class="p125 cfm844">844</td>
+                            <td class="p140 cfm914">914</td>
+                            <td class="air-text">Air (cfm)</td>
+                        </tr>
+                        <tr class="abrasiveRow no12">
+                            <td class="p50">26.72</td>
+                            <td class="p60">30.56</td>
+                            <td class="p70">34.56</td>
+                            <td class="p80">38.4</td>
+                            <td class="p90">42.08</td>
+                            <td class="p100">46.08</td>
+                            <td class="p125">49.92</td>
+                            <td class="p140">53.78</td>
+                            <td class="abrasive-text">Abrasive (cu.ft/hr)</td>
+                        </tr>
+                        <tr class="lbshrRow no12">
+                            <td class="p50">2672</td>
+                            <td class="p60">3056</td>
+                            <td class="p70">3456</td>
+                            <td class="p80">3840</td>
+                            <td class="p90">4208</td>
+                            <td class="p100">4608</td>
+                            <td class="p125">4992</td>
+                            <td class="p140">5378</td>
+                            <td class="lbs-text">lbs/hr</td>
+                        </tr>
+                        <tr class="compressorHPRow no12">
+                            <td class="p50">96</td>
+                            <td class="p60">112</td>
+                            <td class="p70">127</td>
+                            <td class="p80">143</td>
+                            <td class="p90">154</td>
+                            <td class="p100">174.5</td>
+                            <td class="p125">188</td>
+                            <td class="p140">203.2</td>
+                            <td class="compressor-text">Compressor HP</td>
+                        </tr>
                     </tbody>
                 </table>
 
@@ -598,8 +708,6 @@
         font-weight: normal !important;
     }
 
-
-
     @media only screen and (max-width: 760px), (min-device-width: 768px) and (max-device-width: 1024px)  {
         table tbody tr td, table tr td {
             padding: 0 !important;
@@ -633,8 +741,6 @@
             let pressureSelected = false;
             let cfmSelected = false;
 
-            //console.log(orifice + " " + pressure);
-
             if (orifice !== "-") {
                 orificeSelected = true;
             }
@@ -650,6 +756,9 @@
             // if cfm is selected then dont use the other drop downs
             if (cfmSelected == true) {
                 clearMsg();
+                $("#orifice").val('-');
+                $("#pressure").val('-');
+
                 highlightCfm(cfm);
 
             } else {
@@ -667,7 +776,7 @@
                     clearMsg();
                     errorMsg();
                 } else {
-                    //console.log("not sure how we ended up here");
+                    
                 }
             }
 
@@ -675,41 +784,37 @@
     });
 
     function highlightOrifice(orifice) {
-        //console.log("highlightOrifice");
         $("td").removeClass("highlight");
+        $("td").removeClass("cfm-mask");
         $(`.${orifice}`).addClass("highlight");
     } 
 
     function highlightPressure(pressure) {
-        //console.log("highlightPressure");
         $("td").removeClass("highlight");
+        $("td").removeClass("cfm-mask");
         $(`.p${pressure}`).addClass("highlight");
     }
 
     function highlightOrificeAndPressure(orifice, pressure) {
-        //console.log("highlightOrificeAndPressure");
         let detailsArray = [];
 
         $("td").removeClass("highlight");
+        $("td").removeClass("cfm-mask");
 
         $(`.${orifice}`).each(function() {
             let row = $(this).find().prevObject[0].cells;
             $(row).each(function() {
-                if ($(this)[0].className == (`p${pressure}`)) {
+                if ($(this)[0].classList[0] == (`p${pressure}`)) {
                     detailsArray.push($(this)[0].innerHTML);
                     $(this)[0].classList.add('highlight');
                 }
-
-                // if ($(this)[0].hasClass(`p${pressure}`)) {
-                //     $(this).addClass("highlight");
-                // }
             });
         });
 
         detailsMsg(detailsArray);
     }
 
-    function highlightCfm(cfm){
+    function highlightCfm(cfm) {
         $("td").removeClass("highlight");
         $("td").removeClass("cfm-mask");
 
@@ -722,30 +827,19 @@
             currentCell = $(`.cfm${cfm}`);
         }
 
-        //console.log(currentCell);
-
         // get pressure
         let pressure = currentCell[0].classList[0];
         
         // get orifice
         let orifice = currentCell[0].parentElement.classList[1];
 
-        //console.log(pressure);
-        //console.log(orifice);
-
-        // highlight current cell's orifice row
-        //$(`.${orifice}`).addClass("highlight");
-
         // get number from orifice
         // ex: no2 should be 2
         let orificeNumber = orifice.replace(/\D/g,'');
 
-        //console.log(orificeNumber);
-
         // loop backwards through current orifices (2 - 8)
         // highlight all orifice sizes before our current cells
         for (var i = parseInt(orificeNumber); i >= 2; i--) {
-            //console.log($(`.no${i}`));
             $(`.no${i}`).addClass("highlight");
         }
 
@@ -753,53 +847,20 @@
         // ex: p50 should be 50
         let pressureNumber = pressure.replace(/\D/g,'');
 
-        //console.log(pressureNumber);
-
         // loop forwards through pressures
         // remove highlight from anything higher
         for (var i = parseInt(pressureNumber)+10; i <= 140; i++) {
             let rowCell = $(`.no${orificeNumber} > .p${i}`);
             if (rowCell.length){
-                //console.log(rowCell);
                 $(rowCell).each(function() {
                     $(this).addClass("cfm-mask");
                 });
             }
-
-            
-
-            //$(`.no${orificeNumber} > .p${i}`).removeClass("highlight");
         }
-
-        // // loop through orifice row's children
-        // $(`.no${orificeNumber} > td`).each(function() {
-        //     console.log($(this));
-        //     $(this).css("color", "red");
-
-
-
-        //     // if ($(this).hasClass('td[class^="p"]')) {
-
-        //     //     console.log($(this));
-
-        //     //     let cellPressure = $(this).classList[0];
-        //     //     let cellPressureNumber = cellPressure.replace(/\D/g,'');
-
-        //     //     if (cellPressureNumber > pressureNumber) {
-        //     //         $(this).removeClass("highlight");
-        //     //     }
-        //     // } else {
-        //     //     console.log("nah");
-        //     // }
-
-        // });
-
-
-       
     }
 
     function errorMsg() {
-        document.querySelector(".msg-block").innerHTML = 'Please enter either your nozzle orifice size, pressure or both.';
+        document.querySelector(".msg-block").innerHTML = 'Please enter either your nozzle orifice size and pressure or your cfm.';
         document.querySelector(".msg-block").classList.add("alertBox");
         document.querySelector(".msg-block").classList.add("alertBox--error");
     }
