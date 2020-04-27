@@ -156,19 +156,42 @@
 </div>
 
 {{#if product.related_products}}
-<hr>
-<h3 class="related-products">
-    <span id="replaceParts" style="display:block;">Related Parts ({{product.related_products.length}})</span>
-    <span id="partsIncluded" style="display:none;">Parts Included ({{product.related_products.length}})</span>
-</h3>
-<div id="related-products-area">
-    <div role="tabpanel" aria-hidden="false" class="tab-content has-jsContent is-active" id="tab-related">
-        {{#if settings.data_tag_enabled}}
-            {{> components/products/carousel products=product.related_products columns=6 list="Related Products"}}
-        {{else}}
-            {{> components/products/carousel products=product.related_products columns=6}}
-        {{/if}}
+    <hr>
+    <h3 class="related-products">
+        <span id="replaceParts" style="display:block;">Related Parts ({{product.related_products.length}})</span>
+        <span id="partsIncluded" style="display:none;">Parts Included ({{product.related_products.length}})</span>
+    </h3>
+    <!-- <div id="related-products-area">
+        <div role="tabpanel" aria-hidden="false" class="tab-content has-jsContent is-active" id="tab-related">
+            {{#if settings.data_tag_enabled}}
+                {{> components/products/carousel products=product.related_products columns=6 list="Related Products"}}
+            {{else}}
+                {{> components/products/carousel products=product.related_products columns=6}}
+            {{/if}}
+        </div>
+    </div> -->
+
+    <div id="related-view-products-area">
+        {{#each product.related_products}}
+        <a href="{{url}}">
+            <div class="related-view-product">
+                <div class="related-view-left">
+                    <div class="related-view-thumbnail">
+                        <img src="{{getImage image 'productthumb_size' (cdn theme_settings.default_image_product)}}" alt="{{image.alt}}">
+                    </div>
+                </div>
+
+                <div class="related-view-info">
+                    <span class="related-view-name">{{{ ellipsis name 30 }}}</span>
+                    <br>
+                    <span class="related-view-brand">{{ ellipsis brand.name 15}}</span>
+                    <br>
+                    <span class="related-view-price">{{price.without_tax.formatted}}</span>
+                </div>
+            </div>
+        </a>
+        {{/each}}
     </div>
-</div>
-<hr>
+
+    <hr>
 {{/if}}

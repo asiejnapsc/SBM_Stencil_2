@@ -661,6 +661,9 @@ h3.related-products {
     }
 }
 
+// Product info tab styling - new as of 4.27.20
+// ------------------------------------------------------------------------------
+
 li.tab {
     @include breakpoint("medium") {
         background: #ededed;
@@ -725,4 +728,114 @@ li.tab.is-active a.tab-title {
 #replaceParts, #partsIncluded {
     color: stencilColor("color-sbm-darkRed");
     font-size: 1.15rem;
+}
+
+// Related product area styling - new as of 4.27.20
+// ------------------------------------------------------------------------------
+
+#related-view-products-area {   
+    height: 291px;
+    border: 1px solid #e5e5e5;
+    border-radius: .5rem;
+    padding: .75rem;
+    background: #e5e5e5;
+    overflow-y: scroll;
+
+}
+
+#related-view-products-area a{
+    text-decoration: none;
+}
+
+/* width */
+#related-view-products-area::-webkit-scrollbar {
+    width: 20px;
+}
+
+/* Track */
+#related-view-products-area::-webkit-scrollbar-track {
+    box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.25);
+    border: 1px solid rgba(0, 0, 0, 0.25);
+    border-radius: 10px;
+    background: rgba(0, 0, 0, 0.25);
+}
+
+/* Handle */
+#related-view-products-area::-webkit-scrollbar-thumb {
+    background: stencilColor("color-sbm-darkRed"); 
+    border-radius: 10px;
+}
+
+.related-view-left {
+    display: inline-block;
+    width: 25%;
+}
+
+.related-view-info {
+    display: inline-block;
+    width: 58%;
+    font-size: .95rem !important;
+    margin-left: 1.5rem;
+}
+
+.related-view-product {
+    display: inline-block;
+    border: 1px solid lightgray;
+    border-radius: .5rem;
+    padding: .5rem;
+    background: white;
+    margin: .25rem 0;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25);
+    width: 100%;
+
+    @include breakpoint("medium") {
+        width: 33%;
+    }
+
+    &:hover {
+        box-shadow: 0 2px 5px rgba(stencilColor("color-sbm-darkRed"), .75);
+    }
+
+}
+
+.related-view-thumbnail {
+    width: 100px;
+    height: 100px;
+    overflow: hidden;
+}
+
+.related-view-thumbnail img {
+    margin: 0 auto;
+    text-align: center;
+    display:block;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.related-view-name {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    background: url(https://cdn3.bigcommerce.com/s-489s1uwnq2/product_images/uploaded_images/black-metal-texture-tile.png);
+    display:inline-block;
+    //padding: .20rem;
+    border-radius: .25rem;
+    padding: .25rem;
+
+}
+
+.related-view-brand {
+    color: stencilColor("color-sbm-darkRed");
+    font-weight: bold;
+    background: white;
+    padding-left: .20rem;
+}
+
+.related-view-price {
+    font-size: 1.5rem;
+    color: #0e0e0e;
+    font-weight: bold;
+    background: white;
+    padding-left: .20rem;
 }
