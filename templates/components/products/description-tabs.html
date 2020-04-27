@@ -201,3 +201,11 @@
 
     <hr>
 {{/if}}
+
+{{#if product.related_products.length '<=' 3}}
+<style>
+    #related-view-products-area {
+        height: 158px;
+    }
+</style>
+{{/if}}
