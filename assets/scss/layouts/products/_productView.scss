@@ -210,14 +210,14 @@ div#Sirv {
 #pressure-graphic {
     width: 100%;
     text-align: center;
-    background: #fdf7f7;
     padding: .5rem;
     border-radius: 1rem;
-    box-shadow: 0 4px 10px 0 rgba(35, 46, 105, 0.1);
     font-weight: bold;
 
     img {
         height: 8rem;
         border-radius: 1rem;
+        margin-top: .25rem;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25);
     }
 }
