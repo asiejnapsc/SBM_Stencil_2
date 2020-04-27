@@ -60,7 +60,13 @@
 
 <div class="tabs-contents">
     <div class="tab-content is-active" id="tab-description">
+        <div class="ProductDescription" style="overflow: hidden; transition: height 200ms;">
         {{{product.description}}}
+        </div>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Readmore.js/2.2.1/readmore.min.js"></script>
+        <script>
+            $(".ProductDescription").readmore({speed: 75, lessLink: '<a href="#" class="morelink"> - READ LESS</a>', moreLink: '<div class="more_wrap" style="position: relative; box-shadow: 7px -20px 75px 20px #fff;"><a href="#" class="morelink"> + READ MORE</a></div>', heightMargin: 16, collapsedHeight: 125});
+        </script>
     </div>
     
    <!-- {{#if product.warranty}}
