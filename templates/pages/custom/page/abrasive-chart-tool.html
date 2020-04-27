@@ -104,24 +104,23 @@
                         <option value="254">254</option>
                         <option value="265">265</option>
                         <option value="280">280</option>
+                        <option value="308">308</option>
                         <option value="309">309</option>
                         <option value="314">314</option>
                         <option value="338">338</option>
                         <option value="352">352</option>
-                        <option value="409">409</option>
-                        <option value="458">458</option>    
-                        <option value="308">308</option>
                         <option value="356">356</option>
                         <option value="404">404</option>
+                        <option value="409">409</option>
                         <option value="432">432</option>
+                        <option value="452">452</option>
+                        <option value="458">458</option>
                         <option value="504">504</option>
                         <option value="548">548</option>
-                        <option value="598">598</option>
-                        <option value="646">646</option>
-                        <option value="432">432</option>
-                        <option value="504">504</option>
                         <option value="572">572</option>
+                        <option value="598">598</option>
                         <option value="644">644</option>
+                        <option value="646">646</option>
                         <option value="692">692</option>
                         <option value="784">784</option>
                         <option value="844">844</option>
@@ -130,7 +129,8 @@
 
                     <br><br>
 
-                    <a class="chart-submit button button--primary">Submit</a>
+                    <a class="chart-reset button button--primary">Reset</a>
+                    <a class="chart-submit button button--green">Submit</a>
                 </form>
 
                 <br>
@@ -734,6 +734,7 @@
         $(".chart-submit").click(function() {
             $("tr").removeClass("highlight");
             $("td").removeClass("highlight");
+            $("td").removeClass("cfm-mask");
             let orifice = $('#orifice').val();
             let pressure = $('#pressure').val();
             let cfm = $('#cfm').val();
@@ -756,9 +757,6 @@
             // if cfm is selected then dont use the other drop downs
             if (cfmSelected == true) {
                 clearMsg();
-                $("#orifice").val('-');
-                $("#pressure").val('-');
-
                 highlightCfm(cfm);
 
             } else {
@@ -781,6 +779,17 @@
             }
 
         });
+
+        $(".chart-reset").click(function() {
+            $("tr").removeClass("highlight");
+            $("td").removeClass("highlight");
+            $("td").removeClass("cfm-mask");
+            clearMsg();
+            $("#orifice").val('-');
+            $("#pressure").val('-');
+            $("#cfm").val('-');
+        });
+
     });
 
     function highlightOrifice(orifice) {
