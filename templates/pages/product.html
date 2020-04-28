@@ -109,6 +109,21 @@ product:
         {{#if name '===' '360 ID'}}
             <style>#image360, .image360Badge{display:block!important;}</style>
         {{/if}}
+
+        {{#if value '===' 'Air Consumption Chart'}}
+            <script>
+                // replace air consumption PDFs with tool, until spreadsheet updated
+                $(document).ready(function() {
+                    $( ".datasheet-text-container > div" ).each(function() {
+                        
+                        if (($(this)[0].innerText).trim() == 'Air Consumption Chart') {
+                            console.log($(this)[0]);
+                            $(this)[0].parentElement.parentElement.href = '/compressed-air-requirement-and-abrasive-consumption-tool/';
+                        }
+                    });
+                });
+            </script>
+        {{/if}}
     {{/each}}
 {{/if}}
 
@@ -147,3 +162,4 @@ product:
 <script>
     fbq('track', 'ViewContent');
 </script>
+
