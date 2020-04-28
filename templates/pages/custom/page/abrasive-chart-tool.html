@@ -15,7 +15,7 @@
 
             <div class="large-6 medium-6 small-12 columns info-area">
                 <h4>How to Use:</h4>
-                <p style="text-align: justify;">Please select your known nozzle orifice size and your pressure from the drop down menus below to find out your compressed air requirements and abrasive consumption. You may also enter your cfm if you know that. <br><br> If you only know one of the below options, select it below and leave the other option empty. To the right, the table will highlight with your requirements and consumption.</p>
+                <p style="text-align: justify;">Please select your known nozzle orifice size and your pressure from the drop down menus below to find out your compressed air requirements and abrasive consumption. You may also enter your cfm if you know that. <br><br> If you only know one of the below options, select it below and leave the other options empty. To the right, the table will highlight with your requirements and consumption.</p>
 
                 <form id="chart-form">
                     <label for="orifice">What is your Nozzle Orifice Size?</label>
@@ -129,7 +129,7 @@
 
                     <br><br>
 
-                    <a class="chart-reset button button--primary">Reset</a>
+                    <a class="chart-reset button button--black">Reset</a>
                     <a class="chart-submit button button--green">Submit</a>
                 </form>
 
@@ -139,7 +139,14 @@
                 <hr>
 
                 <span class="extra-info">* Consumption rates are based on abrasives that weigh 100 pounds per cubic foot.</span>
+
+                <hr>
+
+                <h5 class="line bg"><span>PURCHASE TODAY</span></h5>
+                <a href="http://sandblastingmachines.com/" class="button button--primary shop-button">Shop Sandblasting Machines</a>
+                
             </div>
+
 
             <div class="large-6 medium-6 small-12 columns">
                 <table id="chart">
@@ -727,6 +734,14 @@
         text-transform: uppercase;
     }
 
+    .shop-button {
+        border: 3px solid white;
+        text-decoration: underline;
+        width: 100%;
+        display: block;
+        font-weight: bold;
+    }
+
 </style>
 
 <script>
@@ -888,5 +903,3 @@
     }
 
 </script>
-
-<script src="../../theme/abrasive-chart-tool.js';"></script>
