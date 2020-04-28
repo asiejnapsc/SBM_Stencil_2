@@ -735,12 +735,12 @@
             $("tr").removeClass("highlight");
             $("td").removeClass("highlight");
             $("td").removeClass("cfm-mask");
-            let orifice = $('#orifice').val();
-            let pressure = $('#pressure').val();
-            let cfm = $('#cfm').val();
-            let orificeSelected = false;
-            let pressureSelected = false;
-            let cfmSelected = false;
+            var orifice = $('#orifice').val();
+            var pressure = $('#pressure').val();
+            var cfm = $('#cfm').val();
+            var orificeSelected = false;
+            var pressureSelected = false;
+            var cfmSelected = false;
 
             if (orifice !== "-") {
                 orificeSelected = true;
@@ -795,25 +795,25 @@
     function highlightOrifice(orifice) {
         $("td").removeClass("highlight");
         $("td").removeClass("cfm-mask");
-        $(`.${orifice}`).addClass("highlight");
+        $("." + orifice).addClass("highlight");
     } 
 
     function highlightPressure(pressure) {
         $("td").removeClass("highlight");
         $("td").removeClass("cfm-mask");
-        $(`.p${pressure}`).addClass("highlight");
+        $(".p" + pressure).addClass("highlight");
     }
 
     function highlightOrificeAndPressure(orifice, pressure) {
-        let detailsArray = [];
+        var detailsArray = [];
 
         $("td").removeClass("highlight");
         $("td").removeClass("cfm-mask");
 
-        $(`.${orifice}`).each(function() {
-            let row = $(this).find().prevObject[0].cells;
+        $("." + orifice).each(function() {
+            var row = $(this).find().prevObject[0].cells;
             $(row).each(function() {
-                if ($(this)[0].classList[0] == (`p${pressure}`)) {
+                if ($(this)[0].classList[0] == ("p" + pressure)) {
                     detailsArray.push($(this)[0].innerHTML);
                     $(this)[0].classList.add('highlight');
                 }
@@ -827,39 +827,39 @@
         $("td").removeClass("highlight");
         $("td").removeClass("cfm-mask");
 
-        let currentCell;
+        var currentCell;
 
         // locate cell
         if (cfm == "18.5") {
-            currentCell = $(`.cfm18\\.5`);
+            currentCell = $(".cfm18\\.5");
         } else {
-            currentCell = $(`.cfm${cfm}`);
+            currentCell = $(".cfm" + cfm);
         }
 
         // get pressure
-        let pressure = currentCell[0].classList[0];
+        var pressure = currentCell[0].classList[0];
         
         // get orifice
-        let orifice = currentCell[0].parentElement.classList[1];
+        var orifice = currentCell[0].parentElement.classList[1];
 
         // get number from orifice
         // ex: no2 should be 2
-        let orificeNumber = orifice.replace(/\D/g,'');
+        var orificeNumber = orifice.replace(/\D/g,'');
 
         // loop backwards through current orifices (2 - 8)
         // highlight all orifice sizes before our current cells
         for (var i = parseInt(orificeNumber); i >= 2; i--) {
-            $(`.no${i}`).addClass("highlight");
+            $(".no" + i).addClass("highlight");
         }
 
         // get number from pressure
         // ex: p50 should be 50
-        let pressureNumber = pressure.replace(/\D/g,'');
+        var pressureNumber = pressure.replace(/\D/g,'');
 
         // loop forwards through pressures
         // remove highlight from anything higher
         for (var i = parseInt(pressureNumber)+10; i <= 140; i++) {
-            let rowCell = $(`.no${orificeNumber} > .p${i}`);
+            var rowCell = $(".no" + orificeNumber + " > " + ".p" + i);
             if (rowCell.length){
                 $(rowCell).each(function() {
                     $(this).addClass("cfm-mask");
@@ -875,12 +875,7 @@
     }
 
     function detailsMsg(detailsArray){
-        document.querySelector(".msg-block").innerHTML = `
-            <strong>Air (cfm) requirements:</strong> ${detailsArray[0]} <br>
-            <strong>Abrasive (cu.ft/hr) requirements:</strong> ${detailsArray[1]} <br>
-            <strong>LBs/HR:</strong> ${detailsArray[2]} <br>
-            <strong>Compressor HP:</strong> ${detailsArray[3]} <br>
-        `;
+        document.querySelector(".msg-block").innerHTML = "<strong>Air (cfm) requirements:</strong> " + detailsArray[0] + " <br>" + " <strong>Abrasive (cu.ft/hr) requirements:</strong> " + detailsArray[1] + " <br>" + "<strong>LBs/HR:</strong> " + detailsArray[2] + " <br>" + "<strong>Compressor HP:</strong> " + detailsArray[3] + " <br>";
         document.querySelector(".msg-block").classList.add("alertBox");
         document.querySelector(".msg-block").classList.add("alertBox--success");
     }
@@ -894,3 +889,4 @@
 
 </script>
 
+<script src="../../theme/abrasive-chart-tool.js';"></script>
