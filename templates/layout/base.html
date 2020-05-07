@@ -117,4 +117,14 @@ $(document).ready(function() {
     }
 });
 </script>
+
+<!-- Script to hide zero dollar products in any card areas -->
+<script>
+    $(".price--withoutTax").each(function() {
+        if ($(this).text() =='$0.00') {
+            $(this).hide();
+        }
+    });
+</script>
+
 </html>
