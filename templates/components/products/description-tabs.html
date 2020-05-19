@@ -182,6 +182,19 @@
         {{#each product.related_products}}
         <a href="{{url}}">
             <div class="related-view-product">
+
+                {{#if custom_fields}}
+                    {{#each custom_fields}}
+                        {{#if name '===' 'Most Popular'}}
+                            <img class="card-badge most-popular" src="https://cdn3.bigcommerce.com/s-489s1uwnq2/product_images/uploaded_images/most-popular-badge.png" alt="most popular" style="display:block;">
+                        {{/if}}
+                        {{#if name '===' 'Best Value'}}
+                            <img class="card-badge best-value" src="https://cdn3.bigcommerce.com/s-489s1uwnq2/product_images/uploaded_images/best-value-badge.png" alt="best value" style="display:block;">
+                        {{/if}}
+                    {{/each}}
+                {{/if}}
+
+
                 <div class="related-view-left">
                     <div class="related-view-thumbnail">
                         <img src="{{getImage image 'productthumb_size' (cdn theme_settings.default_image_product)}}" alt="{{image.alt}}">
@@ -191,7 +204,11 @@
                 <div class="related-view-info">
                     <span class="related-view-name">{{{ ellipsis name 30 }}}</span>
                     <br>
-                    <span class="related-view-sku">#{{ sku }}</span>
+
+                    {{#if sku}}
+                        <span class="related-view-sku">#{{ sku }}</span>
+                    {{/if}}
+
                     <br>
                     <span class="related-view-price">{{price.without_tax.formatted}}</span>
                 </div>

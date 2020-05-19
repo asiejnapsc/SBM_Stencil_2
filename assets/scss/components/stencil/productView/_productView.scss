@@ -785,8 +785,9 @@ li.tab.is-active a.tab-title {
     padding: .5rem;
     background: white;
     margin: .25rem 0;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
     width: 100%;
+    position: relative;
 
     @include breakpoint("medium") {
         width: 33%;
@@ -838,4 +839,14 @@ li.tab.is-active a.tab-title {
     font-weight: bold;
     background: white;
     padding-left: .20rem;
+}
+
+#related-view-products-area .card-badge {
+    width: 10%;
+    top: 3px;
+    right: 3px;
+
+    @include breakpoint("medium") {
+        width: 12%;
+    }
 }
