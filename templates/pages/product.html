@@ -142,7 +142,7 @@ product:
      });
 </script>
 
-<script src="https://player.vimeo.com/api/player.js"></script>
+<!-- <script src="https://player.vimeo.com/api/player.js"></script> -->
 
 <script>
     var count = 0;
@@ -163,3 +163,27 @@ product:
     fbq('track', 'ViewContent');
 </script>
 
+
+{{#if product.custom_fields}}
+    {{#each product.custom_fields}}
+        {{#if name '===' 'Vimeo Video'}}
+            <script>
+               //Finds Thumbnails for Vimeo Videos
+                $('html').find('img.vimeo').each(function(index,item){
+                    var vimeo_id = this.id.split('-')[1];
+                    
+                    $.ajax({
+                        type:'GET',
+                        url: 'https://vimeo.com/api/v2/video/' + vimeo_id + '.json',
+                        jsonp: 'callback',
+                        dataType: 'jsonp',
+                        success: function(data){
+                        var thumb_src = data[0].thumbnail_large;
+                        $(item).attr('src', thumb_src);
+                        } 
+                    });
+                });
+            </script>
+        {{/if}}
+    {{/each}}
+{{/if}}

@@ -129,11 +129,11 @@
                 {{/if}}
                 {{#if name '===' 'Vimeo Video'}}
                     <style>.videoTabLink{display:block!important;}</style>
-                    <div class="vimeo-container">
-                        <iframe src="{{value}}?color=ffffff"
-                             frameborder="0" allow="autoplay; fullscreen"
-                            allowfullscreen>
-                        </iframe>
+                    <div class="yt-thumb-container">
+                        <a href="{{value}}" data-lity="">
+                            <img id="vimeo-{{#replace 'https://player.vimeo.com/video/' value }}{{/replace}}" class="vimeo" alt="product video">
+                            <span class="yt-thumb-button">.</span>
+                        </a>
                     </div>
                 {{/if}}
             {{/each}}
