@@ -7,9 +7,9 @@
 // -----------------------------------------------------------------------------
 
 .blog {
-    background: lightgrey;
-    border-radius: 30px;
-    box-shadow: 10px 7px 5px #696262;
+    //background: lightgrey;
+    //border-radius: 30px;
+    //box-shadow: 10px 7px 5px #696262;
     padding-top: spacing("double");
 
     @include breakpoint("medium") {
@@ -17,10 +17,13 @@
         width: 100%;
     }
 
-    + .blog {
-        border-top: container("border");
+    +.blog {
+        //border-top: container("border");
         margin-top: spacing("double");
         padding-top: spacing("double");
+        border-bottom: 1px solid lightgray;
+        margin-bottom: 1rem;
+        border-radius: 0;
     }
 
     .tags {
@@ -36,7 +39,32 @@
     .addthis_toolbox {
         margin-top: spacing("double");
     }
+
     // scss-lint:enable SelectorFormat
+
+    h1.blog-title {
+        color: black !important;
+        font-weight: bold;
+        font-size: 2rem;
+    }
+
+    .blog-date {
+        font-size: 1.15rem;
+        margin-top: 1rem;
+        color: black;
+    }
+
+    .tag {
+        background: lightgray;
+        border-radius: .25rem;
+        font-weight: bold;
+        margin-right: .5rem;
+    }
+
+    * {
+        font-family: 'Karla', sans-serif !important;
+    }
+
 }
 
 .blog-title {
@@ -103,17 +131,19 @@
     // }
 }
 
-.blogHeaderBackground{
+.blogHeaderBackground {
     margin-bottom: 45px;
     padding-bottom: 1px;
     border-radius: 20px;
     text-align: center;
 }
-.breadcrumbs{
+
+.breadcrumbs {
     margin-bottom: 0px;
     text-align: left;
 }
-.read-more{
+
+.read-more {
     background-color: #630d0d;
     color: #fff !important;
     font-size: 16px;
@@ -127,91 +157,115 @@
     margin-bottom: 10px;
     margin-right: 20px;
 }
-.blog-read-more{
+
+.blog-read-more {
     text-align: right;
 }
 
-.recent-posts, .monthly-archive, .categories, .search{
+.recent-posts,
+.monthly-archive,
+.categories,
+.search {
     background-color: #630d0d;
     padding-top: 10px;
     padding-bottom: 10px;
-    padding-left: 5px;
-    border-radius: 10px;
+    padding-left: 1rem;
+    border-radius: .25rem;
     margin-top: 0px;
     color: #ffffff;
 }
-.monthly-archive > a{
+
+.monthly-archive>a {
     color: #ffffff;
 }
 
 
-.blog-post{
+.blog-post {
     padding-left: 20px;
     padding-right: 20px;
 }
 
-.blog-sidebar{
+.blog-sidebar {
     position: sticky;
     top: 0px;
 }
 
-.BlockContent > ul{
+.BlockContent>ul {
     border-bottom: 1px solid #d6d6d6;
- }
+}
 
- .gsc-input{
+.gsc-input {
     padding-left: 0px;
-}   
-.gsc-search-box-tools .gsc-search-box .gsc-input{
-   padding-right: 0px;
-   background-color: #ffffff;
-} 
-table tbody tr td, table.General tbody tr td, table, table.General, table.CartContents{
-   margin-top: 0px;
-   margin-bottom: 0px;
-}
-.gsc-search-button-v2, .gsc-search-button-v2:hover, .gsc-search-button-v2:focus{
-   background: #630d0d !important;
-}   
-.gsib_b{
-   padding-top: 0px;
-   padding-bottom: 0px;
-}
-#___gcse_1{
-   max-width: 1200px;
-}
-.cse .gsc-control-cse, .gsc-control-cse{
-   padding-left: 0px;
-   padding-right: 0px;
-} 
-.gsc-adBlock{
-   display:none;
-}   
-.gsc-search-button-v2 svg{
-   height: 27px;
-}  
-td.gsc-search-button{
-   padding-left: 0px;
-   padding-right: 0px;
-   background-color: #ffffff;
-}    
-.gsib_b{
-   padding-right: 0px;
-}   
-.gsib_a{
-   padding-right: 0px;
-   padding-left: 5px;
-   height: 38px;
 }
 
-.gsc-control-cse{
+.gsc-search-box-tools .gsc-search-box .gsc-input {
+    padding-right: 0px;
+    background-color: #ffffff;
+}
+
+table tbody tr td,
+table.General tbody tr td,
+table,
+table.General,
+table.CartContents {
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+
+.gsc-search-button-v2,
+.gsc-search-button-v2:hover,
+.gsc-search-button-v2:focus {
+    background: #630d0d !important;
+}
+
+.gsib_b {
+    padding-top: 0px;
+    padding-bottom: 0px;
+}
+
+#___gcse_1 {
+    max-width: 1200px;
+}
+
+.cse .gsc-control-cse,
+.gsc-control-cse {
+    padding-left: 0px;
+    padding-right: 0px;
+}
+
+.gsc-adBlock {
+    display: none;
+}
+
+.gsc-search-button-v2 svg {
+    height: 27px;
+}
+
+td.gsc-search-button {
+    padding-left: 0px;
+    padding-right: 0px;
+    background-color: #ffffff;
+}
+
+.gsib_b {
+    padding-right: 0px;
+}
+
+.gsib_a {
+    padding-right: 0px;
+    padding-left: 5px;
+    height: 38px;
+}
+
+.gsc-control-cse {
     padding: 0 !important;
 }
-body > div.body > div.container > main > div.row > div.large-9.columns > article > div.blog-post-figure > figure > a > img{
-    border: 1px solid #333333;
- }
 
-#BlogSearchContainerMobile{
+body>div.body>div.container>main>div.row>div.large-9.columns>article>div.blog-post-figure>figure>a>img {
+    border: 1px solid #333333;
+}
+
+#BlogSearchContainerMobile {
 
     display: block;
 
@@ -220,45 +274,53 @@ body > div.body > div.container > main > div.row > div.large-9.columns > article
     }
 }
 
-.at-share-btn-elements{
+.at-share-btn-elements {
     padding-bottom: 20px;
 }
-#BackToBlog{
-border-bottom: 1px solid #efefef;
+
+#BackToBlog {
+    border-bottom: 1px solid #efefef;
     display: block;
     padding: 0;
     background: #630d0d;
     border-radius: 5px;
     margin-bottom: 10px;
 }
-#BackToBlog a{
-padding: 15px;
+
+#BackToBlog a {
+    padding: 15px;
     display: inline-block;
     color: #fff;
     font-weight: bold;
     width: 100%;
     text-decoration: none;
 }
-.blog-sidebar{
+
+.blog-sidebar {
     margin-top: 30px;
+
     @include breakpoint("medium") {
-        margin-top:0px;
+        margin-top: 0px;
     }
 }
 
-#BlogSearchContainer, #BlogSearchContainerMobile{
+#BlogSearchContainer,
+#BlogSearchContainerMobile {
     display: flex;
     box-sizing: border-box;
 }
-#BlogSearchContainerMobile{
+
+#BlogSearchContainerMobile {
     margin-top: 10px;
 }
 
-#BlogSearchBox, #BlogSearchBoxMobile{
+#BlogSearchBox,
+#BlogSearchBoxMobile {
     box-sizing: border-box;
 }
 
-#BlogSearchButton, #BlogSearchButtonMobile{
+#BlogSearchButton,
+#BlogSearchButtonMobile {
     padding-top: 0px;
     padding-bottom: 0px;
     margin-bottom: 22px;
@@ -269,10 +331,21 @@ padding: 15px;
 
 }
 
-#BlogSearchButton > svg, #BlogSearchButtonMobile > svg{
+#BlogSearchButton>svg,
+#BlogSearchButtonMobile>svg {
     fill: #ffffff
 }
 
-#BlogSearchContainerMobile{
+#BlogSearchContainerMobile {
     margin-top: 25px;
+}
+
+table {
+    width: 70% !important;
+    margin: 0 auto;
+}
+
+table tr:nth-of-type(even), table tr:nth-of-type(odd) {
+    background: white;
+    border-bottom: 1px solid lightgray;
 }
