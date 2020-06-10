@@ -447,8 +447,10 @@
     }
 }
 
-h3.related-products {
+h3.related-products, .similar-h5 {
     font-weight: bold;
+    text-transform: uppercase;
+    color: stencilColor("color-sbm-darkRed");
 }
 
 // Product list (with images)
@@ -733,26 +735,46 @@ li.tab.is-active a.tab-title {
 // Related product area styling - new as of 4.27.20
 // ------------------------------------------------------------------------------
 
+/* Customers Also Viewed & Related Styling */
+#similar-view-products-area, 
 #related-view-products-area {   
-    height: 291px;
     border: 1px solid #e5e5e5;
     border-radius: .5rem;
     padding: .75rem;
-    background: #e5e5e5;
     overflow-y: auto;
 
 }
 
-#related-view-products-area a{
-    text-decoration: none;
+#related-view-products-area-wrapper {
+    background: url(https://cdn3.bigcommerce.com/s-489s1uwnq2/product_images/uploaded_images/black-metal-texture-tile.png);
+    border-radius: .5rem;
+    padding: .75rem;
+
+    h5 {
+        color: white;
+        margin-top: 0;
+    }
+}
+
+#similar-view-products-area {
+    background: #e5e5e5;
+    box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.25);
+    height: 158px;
+}
+
+#related-view-products-area {
+    border: none;
+    height: 292px;
 }
 
 /* width */
+#similar-view-products-area::-webkit-scrollbar, 
 #related-view-products-area::-webkit-scrollbar {
     width: 20px;
 }
 
 /* Track */
+#similar-view-products-area::-webkit-scrollbar-track, 
 #related-view-products-area::-webkit-scrollbar-track {
     box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.25);
     border: 1px solid rgba(0, 0, 0, 0.25);
@@ -761,16 +783,24 @@ li.tab.is-active a.tab-title {
 }
 
 /* Handle */
+#similar-view-products-area::-webkit-scrollbar-thumb, 
 #related-view-products-area::-webkit-scrollbar-thumb {
-    background: stencilColor("color-sbm-darkRed"); 
+    background: stencilColor("color-sbm-lightRed"); 
     border-radius: 10px;
 }
 
+#similar-view-products-area a,
+#related-view-products-area a{
+    text-decoration: none;
+}
+
+.similar-left,
 .related-view-left {
     display: inline-block;
     width: 25%;
 }
 
+.similar-info,
 .related-view-info {
     display: inline-block;
     width: 58%;
@@ -778,6 +808,7 @@ li.tab.is-active a.tab-title {
     margin-left: 1.5rem;
 }
 
+.similar-product,
 .related-view-product {
     display: inline-block;
     border: 1px solid lightgray;
@@ -785,26 +816,24 @@ li.tab.is-active a.tab-title {
     padding: .5rem;
     background: white;
     margin: .25rem 0;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25);
     width: 100%;
-    position: relative;
 
     @include breakpoint("medium") {
         width: 33%;
     }
 
-    &:hover {
-        box-shadow: 0 2px 5px rgba(stencilColor("color-sbm-darkRed"), .75);
-    }
-
 }
 
+.similar-thumbnail,
 .related-view-thumbnail {
     width: 100px;
     height: 100px;
+    /*border: 1px solid black;*/
     overflow: hidden;
 }
 
+.similar-thumbnail img,
 .related-view-thumbnail img {
     margin: 0 auto;
     text-align: center;
@@ -814,25 +843,26 @@ li.tab.is-active a.tab-title {
     object-fit: contain;
 }
 
+.similar-name,
 .related-view-name {
     color: #fff;
     text-decoration: none;
     font-weight: bold;
     background: url(https://cdn3.bigcommerce.com/s-489s1uwnq2/product_images/uploaded_images/black-metal-texture-tile.png);
     display:inline-block;
-    //padding: .20rem;
+    padding: .20rem;
     border-radius: .25rem;
-    padding: .25rem;
-
 }
 
-.related-view-sku {
-    color: stencilColor("color-sbm-darkRed");
+.similar-brand,
+.related-view-brand {
+    color: lighten(stencilColor("color-sbm-darkRed"), 15%);
     font-weight: bold;
     background: white;
     padding-left: .20rem;
 }
 
+.similar-price,
 .related-view-price {
     font-size: 1.5rem;
     color: #0e0e0e;
@@ -841,12 +871,20 @@ li.tab.is-active a.tab-title {
     padding-left: .20rem;
 }
 
-#related-view-products-area .card-badge {
-    width: 10%;
+.similar-view-sku,
+.related-view-sku {
+    font-weight: bold;
+    color: stencilColor("color-sbm-lightRed");
+    font-size: 1rem;
+}
+
+#related-view-products-area .card-badge, 
+#similar-view-products-area .card-badge {
+    width: 13%;
     top: 3px;
     right: 3px;
 
     @include breakpoint("medium") {
-        width: 12%;
+        width: 15%;
     }
 }

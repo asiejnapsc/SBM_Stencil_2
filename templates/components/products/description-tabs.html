@@ -164,66 +164,101 @@
 
 {{#if product.related_products}}
     <hr>
+
     <h3 class="related-products">
         <span id="replaceParts" style="display:block;">Related Parts ({{product.related_products.length}})</span>
         <span id="partsIncluded" style="display:none;">Parts Included ({{product.related_products.length}})</span>
     </h3>
-    <!-- <div id="related-products-area">
-        <div role="tabpanel" aria-hidden="false" class="tab-content has-jsContent is-active" id="tab-related">
-            {{#if settings.data_tag_enabled}}
-                {{> components/products/carousel products=product.related_products columns=6 list="Related Products"}}
-            {{else}}
-                {{> components/products/carousel products=product.related_products columns=6}}
-            {{/if}}
-        </div>
-    </div> -->
 
-    <div id="related-view-products-area">
-        {{#each product.related_products}}
-        <a href="{{url}}">
-            <div class="related-view-product">
+    <div id="related-view-products-area-wrapper">
+        <div id="related-view-products-area">
+            {{#each product.related_products}}
+            <a href="{{url}}">
+                <div class="related-view-product">
+
+                    {{#if custom_fields}}
+                        {{#each custom_fields}}
+                            {{#if name '===' 'Most Popular'}}
+                                <img class="card-badge most-popular" src="https://cdn3.bigcommerce.com/s-489s1uwnq2/product_images/uploaded_images/most-popular-badge.png" alt="most popular" style="display:block;">
+                            {{/if}}
+                            {{#if name '===' 'Best Value'}}
+                                <img class="card-badge best-value" src="https://cdn3.bigcommerce.com/s-489s1uwnq2/product_images/uploaded_images/best-value-badge.png" alt="best value" style="display:block;">
+                            {{/if}}
+                        {{/each}}
+                    {{/if}}
+
+
+                    <div class="related-view-left">
+                        <div class="related-view-thumbnail">
+                            <img src="{{getImage image 'productthumb_size' (cdn theme_settings.default_image_product)}}" alt="{{image.alt}}">
+                        </div>
+                    </div>
+
+                    <div class="related-view-info">
+                        <span class="related-view-name">{{{ ellipsis name 30 }}}</span>
+                        <br>
+
+                        {{#if sku}}
+                            <span class="related-view-sku">#{{ sku }}</span>
+                        {{/if}}
+
+                        <br>
+                        <span class="related-view-price">{{price.without_tax.formatted}}</span>
+                    </div>
+                </div>
+            </a>
+            {{/each}}
+        </div>
+    </div>
+{{/if}}
+
+{{#if product.related_products.length '<=' 3}}
+    <style>
+        #related-view-products-area {
+            height: 158px;
+        }
+    </style>
+{{/if}}
+
+
+{{#if product.similar_by_views}}
+    <hr>
+    <h5 class="similar-h5">Customers Also Viewed</h5>
+    <div id="similar-view-products-area">
+        {{#each product.similar_by_views}}
+        <a href="{{url}}" class="similar-product-link">
+            <div class="similar-product hvr-shrink">
 
                 {{#if custom_fields}}
                     {{#each custom_fields}}
-                        {{#if name '===' 'Most Popular'}}
-                            <img class="card-badge most-popular" src="https://cdn3.bigcommerce.com/s-489s1uwnq2/product_images/uploaded_images/most-popular-badge.png" alt="most popular" style="display:block;">
+                        {{#if name '===' 'PSC Select Badge'}}
+                            <img class="card-badge psc-select-badge" src="https://cdn6.bigcommerce.com/s-eqgv9kc7pj/product_images/uploaded_images/psc-gear-51-x-51.png" alt="psc select" style="display:block;">
                         {{/if}}
-                        {{#if name '===' 'Best Value'}}
-                            <img class="card-badge best-value" src="https://cdn3.bigcommerce.com/s-489s1uwnq2/product_images/uploaded_images/best-value-badge.png" alt="best value" style="display:block;">
+                        {{#if name '===' 'Free Shipping'}}
+                            <img class="card-badge free-shipping-badge" src="https://cdn10.bigcommerce.com/s-eqgv9kc7pj/product_images/uploaded_images/free-ship-lrg-51x51.png" alt="free shipping" style="display:block;">
                         {{/if}}
                     {{/each}}
                 {{/if}}
 
-
-                <div class="related-view-left">
-                    <div class="related-view-thumbnail">
-                        <img src="{{getImage image 'productthumb_size' (cdn theme_settings.default_image_product)}}" alt="{{image.alt}}">
+                <div class="similar-left">
+                    <div class="similar-thumbnail">
+                        <img data-src="{{getImage image 'productthumb_size' (cdn theme_settings.default_image_product)}}" alt="{{image.alt}}" class="lazyload">
                     </div>
                 </div>
 
-                <div class="related-view-info">
-                    <span class="related-view-name">{{{ ellipsis name 30 }}}</span>
+                <div class="similar-info">
+                    <span class="similar-name">{{{ ellipsis name 30 }}}</span>
                     <br>
-
+                    
                     {{#if sku}}
-                        <span class="related-view-sku">#{{ sku }}</span>
+                        <span class="similar-view-sku">#{{ sku }}</span>
                     {{/if}}
 
                     <br>
-                    <span class="related-view-price">{{price.without_tax.formatted}}</span>
+                    <span class="similar-price">{{price.without_tax.formatted}}</span>
                 </div>
             </div>
         </a>
         {{/each}}
     </div>
-
-    <hr>
-{{/if}}
-
-{{#if product.related_products.length '<=' 3}}
-<style>
-    #related-view-products-area {
-        height: 158px;
-    }
-</style>
 {{/if}}
