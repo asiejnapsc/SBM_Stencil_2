@@ -30,7 +30,7 @@ $cart-item-label-offset:                $cart-thumbnail-maxWidth + $cart-item-sp
 .cart {
     display: block; // 1
     margin-bottom: spacing("single");
-    width: 100%;
+    width: 100% !important;
 
     @include breakpoint("medium") {
         display: table; // 1
@@ -128,6 +128,8 @@ $cart-item-label-offset:                $cart-thumbnail-maxWidth + $cart-item-sp
 }
 
 .cart-item-image {
+    padding: 1rem;
+
     @include lazy-loaded-img;
 
     @include breakpoint("medium") {
@@ -211,6 +213,8 @@ $cart-item-label-offset:                $cart-thumbnail-maxWidth + $cart-item-sp
     }
 
 }
+
+
 
 
 

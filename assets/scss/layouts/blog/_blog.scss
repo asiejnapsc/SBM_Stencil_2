@@ -340,12 +340,12 @@ body>div.body>div.container>main>div.row>div.large-9.columns>article>div.blog-po
     margin-top: 25px;
 }
 
-table {
+.blog-post-body table {
     width: 70% !important;
     margin: 0 auto;
 }
 
-table tr:nth-of-type(even), table tr:nth-of-type(odd) {
+.blog-post-body table tr:nth-of-type(even), .blog-post-body table tr:nth-of-type(odd) {
     background: white;
     border-bottom: 1px solid lightgray;
 }
