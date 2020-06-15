@@ -30,6 +30,13 @@ cart: true
 
             <div data-cart-content>
                 {{> components/cart/content}}
+
+                <div class="fbt-area">
+                    <h4>Customers also purchased:</h4>
+                    <div class="fbt-suggested">Because of your interest in <span class="fbt-current-name">PRODUCT NAME</span></div>
+                    <div class="row fbt-row">
+                    </div>
+                </div>
             </div>
 
             <div data-cart-totals>
@@ -68,3 +75,139 @@ cart: true
 </div>
 {{/partial}}
 {{> layout/base}}
+
+{{inject "cartObjects" cart.items}}
+
+<script>
+
+var jsContext = JSON.parse({{jsContext}}); // grabs the object from handlebars
+var cartObjectsArray = jsContext.cartObjects;
+    
+sessionStorage.setItem("Session Cart", JSON.stringify(cartObjectsArray));
+
+
+populateFBTElementsTwo();
+
+function getCartCustomFields(){
+    let cartObjectsArray = JSON.parse(sessionStorage.getItem("Session Cart"));
+    console.log(cartObjectsArray);
+
+    if (cartObjectsArray) { // if cart objects
+
+        $(cartObjectsArray).each(function(i, el) { // loop thru cart objects
+
+            if (el.custom_fields) { // if custom fields
+
+                $(el.custom_fields).each(function(ii, elel) { // loop thru custom fields
+
+                    if (this.name == "fbt-product") { // if fbt product exists
+                        console.log("fbt! - " + el.name);
+
+                        //$('.fbt-area').css("display", "inline-block");
+                        document.querySelector('.fbt-current-name').innerHTML = el.name;
+
+                        populateFBTElements(elel.value);
+                        
+                    }
+
+                });
+
+            }
+        
+        });
+    }
+
+
+}
+
+function populateFBTElementsTwo() {
+    let cartObjectsArray = JSON.parse(sessionStorage.getItem("Session Cart"));
+    //console.log(cartObjectsArray);
+
+    if (cartObjectsArray) { // if cart objects
+
+        let firstCartObject = cartObjectsArray[0];
+
+        let prodName = firstCartObject.name;
+
+        let prodURL = firstCartObject.url;
+
+        $.get(prodURL, function(data) {
+
+            //console.log(data);
+
+            let relatedProductArea = $(data).find("#related-view-products-area");
+
+            if (relatedProductArea.length > 0) { // if there are related products
+                console.log(relatedProductArea);
+
+                let relatedUrlsArray = $(relatedProductArea).find(".related-view-product-link");
+                //console.log(relatedUrlsArray);
+
+                let relatedImgsArray = $(relatedProductArea).find(".related-view-thumbnail img");
+                //console.log(relatedImgsArray);
+
+                let relatedProdNameArray = $(relatedProductArea).find(".related-view-name");
+                //console.log(relatedProdNameArray);
+
+                let relatedProdPriceArray = $(relatedProductArea).find(".related-view-price");
+                //console.log(relatedProdPriceArray);
+
+                let relatedProdIDArray = $(relatedProductArea).find(".related-prod-id");
+                //console.log(relatedProdIDArray);
+
+                for (var i = 0; i <= relatedProductArea[0].children.length-1; i++) { 
+
+                    if (i <= 2) { // only grab 3 related max
+                        let relatedURL = relatedUrlsArray[i].href;
+                        let relatedImg = relatedImgsArray[i].attributes[0].nodeValue;
+                        let relatedProdName = relatedProdNameArray[i].innerHTML;
+                        let relatedProdPrice = relatedProdPriceArray[i].innerHTML;
+                        let relatedProdID = (relatedProdIDArray[i].innerHTML).trim();
+
+                        //console.log(relatedURL);
+                        //console.log(relatedImg);
+                        //console.log(relatedProdName);
+                        //console.log(relatedProdPrice);
+                        //console.log(relatedProdID);
+
+                        if (relatedURL) { // would be undefined if there's less than 3 related
+
+                            $(".fbt-row").append(
+                                `
+                                <div class="large-4 columns fbt-columns">
+                                    <div class="fbt-image">
+                                        <img src="${relatedImg}" width="100px">
+                                    </div>
+                                    <div class="fbt-info">
+                                        <a href="${relatedURL}?utm_source=test&utm_medium=direct&utm_campaign=upsell" class="fbt-url">
+                                            <span class="fbt-name">${relatedProdName}</span>
+                                        </a>
+                                        
+                                        <div class="fbt-price">${relatedProdPrice}</div>
+
+                                        <a href="/cart.php?action=add&product_id=${relatedProdID}" class="button button--green">Add to Cart</a>
+                                    </div>
+                                </div>
+                                `
+                            );
+
+                        }
+                    }
+
+                }
+
+
+                document.querySelector('.fbt-current-name').innerHTML = prodName;
+
+            } else {
+                console.log("no related products");
+                $(".fbt-area").css("display", "none");
+            }
+
+        });    
+
+    }
+}
+
+</script>

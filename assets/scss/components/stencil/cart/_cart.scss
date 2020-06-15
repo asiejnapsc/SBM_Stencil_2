@@ -689,3 +689,142 @@ body > div.body > div.container > div > main > div:nth-child(3) > div > p > span
         text-align: right;
     }
 }
+
+
+// FBT Styling - AS
+// -----------------------------------------------------------------------------
+
+.fbt-area {
+    display: none;
+    position: relative;
+    width: 100%;
+
+    @include breakpoint("medium") { // 801px
+        width: 33%;
+        display: inline-block;
+        position: absolute;
+    }
+
+    @media (max-width: 975px) {
+
+        padding-right: 1rem;
+
+
+        .fbt-columns {
+            width: 50%;
+        }
+
+        .fbt-image {
+            width: 100%;
+        }
+    }
+
+
+    @media (max-width: 1175px) {
+        .fbt-columns {
+            width: 50%;
+        }
+    }
+
+    @include breakpoint("large") { // 1261px
+        width: 40%;
+        display: inline-block;
+        position: absolute;
+    }
+
+    .columns + .columns:last-child {
+        float: left;
+    }
+
+    
+}
+
+.fbt-area h4 {
+    font-size: 1.15rem;
+    margin-bottom: .5rem;
+    display: block;
+    margin: 0 0 .5rem 0;
+    padding: .5rem 0 0 0;
+    border-top: solid stencilColor("color-sbm-darkRed");
+    text-transform: uppercase;
+    font-style: italic;
+    font-weight: bold;
+    color: stencilColor("color-sbm-darkRed");
+}
+
+.fbt-area .button {
+    padding: .65rem;
+    font-size: .85rem;
+}
+
+.fbt-columns {
+    text-align: center;
+    height: 17rem;
+    position: relative;
+    background: stencilColor("color-sbm-darkRed");
+    border: 3px solid white;
+    border-radius: 1rem;
+    box-shadow: 0 0px 5px 0px rgba(0, 0, 0, 0.4);
+}
+
+.fbt-info {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    margin-left: -50%;
+    width: 100%;
+}
+
+.fbt-name {
+    margin-bottom: .5rem;
+    padding: 0 .5rem;
+}
+
+.fbt-image {
+    width: 100px;
+    height: 75px;
+    overflow: hidden;
+    display: inline-block;
+    margin-top: 1rem;
+
+    background: #fff;
+    box-shadow: 0 2px 5px 0px rgba(0, 0, 0, 0.5);
+    border: 1px solid rgba(211, 211, 211, 0.4);
+    border-radius: .5rem;
+}
+
+.fbt-image img {
+    margin: 0 auto;
+    text-align: center;
+    display: block;
+    width: 100%;
+    height: 95%;
+    object-fit: contain;
+    padding: .5rem;
+}
+
+.fbt-image {
+    display: inline-block;
+    position: relative;
+}
+
+.fbt-name {
+    display: inline-block;
+    font-size: 1rem;
+    text-decoration: underline !important;
+    color: white;
+}
+
+.fbt-suggested {
+    display:block;
+    font-size: .85rem;
+    margin-bottom: 1rem;
+    font-style: italic;
+    color: #757575;
+}
+
+.fbt-price {
+    color: white;
+    font-weight: bold;
+    margin-bottom: .5rem;
+}

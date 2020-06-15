@@ -173,7 +173,7 @@
     <div id="related-view-products-area-wrapper">
         <div id="related-view-products-area">
             {{#each product.related_products}}
-            <a href="{{url}}">
+            <a href="{{url}}" class="related-view-product-link">
                 <div class="related-view-product">
 
                     {{#if custom_fields}}
@@ -204,6 +204,10 @@
 
                         <br>
                         <span class="related-view-price">{{price.without_tax.formatted}}</span>
+
+                        <div class="related-prod-id" style="display:none;">
+                            {{id}}
+                        </div>
                     </div>
                 </div>
             </a>
