@@ -125,6 +125,12 @@ $(document).ready(function() {
             $(this).hide();
         }
     });
+
+    $(".navPages-item").each(function() {
+        if ($(this)[0].innerText.trim().toLowerCase().includes("rebate")) {
+            $(this).hide();
+        }
+    });
 </script>
 
 </html>
