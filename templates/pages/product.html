@@ -87,7 +87,7 @@ product:
     <br>
     {{#if product.custom_fields}}
         {{#each product.custom_fields}}
-            {{#if name '===' 'PDF URL'}}
+            {{#startsWith "PDF URL" name}}  
                 <style>
                     #product-manuals-button {display: inline-block !important;}
                 </style>
@@ -96,13 +96,15 @@ product:
                         <i class="far fa-file-pdf fa-4x"></i>
                         <div class="datasheet-text-container">
                             <div>
-            {{/if}}
-            {{#if name '===' 'PDF Name'}}
+            {{else}}
+            {{/startsWith}}
+            {{#startsWith "PDF Name" name}}
                             {{value}}</div>
                         </div>
                     </a>
                 </div>
-            {{/if}}
+            {{else}}
+            {{/startsWith}}
         {{/each}}
     {{/if}}
 </div>
@@ -169,7 +171,7 @@ product:
 
 {{#if product.custom_fields}}
     {{#each product.custom_fields}}
-        {{#if name '===' 'Vimeo Video'}}
+    {{#startsWith "Vimeo Video" name}}
             <script>
                //Finds Thumbnails for Vimeo Videos
                 $('html').find('img.vimeo').each(function(index,item){
@@ -187,6 +189,7 @@ product:
                     });
                 });
             </script>
-        {{/if}}
+    {{else}}
+    {{/startsWith}}
     {{/each}}
 {{/if}}

@@ -78,7 +78,7 @@
    <div class="tab-content" id="tab-datasheets">
         {{#if product.custom_fields}}
             {{#each product.custom_fields}}
-                {{#if name '===' 'PDF URL'}}
+                {{#startsWith "PDF URL" name}}
                     <style>
                         .dataSheetLink{display:block!important;}
                     </style>
@@ -87,13 +87,15 @@
                             <i class="far fa-file-pdf fa-4x"></i>
                             <div class="datasheet-text-container">
                                 <div>
-                {{/if}}
-                {{#if name '===' 'PDF Name'}}
+                {{else}}
+                {{/startsWith}}
+                {{#startsWith "PDF Name" name}}
                                 {{value}}</div>
                             </div>
                         </a>
                     </div>
-                {{/if}}
+                {{else}}
+                {{/startsWith}}
 
             {{/each}}
         {{/if}}
@@ -118,7 +120,7 @@
    <div class="tab-content" id="tab-videos">
         {{#if product.custom_fields}}
             {{#each product.custom_fields}}
-                {{#if name '===' 'Video'}}
+            {{#startsWith "Video" name}}
                     <style>.videoTabLink{display:block!important;}</style>
                     <div class="yt-thumb-container">
                         <a href="{{value}}" data-lity="">
@@ -126,8 +128,9 @@
                             <span class="yt-thumb-button">.</span>
                         </a>
                     </div>   
-                {{/if}}
-                {{#if name '===' 'Vimeo Video'}}
+                 {{else}}
+                {{/startsWith}}
+                {{#startsWith "Vimeo Video" name}}
                     <style>.videoTabLink{display:block!important;}</style>
                     <div class="yt-thumb-container">
                         <a href="{{value}}" data-lity="">
@@ -135,7 +138,8 @@
                             <span class="yt-thumb-button">.</span>
                         </a>
                     </div>
-                {{/if}}
+                {{else}}
+                {{/startsWith}}
             {{/each}}
         {{/if}}
    </div>
@@ -143,19 +147,22 @@
    <div class="tab-content" id="tab-articles">
     {{#if product.custom_fields}}
         {{#each product.custom_fields}}
-            {{#if name '===' 'Blog'}}
+        {{#startsWith "Blog" name}}
                 <style>.blogTabLink{display:block!important;}</style>
                 <div class="article_div">
                     <a class="p_article" target="_blank" href="{{value}}">
                         <i class="far fa-file-alt fa-4x"></i>
-            {{/if}}
-            {{#if name '===' 'Title'}}
+        {{else}}
+        {{/startsWith}}
+            
+        {{#startsWith "Title" name}} 
                         <div class="blog-text-container">
                             <div>{{value}}</div>
                         </div>
                     </a>
                 </div>
-            {{/if}}
+        {{else}}
+        {{/startsWith}}
         {{/each}}
     {{/if}}
    </div>
