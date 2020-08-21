@@ -82,6 +82,8 @@
 
         &::before {
             top: $form-checkRadio-labelBefore-top;
+            border-width: 2.2px;
+            border-color: #777676;
         }
     }
 }
