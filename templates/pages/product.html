@@ -20,8 +20,18 @@ product:
     {{/each}}
 
     <div itemscope itemtype="http://schema.org/Product">
+        <meta itemprop="description" content="{{ sanitize product.description }}"/>
         <meta itemprop="sku" content="{{product.sku}}">
+        <meta itemprop="price" content="{{product.price.without_tax.value}}">
+        <meta itemprop="upc" content="{{product.upc}}">
+        <meta itemprop="gtin" content="{{product.gtin}}">
+        <meta itemprop="mpn" content="{{product.mpn}}">
         <link itemprop="availability" href="http://schema.org/InStock"/>
+        <meta itemprop="name" content="{{product.title}}" />
+        <div itemprop="brand" itemtype="http://schema.org/Brand" itemscope>
+            <meta itemprop="name" content="{{product.brand.name}}" />
+        </div>
+        <meta itemprop="image" content="{{getImage product.main_image 'thumbnail'}}"/>
         
         {{> components/products/product-view schema=true  }}
 
