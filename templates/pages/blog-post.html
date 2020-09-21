@@ -1,19 +1,88 @@
+---
+blog:
+    recent_posts:
+        limit: 3
+        pages: 1
+        summary: 200
+---
+
 {{#partial "page"}}
 
-{{> components/common/breadcrumbs breadcrumbs=breadcrumbs}}
+<div class="blog-body">
 
-<div id="BackToBlog">
-        <a href="https://sandblastingmachines.com/blog/"><i class="fa fa-chevron-left" aria-hidden="true"></i>
-            Back to Blog</a>
-        <div class="clear"></div>
+    <div id="BackToBlog">
+        <a href="/blog/"><i class="fa fa-chevron-left" aria-hidden="true"></i>
+            Back to Blog Homepage</a>
+            <div class="clear"></div>
+    </div>
+
+    {{> components/blog/post post=blog.post show_tags=true}}
+
+    {{#if blog.recent_posts}}
+    <hr>
+    <h3>You might also be interested in: </h3>
+    <br>
+    <div class="blog-posts-area">
+        <div class="parent blog-posts-parent">
+            {{#each blog.recent_posts}}
+            <div class="child blog-post-child" >
+
+                <a href="{{url}}">
+                    {{#if thumbnail}}
+                        <img src="{{getImageSrcset thumbnail 1x=(default fallback_size '300w')}}">
+                    {{else}}
+                        <img src="https://cdn11.bigcommerce.com/s-489s1uwnq2/product_images/uploaded_images/sbm-media-header.png" alt="blog post">
+                    {{/if}}
+                </a>
+
+                <div class="blog-post-text">
+                    <a href="{{url}}">{{title}}</a>
+                    <br>
+                    <span class="blog-post-auth">by {{author}} on {{date_published}}</span>
+                    <br><br>
+                    {{{ellipsis summary 100}}}
+                </div>
+                {{#each (limit tags 1)}}<span class="blog-ribbon"><a href="{{url}}">{{name}}</a></span>{{/each}}
+            </div>
+            {{/each}}
+        </div>
+    </div>
+    {{/if}}
+
 </div>
-
-{{> components/blog/post post=blog.post show_tags=true}}
 
 {{/partial}}
 {{> layout/base}}
-<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5db1e69b364d18d4"></script>
+
 <style>
+
+    #newsletter-blog {
+        color: white;
+        padding: .2rem 0;
+        margin-bottom: 2rem;
+    }
+
+    #newsletter-blog, #newsletter-home-banner {
+        display: block !important;
+        margin-bottom: 4rem;
+    }
+
+    #newsletter-blog h5 {
+        font-size: 1.75rem !important;
+        text-align: center;
+        color: white;
+        text-transform: capitalize;
+    }
+
+    #newsletter-blog p {
+        text-align: center;
+        font-size: 1.25rem;
+    }
+
+    .footer {
+        padding-top: 1rem;
+    }
+
     .blog-post-figure{
         display: none;
     }
@@ -34,7 +103,7 @@
     }
 
     .blog-body {
-        width: 60%;
+        width: 100%;
         margin: 0 auto;
     }
 
@@ -43,4 +112,250 @@
             width: 100%;
         }
     }
+
+
+    .parent {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .child {
+        flex: 0 1 300px;
+        flex: 1 1 300px;
+        border: .5rem solid white;
+        text-align: center;
+    }
+
+    .blog-ribbon {
+        position: absolute;
+        top: 15px;
+        left: -10px;
+        font-weight: bold;
+        background: #d52729;
+        /* transform: rotateZ(-20deg); */
+        padding: .25rem;
+        min-width: 100px;
+    }
+
+    .blog-ribbon a {
+        color: white;
+        text-decoration: none;
+        text-transform: capitalize;
+    }
+
+
+    .blog-post-child {
+        background: #e5e5e5;
+        position: relative;
+    }
+
+    .blog-post-child img {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+    }
+
+    .blog-post-child .blog-post-text {
+        padding: 2rem;
+    }
+
+    .blog-post-text a {
+        font-size: 1.25rem;
+        font-weight: bold;
+        text-decoration: none;
+    }
+
+    .blog-post-text .blog-post-auth {
+        font-size: 1.15rem;
+        font-style: italic;
+    }
+
+    /*newsletter template */
+    .newsletter-header-image {
+        width: 100%;
+    }
+
+    .newsletter-child img{
+        width: 100%;
+        /* height: 260px;
+        object-fit: contain; */
+    }
+
+    .newsletter-child.green {
+        background: #490c14;
+        background-image: url("https://cdn11.bigcommerce.com/s-489s1uwnq2/product_images/uploaded_images/sbm-blog-template-bg.jpg");
+        color: white;
+        padding: 2rem;
+        background-size: cover;
+    }
+
+    .newsletter-child.green:nth-child(odd) {
+        background-image: url("https://cdn11.bigcommerce.com/s-489s1uwnq2/product_images/uploaded_images/black-diamond-plate.jpg");
+        background-size: cover;
+    }
+
+    .newsletter-child.green a {
+        background: white;
+        padding: .75rem 1rem;
+        color: #490c14;
+        text-decoration: none;
+        font-weight: bold;
+        display: inline-block;
+        font-size: 1.5rem;
+        text-transform: uppercase;
+        font-style: italic;
+        font-weight: bold;
+    }
+
+    .newsletter-parent {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: stretch;
+        justify-content: center;
+    }
+
+    .newsletter-child {
+        flex: 1 1 50%;
+        border: .5rem solid white;
+        text-align: center;
+    }
+
+    .newsletter-child h2 {
+        color: white;
+        font-weight: bold;
+        font-size: 3rem;
+        line-height: 3rem;
+    }
+
+    /* author block */
+    .author-block-title {
+        text-transform: uppercase;
+        font-size: 1rem !important;
+    }
+    .author-block-name {
+        font-size: 1.25rem !important;
+    }
+    .author-about {
+        font-size: .95rem !important;
+        font-style: italic;
+    }
+
+    .author-block {
+        margin: 2rem auto;
+        background: #eee;
+        padding: 2rem;
+        border-radius: .5rem;
+    }
+
+
+    /* Smaller than iPhone Plus */
+    @media only screen and (max-width: 414px) {
+
+        #newsletter-blog {
+            margin-bottom: -38px !important;
+        }
+
+        .newsletter-desktop-banner {
+            display: none !important;
+        }
+
+        .newsletter-mobile-banner {
+            display: block !important;
+        }
+
+        #newsletter-home-banner {
+            margin-top: 4rem !important;
+            margin-bottom: .5rem ;
+        }
+
+        .blog {
+            padding-top: 0;
+        }
+        
+    }
+
+    /* Smaller than iPad */
+    @media only screen and (max-width: 870px) {
+        .a2a_box {
+            display: none !important;
+        }
+
+        .newsletter-child {
+            flex: 0 100%;
+        }
+
+    }
+
+
+    @media only screen 
+    and (min-device-width : 768px) 
+    and (max-device-width : 1024px) 
+    and (orientation : portrait) {
+        .blog, .container.main {
+            padding-top: 0;
+        }
+
+        #newsletter-home-banner {
+            margin-top: 3rem;
+        }
+
+    }
+
 </style>
+
+<!-- Blog Post -->
+<script>
+    let authorName = $(".blog-post-author").text();
+    console.log(authorName);
+    let authorJobDesc = '';
+    
+    switch (authorName.trim()) {
+        case 'James Lewis': 
+        case 'Sarah Simonovich':
+        case 'Kayleigh DeMace':
+        case 'Kendra Kuhar':
+        case 'Emily Viteritti':
+        case 'Jordan Ramirez':
+        case 'Matthew Blockus':
+        case 'Sandblasting Machines':
+            authorName = 'Sandblasting Machines';
+            authorJobDesc = 'SandblastingMachines is a division of the nationally recognized PSC Online Stores. Together, we are leading the nation with our innovative approach to e-commerce distribution of abrasive blasting equipment and OEM replacement parts.'
+
+            $('.blog-post-author')[0].innerText = 'Sandblasting Machines';
+
+            break;
+
+        default:
+            $('.author-about').css('display', 'none');
+            break;
+    }
+    
+    let authorBlock = `
+                        <div class="author-block">
+                            <span class="author-block-title" style="font-size:1rem !important;">About the Author</span><br>
+                            <span class="author-block-name">${authorName}</span><br>
+                            <span class="author-about" style="font-size:.95rem !important;">${authorJobDesc}</span>
+                        </div>
+                        `;
+    
+     $( ".blog" ).append(authorBlock);
+
+    /* Social Sticky */  
+    $(document).ready( function() {
+        var topOfOthDiv = $(".blog-posts-area").offset().top;
+        topOfOthDiv = topOfOthDiv - 600;
+
+        $(window).scroll(function() {
+            if($(window).scrollTop() < topOfOthDiv) { //scrolled past the other div?
+                $(".a2a_box").show(); //reached the desired point -- show div
+            }
+            else{
+                $(".a2a_box").hide(); //else above the desired point -- hide div
+            }
+        });
+    });
+
+</script>
+    
+<script async src="https://static.addtoany.com/menu/page.js"></script>
+

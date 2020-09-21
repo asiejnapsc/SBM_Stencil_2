@@ -1,6 +1,12 @@
 <div class="body" data-currency-code="{{currency_selector.active_currency_code}}">
     {{#block "hero"}} {{/block}}
-    <div class="container">
+
+    <a href="/blog/" id="newsletter-home-banner" style="display: none;">
+        <!-- <img src="https://cdn11.bigcommerce.com/s-489s1uwnq2/product_images/uploaded_images/sbm-media-header.png" alt="Fuel For Thought - Read Articles" width="100%" class="newsletter-desktop-banner"> -->
+        <img src="https://cdn11.bigcommerce.com/s-489s1uwnq2/product_images/uploaded_images/sbm-media-header.png" alt="Fuel For Thought - Read Articles" width="100%" class="newsletter-mobile-banner" style="display: none;">
+    </a>
+
+    <div class="container main">
         {{#block "page"}} {{/block}}
     </div>
     {{> components/common/modal}}

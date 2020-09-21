@@ -1,22 +1,25 @@
 <article class="blog">
+
+    <div class="a2a_box" style="position: fixed; margin-left: -85px; margin-top: -8rem;">
+        <div class="a2a_kit a2a_kit_size_32 a2a_floating_style a2a_vertical_style" style="left:0px; top:45vh; position: sticky;">
+            <a class="a2a_button_facebook"></a>
+            <a class="a2a_button_twitter"></a>
+            <a class="a2a_button_linkedin"></a>
+            <a class="a2a_button_pinterest"></a>
+        </div>
+    </div>
+
     <div class="blog-post-figure">
         {{#if post.thumbnail}}
-        <figure class="blog-thumbnail">
-            <a href="{{post.url}}">
-                {{> components/common/responsive-img
+            <figure class="blog-thumbnail">
+                <a href="{{post.url}}">
+                    {{> components/common/responsive-img
                         image=post.thumbnail
                         fallback_size=theme_settings.blog_size
                         lazyload=theme_settings.lazyload_mode
                     }}
-            </a>
-        </figure>
-        {{else}}
-        <figure class="blog-thumbnail">
-            <a href="{{post.url}}">
-                <img
-                    src="https://cdn11.bigcommerce.com/s-489s1uwnq2/images/stencil/640w/uploaded_images/sbm-media-header.png">
-            </a>
-        </figure>
+                </a>
+            </figure>
         {{/if}}
     </div>
     <div class="blog-post-body">
@@ -25,25 +28,25 @@
                 <a href="{{post.url}}">{{post.title}}</a>
             </h1>
             <p class="blog-date">
-                {{#if post.author}}
-                    {{lang 'blog.posted_by' name=post.author}} on
-                {{/if}}
-                {{post.date_published}}</p>
-            <div class="addthis_inline_share_toolbox"></div>
+                 By <span class="blog-post-author">{{post.author}}</span> on 
+                
+                {{post.date_published}}
+            </p>
+            <!-- <div class="addthis_inline_share_toolbox"></div> -->
         </header>
 
         <div class="blog-post">
             {{#if post.body}}
                 {{{post.body}}}
             {{else}}
-                {{{ ellipsis post.summary  }}}
+                {{{post.summary}}}
+                &hellip;
             {{/if}}
         </div>
-
         <div class="blog-read-more">
-            {{#if post.show_read_more}}
-                <a href="{{url}}" class="read-more">read more</a>
-            {{/if}}
+        {{#if post.show_read_more}}
+                     <a href="{{url}}" class="read-more">read more</a>
+                {{/if}}
         </div>
         {{#if show_tags}}
             {{#if post.tags}}
@@ -57,5 +60,10 @@
             {{/if}}
         {{/if}}
 
+        <!-- <div class="addthis_inline_share_toolbox"></div> -->
+        <!-- {{>components/common/share}} -->
+
     </div>
 </article>
+
+

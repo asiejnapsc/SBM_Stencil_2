@@ -68,19 +68,23 @@
 }
 
 .blog-title {
-    font-size: fontSize("large");
-    margin: 0 spacing("single") spacing("quarter");
+    font-size: 2.5rem;
+    line-height: 2.5rem;
+    text-align: left;
     padding-top: 20px;
 
     a {
         text-decoration: none;
+        color: black;
+        font-weight: bold;
     }
 }
 
 .blog-date,
 .blog-author {
-    color: stencilColor("color-textSecondary");
-    text-align: center;
+    color: #333;
+    text-align: left;
+    font-family: 'Montserrat', sans-serif;
 }
 
 .blog-author {
@@ -179,11 +183,6 @@
     color: #ffffff;
 }
 
-
-.blog-post {
-    padding-left: 20px;
-    padding-right: 20px;
-}
 
 .blog-sidebar {
     position: sticky;

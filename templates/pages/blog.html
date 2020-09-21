@@ -1,193 +1,347 @@
 ---
 blog:
     posts:
-        limit: 5
+        limit: 100000
         pages: 3
-        summary: 200   
+        summary: 200
 ---
-{{#partial "page"}}
-{{> components/common/breadcrumbs breadcrumbs=breadcrumbs}}
 
-<div id="BlogSearchContainerMobile">
-    <input id="BlogSearchBoxMobile" name="blog-search" placeholder="Blog Search"
-        aria-label="Search through blog content">
-    <button id="BlogSearchButtonMobile" onclick="searchBlogMobile()"><svg width="13" height="13" viewBox="0 0 13 13">
-            <title>search</title>
-            <path
-                d="m4.8495 7.8226c0.82666 0 1.5262-0.29146 2.0985-0.87438 0.57232-0.58292 0.86378-1.2877 0.87438-2.1144 0.010599-0.82666-0.28086-1.5262-0.87438-2.0985-0.59352-0.57232-1.293-0.86378-2.0985-0.87438-0.8055-0.010599-1.5103 0.28086-2.1144 0.87438-0.60414 0.59352-0.8956 1.293-0.87438 2.0985 0.021197 0.8055 0.31266 1.5103 0.87438 2.1144 0.56172 0.60414 1.2665 0.8956 2.1144 0.87438zm4.4695 0.2115 3.681 3.6819-1.259 1.284-3.6817-3.7 0.0019784-0.69479-0.090043-0.098846c-0.87973 0.76087-1.92 1.1413-3.1207 1.1413-1.3553 0-2.5025-0.46363-3.4417-1.3909s-1.4088-2.0686-1.4088-3.4239c0-1.3553 0.4696-2.4966 1.4088-3.4239 0.9392-0.92727 2.0864-1.3969 3.4417-1.4088 1.3553-0.011889 2.4906 0.45771 3.406 1.4088 0.9154 0.95107 1.379 2.0924 1.3909 3.4239 0 1.2126-0.38043 2.2588-1.1413 3.1385l0.098834 0.090049z">
-            </path>
-        </svg></button>
-</div>
+{{#partial "page"}}
 
 <main class="page">
 
-    <h1 class="blog-title-header">{{head.title}}</h1>
+	<br>
 
-    <div class="row" style="max-width: 100.66667rem;">
-        <div class="large-9 columns">
-            {{#each blog.posts}}
-                {{> components/blog/post post=this}}
-            {{/each}}
-        </div>
-        <div class="large-3 columns blog-sidebar">
-            <h4 class="search">SEARCH</h4>
-            <div id="BlogSearchContainer">
-                <input id="BlogSearchBox" name="blog-search" placeholder="Blog Search"
-                    aria-label="Search through blog content">
-                <button id="BlogSearchButton" onclick="searchBlog()"><svg width="13" height="13" viewBox="0 0 13 13">
-                        <title>search</title>
-                        <path
-                            d="m4.8495 7.8226c0.82666 0 1.5262-0.29146 2.0985-0.87438 0.57232-0.58292 0.86378-1.2877 0.87438-2.1144 0.010599-0.82666-0.28086-1.5262-0.87438-2.0985-0.59352-0.57232-1.293-0.86378-2.0985-0.87438-0.8055-0.010599-1.5103 0.28086-2.1144 0.87438-0.60414 0.59352-0.8956 1.293-0.87438 2.0985 0.021197 0.8055 0.31266 1.5103 0.87438 2.1144 0.56172 0.60414 1.2665 0.8956 2.1144 0.87438zm4.4695 0.2115 3.681 3.6819-1.259 1.284-3.6817-3.7 0.0019784-0.69479-0.090043-0.098846c-0.87973 0.76087-1.92 1.1413-3.1207 1.1413-1.3553 0-2.5025-0.46363-3.4417-1.3909s-1.4088-2.0686-1.4088-3.4239c0-1.3553 0.4696-2.4966 1.4088-3.4239 0.9392-0.92727 2.0864-1.3969 3.4417-1.4088 1.3553-0.011889 2.4906 0.45771 3.406 1.4088 0.9154 0.95107 1.379 2.0924 1.3909 3.4239 0 1.2126-0.38043 2.2588-1.1413 3.1385l0.098834 0.090049z">
-                        </path>
-                    </svg></button>
-            </div>
-            <h4 class="recent-posts">RECENT POSTS</h4>
-            <div class="BlockContent">
-                <ul id="Post">
-                    <a href=""></a>
-                </ul>
-                <ul id="Post">
-                    <a href=""></a>
-                </ul>
-                <ul id="Post">
-                    <a href=""></a>
-                </ul>
-                <ul id="Post">
-                    <a href=""></a>
-                </ul>
-                <ul id="Post">
-                    <a href=""></a>
-                </ul>
-            </div>
-            <h4 class="monthly-archive"><a href="https://sandblastingmachines.com/blog/tag/monthly+newsletter"
-                    style="cursor:pointer;">MONTHLY ARCHIVE</a></h4>
-            <div class="BlockContent" id="MonthlyArchive">
-                <ul>
-                    <a href="">
-                        <li></li>
-                    </a>
-                    <a href="">
-                        <li></li>
-                    </a>
-                    <a href="">
-                        <li></li>
-                    </a>
-                    <a href="">
-                        <li></li>
-                    </a>
-                    <a href="">
-                        <li></li>
-                    </a>
-                </ul>
-            </div>
+	<div id="BlogSearchContainer">
+		<label for="BlogSearchBox" style="display:none;">Article Search</label>
+		<input type="text" id="BlogSearchBox" name="blog-search" placeholder="Blog Search - Find Articles">
+		<button id="BlogSearchButton" onclick="searchBlog()"><svg width="13" height="13" viewBox="0 0 13 13">
+				<title>search</title>
+				<path
+					d="m4.8495 7.8226c0.82666 0 1.5262-0.29146 2.0985-0.87438 0.57232-0.58292 0.86378-1.2877 0.87438-2.1144 0.010599-0.82666-0.28086-1.5262-0.87438-2.0985-0.59352-0.57232-1.293-0.86378-2.0985-0.87438-0.8055-0.010599-1.5103 0.28086-2.1144 0.87438-0.60414 0.59352-0.8956 1.293-0.87438 2.0985 0.021197 0.8055 0.31266 1.5103 0.87438 2.1144 0.56172 0.60414 1.2665 0.8956 2.1144 0.87438zm4.4695 0.2115 3.681 3.6819-1.259 1.284-3.6817-3.7 0.0019784-0.69479-0.090043-0.098846c-0.87973 0.76087-1.92 1.1413-3.1207 1.1413-1.3553 0-2.5025-0.46363-3.4417-1.3909s-1.4088-2.0686-1.4088-3.4239c0-1.3553 0.4696-2.4966 1.4088-3.4239 0.9392-0.92727 2.0864-1.3969 3.4417-1.4088 1.3553-0.011889 2.4906 0.45771 3.406 1.4088 0.9154 0.95107 1.379 2.0924 1.3909 3.4239 0 1.2126-0.38043 2.2588-1.1413 3.1385l0.098834 0.090049z">
+				</path>
+			</svg>
+		</button>
+	</div>
 
-            <h4 class="categories">CATEGORIES</h4>
-            <div class="BlockContent" id="BlogCategories">
-                <ul><a href="/blog/tag/sandblasting+news">Sandblasting News</a></ul>
-                <ul><a href="/blog/tag/information+and+guides">Informational & Guides</a></ul>
-                <ul><a href="/blog/tag/product+information">Product Information</a></ul>
-            </div>
-        </div>
-    </div>
-    {{> components/common/paginator pagination.blog}}
+	<div class="blog-categories-area">
+		<div class="parent blog-categories-parent">
+			<a href="/blog/tag/sandblasting+news" class="child blog-cat-child"><div >Sandblasting News</div></a>
+			<a href="/blog/tag/information+and+guides" class="child blog-cat-child"><div >Information & Guides</div></a>
+			<a href="/blog/tag/product+information" class="child blog-cat-child"><div >Product Information</div></a>
+			<a href="/blog/tag/monthly+newsletter" class="child blog-cat-child"><div >Newsletters</div></a>
+		</div>
+	</div>
+
+	<hr>
+
+	{{#if blog.posts}}
+	<div class="blog-posts-area">
+		<div class="parent blog-posts-parent">
+			{{#each blog.posts}}
+			<div class="child blog-post-child" >
+
+				<a href="{{url}}">
+					{{#if thumbnail}}
+						<img src="{{getImageSrcset thumbnail 1x=(default fallback_size '300w')}}">
+					{{else}}
+						<img src="https://cdn11.bigcommerce.com/s-489s1uwnq2/product_images/uploaded_images/sbm-media-header.png" alt="blog post">
+					{{/if}}
+				</a>
+
+				<div class="blog-post-text">
+					<a href="{{url}}">{{title}}</a>
+					<br>
+					<span class="blog-post-auth">
+												
+						{{#if author '===' 'James Lewis'}}
+							{{author}}
+						{{else if author '===' 'Phillips 66 Direct Connect'}}
+							{{author}}
+						{{else}}
+							Sandblasting Machines
+						{{/if}}
+
+						on {{date_published}}
+
+					<br><br>
+					{{{ellipsis summary 100}}}
+				</div>
+				{{#each (limit tags 1)}}<span class="blog-ribbon"><a href="{{url}}">{{name}}</a></span>{{/each}}
+			</div>
+			{{/each}}
+		</div>
+		<br>
+		<div class="load-more-div">
+		<a href="#" id="load" class="load-more">Load More Posts</a>
+		</div>
+	</div>
+	{{else}}
+		<center>There doesn't seem to be any blog posts under that term. Try searching again or checking out our other categories!</center>
+	{{/if}}
+
+	<!-- {{> components/common/paginator pagination.blog}} -->
+		
 </main>
 
-{{/partial}}
-{{> layout/base}}
+<style>
 
-<!-- script to add Blog Search text -->
-<script>
-    window.onload = function () {
-        $('.gsc-input').each(function () {
-            $(this).attr("placeholder", "Blog Search");
-        });
-    };
-</script>
-<!-- Script to pull the most recent blog articles -->
-<script>
-    $("#Post a").each(function (index, element) {
-        var recentPostsURL = "/blog/";
-        $.get(recentPostsURL, function (data) {
-            var children = $(data).find(".blog-title").children();
-            var title = $(children[index]).text();
-            var link = $(children[index]).attr("href");
-            $(element).text(title);
-            $(element).attr("href", link);
+	.blog-category-tile {
+		background: gray;
+		padding: 4rem !important;
+		text-align: center;
+		color: white;
+		border: .5rem solid white;
+		
+	}
 
-        });
-    });
-</script>
-<!-- Script to pull the most reent monthly archives -->
-<script>
-    $("#MonthlyArchive ul a").each(function (index, element) {
-        var monthlyArchiveURL = "/blog/tag/monthly+newsletter";
-        $.get(monthlyArchiveURL, function (data) {
-            var children = $(data).find(".blog-title").children();
-            var title = $(children[index]).text();
-            var link = $(children[index]).attr("href");
-            $(element).children('li').text(title);
-            $(element).attr("href", link);
+	#newsletter-blog {
+		background: url(https://petroleumservicecompany.com/product_images/uploaded_images/blue-gear-bg.jpg);
+		color: white;
+		padding: .2rem 0;
+		margin-bottom: 2rem;
+	}
 
-        });
-    });
-</script>
+	.parent {
+		display: flex;
+		flex-wrap: wrap;
+	}
 
-<!-- Script that allows the articles search results to pull from the blog search -->
+	.child {
+	flex: 0 1 300px;
+	flex: 1 1 300px;
+	border: .5rem solid white;
+	text-align: center;
+	}
+
+	.blog-ribbon {
+		position: absolute;
+		top: 15px;
+		left: -10px;
+		font-weight: bold;
+		background: #d52729;
+		/* transform: rotateZ(-20deg); */
+		padding: .25rem;
+		min-width: 100px;
+	}
+
+	.blog-ribbon a {
+		color: white;
+		text-decoration: none;
+		text-transform: capitalize;
+	}
+
+	.blog-post-child {
+		background: #e5e5e5;
+		position: relative;
+		display: none;
+	}
+
+	.blog-post-child img {
+		width: 100%;
+		height: 200px;
+		object-fit: cover;
+	}
+
+	.blog-post-child .blog-post-text {
+		padding: 2rem;
+	}
+
+	.blog-post-text a {
+		font-size: 1.25rem;
+		font-weight: bold;
+		text-decoration: none;
+	}
+
+	.blog-post-text .blog-post-auth {
+		font-size: 1.15rem;
+		font-style: italic;
+	}
+
+	.blog-cat-child:nth-child(1) {
+		background-image: url("https://cdn11.bigcommerce.com/s-489s1uwnq2/product_images/uploaded_images/sandblasting-news-tile.jpg");
+	}
+	.blog-cat-child:nth-child(2) {
+		background-image: url("https://cdn11.bigcommerce.com/s-489s1uwnq2/product_images/uploaded_images/information-guides-tile.jpg");
+	}
+	.blog-cat-child:nth-child(3) {
+		background-image: url("https://cdn11.bigcommerce.com/s-489s1uwnq2/product_images/uploaded_images/product-info-tile.jpg");
+	}
+	.blog-cat-child:nth-child(4) {
+		background-image: url("https://cdn11.bigcommerce.com/s-489s1uwnq2/product_images/uploaded_images/newsletters-tile.jpg");
+	}
+
+	.blog-cat-child {
+		height: 200px;
+		background-position-x: 50%;
+		background-position-y: 50%;
+		background-size: cover;
+        flex: 1 1 280px;
+
+	}
+
+	.blog-categories-area > div > a > div {
+		visibility: hidden;
+	}
+
+	a.pagination-link {
+		text-transform: uppercase;
+		font-size: 1.15rem !important;
+	}
+
+	.blog-tag-head {
+		text-align: center;
+		font-size: 2rem;
+		font-weight: bold;
+		background: #2e3b97;
+		width: 100%;
+		color: white;
+		margin-top: .5rem;
+	}
+
+	.load-more-div{
+		margin-bottom: 30px;
+		width: 100%;
+		background-color: #2e3b97;
+		text-align: center;
+	}
+
+	.load-more{
+		color: white;
+		text-decoration: none !important;
+		font-size: 30px;
+		padding: 15px;
+		text-align: center;
+		display: inline-block;
+		width: 100%;
+	}
+
+	.load-more:hover{
+		color: white;
+	}
+
+	.load-more:focus{
+		color: white;
+	}
+
+	#newsletter-blog, #newsletter-home-banner {
+		display: block !important;
+	}
+
+	#newsletter-blog h5 {
+		font-size: 1.75rem !important;
+		text-align: center;
+		color: white;
+		text-transform: capitalize;
+	}
+
+	#newsletter-blog p {
+		text-align: center;
+		font-size: 1.25rem;
+	}
+
+	/* Smaller than iPhone Plus */
+	@media only screen and (max-width: 414px) {
+		#newsletter-blog {
+			margin-bottom: -38px !important;
+		}
+
+		.newsletter-desktop-banner {
+			display: none !important;
+		}
+
+		.newsletter-mobile-banner {
+			display: block !important;
+		}
+
+		#newsletter-home-banner {
+			margin-top: 4rem !important;
+		}
+
+		.breadcrumbs {
+			display: none;
+		}
+
+		.container.main {
+			padding-top: 0;
+		}
+	}
+
+	/* Smaller than iPad */
+	@media only screen and (max-width: 870px) {
+		#newsletter-desktop-banner {
+			margin-top: 4rem !important;
+		}
+	}
+
+</style>
+
 <script>
+    /* Search bar on blog */
     function searchBlog() {
         let keyword = document.getElementById("BlogSearchBox").value;
         let url = "/search-results-page?q=" + keyword + "&tab=pages";
         window.open(url, "_top");
     }
 
-    function searchBlogMobile() {
-        let keyword = document.getElementById("BlogSearchBoxMobile").value;
-        let url = "/search-results-page?q=" + keyword + "&tab=pages";
-        window.open(url, "_top");
+    /* If on blog homepage show categories, if not then don't */
+    var url = window.location.pathname;
+    var blogTagHead;
+    var blogTag;
+    
+    switch (url) {
+        case '/blog/tag/sandblasting+news':
+            blogTag = 'Sandblasting News';
+            addBlogHeading();
+        break;
+
+        case '/blog/tag/informational+and+guides':
+            blogTag = 'Informational & Guides';
+            addBlogHeading();
+        break;
+
+        case '/blog/tag/product+information':
+            blogTag = 'Product Information';
+            addBlogHeading();
+        break;
+
+        case '/blog/tag/monthly+newsletter':
+            blogTag = 'Monthly Newsletters';
+            addBlogHeading();
+        break;
+
+        default:
+        break;
     }
+
+    /* If on blog homepage show categories, if not then don't */
+    if (url.includes('tag')) {
+        $('.blog-categories-area').css('display', 'none');
+    } 
+
+    /* If on blog homepage show categories, if not then don't */
+    function addBlogHeading() {
+        blogTagHead = `<div class="blog-tag-head">${blogTag}</div>`;
+        $('.blog-categories-area').after(blogTagHead);
+    }
+
+    /* Load More Functionality */
+    $(function(){
+        $(".blog-post-child").slice(0, 6).show(); // select the first ten
+        $("#load").click(function(e){ // click event for load more
+            e.preventDefault();
+            $(".blog-post-child:hidden").slice(0, 6).fadeIn("slow", function(){
+                
+            }); // select next 10 hidden divs and show them
+            if($("div:hidden").length == 0){ // check if any hidden divs still exist
+                alert("No more blog posts"); // alert if there are none left
+            }
+        });
+    });
+
 </script>
 
-<style>
-    .container {
-        margin-left: auto;
-        margin-right: auto;
-        max-width: 95rem;
-        /* padding-left: 1.5rem;
-        padding-right: 1.5rem; */
-    }
+{{/partial}}
+{{> layout/base}}
 
-    a {
-        text-decoration: none;
-    }
 
-    .blog-sidebar ul {
-        margin-bottom: 0.5rem;
-        list-style: none;
-        border-bottom: none;
-    }
-
-    .blog-sidebar h4 {
-        letter-spacing: 1px;
-        font-size: 1.05rem;
-    }
-
-    .blog-sidebar ul li {
-        font-size: 1rem;
-    }
-
-    .blog-title-header {
-        display:none;
-    }
-
-    .blog-thumbnail {
-        width: 50%;
-    }
-
-    .blog {
-        background: #e5e5e5;
-        border-radius: .25rem;
-        padding: 1rem;
-        padding-top: 3.25rem;
-        box-shadow: 0 2px 5px rgba(0, 0, 0, .25);
-    }
-</style>
